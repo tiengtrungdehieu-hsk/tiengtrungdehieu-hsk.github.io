@@ -2503,8 +2503,117 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
+    /* Account Auth & Cloud Sync UI */
+    .auth-pill {
+      max-width: 155px;
+    }
+    .auth-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 96px;
+      display: inline-block;
+    }
+    .auth-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--success);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 2px var(--success-soft);
+    }
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 4px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .auth-tab {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-vi);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+    .auth-tab.active {
+      background: var(--bg-surface);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .auth-field {
+      margin-bottom: 11px;
+    }
+    .auth-field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .auth-field .text-input {
+      margin-bottom: 0;
+    }
+    .auth-msg {
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+    .auth-msg.ok {
+      background: var(--success-soft);
+      border-color: var(--success-border);
+      color: var(--success);
+    }
+    .auth-msg.bad {
+      background: var(--danger-soft);
+      border-color: var(--danger-border);
+      color: var(--danger);
+    }
+    .auth-msg.info {
+      background: var(--primary-soft);
+      border-color: var(--primary-border);
+      color: var(--primary);
+    }
+    .auth-profile-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .auth-backup-bar {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     @media (max-width: 1360px) {
       .kbd-hint { display: none; }
+      .topbar { gap: 5px; padding: 6px 10px; }
+      .topbar-actions { gap: 4px; }
+      .brand-title { font-size: 14px; }
+      .btn-pill { padding: 5px 7px; font-size: 11.5px; gap: 4px; }
+      .btn-pill.icon-only-btn { padding: 5px 7px; min-width: 30px; }
+      .book-tab { padding: 4px 6px; font-size: 11.5px; }
+      .streak-pill { padding: 5px 7px; font-size: 11.5px; }
     }
     @media (max-width: 1180px) {
       .topbar { flex-wrap: wrap; padding: 8px 16px; }
@@ -2560,6 +2669,7 @@
         Sổ tay <span class="badge-num" id="savedCountBadge">0</span>
       </button>
       <button type="button" class="streak-pill" id="streakBadge" title="Xem tiến độ, chuỗi ngày học &amp; lịch 16 tuần">1 ngày · 0 XP</button>
+      <button type="button" class="btn-pill auth-pill" id="btnOpenAuth" title="Đăng nhập / Đồng bộ tiến độ học lên đám mây">Đăng nhập</button>
       <button class="btn-pill icon-only-btn" id="btnOpenSettings" title="Cài đặt ngôn ngữ &amp; hiển thị" aria-label="Cài đặt"></button>
       <button class="btn-pill icon-only-btn" id="btnToggleTheme" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện"></button>
     </div>
@@ -2750,6 +2860,17 @@
     </div>
   </div>
 
+  <!-- Account Login & Cloud Sync Modal -->
+  <div class="modal-backdrop hidden" id="authModal">
+    <div class="modal-card" style="max-width:440px;">
+      <div class="modal-head">
+        <strong id="lblAuthModalTitle">Tài khoản &amp; Đồng bộ tiến độ</strong>
+        <button class="btn-pill" id="btnCloseAuth">✕ Đóng</button>
+      </div>
+      <div class="modal-body" id="authModalBody"></div>
+    </div>
+  </div>
+
   <!-- Floating Tap-to-Peek Dictionary Popover -->
   <div class="word-peek-popover hidden" id="wordPeekPopover" role="dialog" aria-label="Tra nhanh từ vựng"></div>
 
@@ -2802,6 +2923,11 @@
         refresh: '<polyline points="23 4 23 10 17 10"/><path d="M20.5 15a9 9 0 1 1-2.1-8.5L23 10"/>',
         menu: '<line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>',
         sparkles: '<path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/>',
+        user: '<circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/>',
+        cloud: '<path d="M17.5 19H9a6 6 0 1 1 1.6-11.8A4.5 4.5 0 0 1 19.5 10a3.5 3.5 0 0 1-2 9Z"/>',
+        logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>',
+        download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>',
+        upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>',
       };
       function ico(name, cls) {
         const d = ICO[name] || "";
@@ -3321,10 +3447,13 @@
         reader.readAsDataURL(file);
       }
 
-      function saveState() {
+      function saveState(skipCloud = false) {
         try {
           localStorage.setItem(STORE_KEY, JSON.stringify(state));
         } catch (e) {}
+        if (!skipCloud && typeof scheduleCloudSync === "function") {
+          scheduleCloudSync();
+        }
       }
 
       function escapeHtml(str) {
@@ -4006,6 +4135,7 @@
           navTools: "Pinyin",
           navSearch: "Tìm",
           navNotebook: "Sổ tay",
+          navLogin: "Đăng nhập",
           navSettings: "Cài đặt",
           btnMobileLessons: "Bài học",
           speakTitle: "Nghe",
@@ -4189,6 +4319,7 @@
           const totalSaved = state.savedWords.length + state.customWords.length;
           nbBtn.innerHTML = `${ico("bookmark")} <span>${escapeHtml(tr("navNotebook"))}</span> <span class="badge-num" id="savedCountBadge">${totalSaved}</span>`;
         }
+        if (typeof updateAuthButton === "function") updateAuthButton();
       }
 
       function applyTheme() {
@@ -4201,6 +4332,7 @@
         const badge = document.getElementById("savedCountBadge");
         if (badge) badge.textContent = String(totalSaved);
         document.getElementById("streakBadge").innerHTML = `${ico("flame", "flame-ico")} <span>${state.streak} ${tr("dayWord")} · ${state.xp} XP</span>`;
+        if (typeof updateAuthButton === "function") updateAuthButton();
       }
 
       function renderBookTabs() {
@@ -7414,8 +7546,502 @@
         `;
       }
 
+      /* Supabase Account Auth & Cloud Progress Sync */
+      const SUPABASE_URL = "https://vndtcgglkemxfhdinnzj.supabase.co";
+      const SUPABASE_KEY = "sb_publishable_SLi36YrVs1ApGwyidVPiCg_is875MMt";
+      const AUTH_STORE_KEY = "hoangu_auth_v1";
+
+      const authUiState = {
+        mode: "login", // "login" | "signup"
+        busy: false,
+        msg: null, // { type: "ok" | "bad" | "info", text }
+        lastSyncAt: "",
+        syncStatus: "", // "" | "syncing" | "ok" | "error"
+      };
+      let authSession = loadAuthSession();
+      let _cloudSyncTimer = null;
+
+      function loadAuthSession() {
+        try {
+          const raw = localStorage.getItem(AUTH_STORE_KEY);
+          if (!raw) return null;
+          const obj = JSON.parse(raw);
+          return obj && obj.access_token && obj.user ? obj : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function saveAuthSession(sess) {
+        authSession = sess;
+        try {
+          if (sess) localStorage.setItem(AUTH_STORE_KEY, JSON.stringify(sess));
+          else localStorage.removeItem(AUTH_STORE_KEY);
+        } catch (e) {}
+      }
+
+      function clearAuthSession() {
+        saveAuthSession(null);
+        authUiState.lastSyncAt = "";
+        authUiState.syncStatus = "";
+        updateAuthButton();
+      }
+
+      function getAuthDisplayName() {
+        if (!authSession || !authSession.user) return "";
+        const u = authSession.user;
+        const metaName = u.user_metadata && u.user_metadata.display_name;
+        if (metaName && String(metaName).trim()) return String(metaName).trim();
+        if (u.email) return String(u.email).split("@")[0];
+        return "Học viên";
+      }
+
+      function updateAuthButton() {
+        const btn = document.getElementById("btnOpenAuth");
+        if (!btn) return;
+        if (authSession && authSession.user) {
+          const name = getAuthDisplayName();
+          btn.innerHTML = `<span class="auth-dot"></span><span class="auth-name">${escapeHtml(name)}</span>`;
+          btn.title = `Đã đăng nhập: ${authSession.user.email || name} (Bấm để đồng bộ / đăng xuất)`;
+        } else {
+          const label = (I18N[state.uiLang] && I18N[state.uiLang].navLogin) || "Đăng nhập";
+          btn.innerHTML = `${ico("user")} <span>${escapeHtml(label)}</span>`;
+          btn.title = "Đăng nhập để lưu & đồng bộ tiến trình giữa các thiết bị";
+        }
+      }
+
+      function translateAuthError(rawMsg) {
+        const m = String(rawMsg || "").toLowerCase();
+        if (!m) return "Không thể kết nối máy chủ xác thực. Vui lòng thử lại.";
+        if (m.includes("invalid login credentials")) return "Email hoặc mật khẩu chưa chính xác.";
+        if (m.includes("email not confirmed")) return "Tài khoản chưa xác nhận email. Vui lòng mở hộp thư đến (hoặc Spam) bấm vào link xác nhận.";
+        if (m.includes("user already registered") || m.includes("already been registered")) return "Email này đã được đăng ký. Hãy chuyển sang tab Đăng nhập.";
+        if (m.includes("password should be at least")) return "Mật khẩu cần tối thiểu 6 ký tự.";
+        if (m.includes("invalid email") || m.includes("unable to validate email")) return "Địa chỉ email không hợp lệ.";
+        if (m.includes("rate limit") || m.includes("too many requests")) return "Thao tác quá nhanh, vui lòng đợi một lát rồi thử lại.";
+        if (m.includes("failed to fetch") || m.includes("networkerror")) return "Không có kết nối Internet để đồng bộ đám mây.";
+        return String(rawMsg);
+      }
+
+      async function parseSupabaseError(res, fallback) {
+        try {
+          const data = await res.json();
+          return data.msg || data.error_description || data.message || data.error || fallback;
+        } catch (e) {
+          return fallback;
+        }
+      }
+
+      async function ensureValidAccessToken() {
+        if (!authSession || !authSession.access_token) return null;
+        const nowSec = Math.floor(Date.now() / 1000);
+        if (!authSession.expires_at || nowSec < authSession.expires_at - 60) {
+          return authSession.access_token;
+        }
+        if (!authSession.refresh_token) return authSession.access_token;
+        try {
+          const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`, {
+            method: "POST",
+            headers: {
+              "apikey": SUPABASE_KEY,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ refresh_token: authSession.refresh_token }),
+          });
+          if (!res.ok) {
+            if (res.status === 400 || res.status === 401) clearAuthSession();
+            return null;
+          }
+          const data = await res.json();
+          if (data && data.access_token) {
+            const nextSess = {
+              access_token: data.access_token,
+              refresh_token: data.refresh_token || authSession.refresh_token,
+              expires_at: data.expires_at || (nowSec + (Number(data.expires_in) || 3600)),
+              user: data.user || authSession.user,
+            };
+            saveAuthSession(nextSess);
+            return nextSess.access_token;
+          }
+        } catch (e) {}
+        return authSession ? authSession.access_token : null;
+      }
+
+      function mergeWordLists(localArr, cloudArr) {
+        const out = [];
+        const seen = new Set();
+        [...(Array.isArray(localArr) ? localArr : []), ...(Array.isArray(cloudArr) ? cloudArr : [])].forEach((w) => {
+          if (!w || !w.hanzi || seen.has(w.hanzi)) return;
+          seen.add(w.hanzi);
+          out.push(w);
+        });
+        return out;
+      }
+
+      function mergeProgressState(localSt, cloudSt) {
+        if (!cloudSt || typeof cloudSt !== "object") return;
+        localSt.completed = Object.assign({}, cloudSt.completed || {}, localSt.completed || {});
+        localSt.masteredWords = Object.assign({}, cloudSt.masteredWords || {}, localSt.masteredWords || {});
+        localSt.studyDays = Object.assign({}, cloudSt.studyDays || {}, localSt.studyDays || {});
+        localSt.onboardingChecks = Object.assign({}, cloudSt.onboardingChecks || {}, localSt.onboardingChecks || {});
+        localSt.customWordImages = Object.assign({}, cloudSt.customWordImages || {}, localSt.customWordImages || {});
+
+        const mergedDaily = Object.assign({}, cloudSt.dailyXp || {});
+        Object.entries(localSt.dailyXp || {}).forEach(([dKey, val]) => {
+          mergedDaily[dKey] = Math.max(Number(mergedDaily[dKey]) || 0, Number(val) || 0);
+        });
+        localSt.dailyXp = mergedDaily;
+
+        localSt.savedWords = mergeWordLists(localSt.savedWords, cloudSt.savedWords);
+        localSt.customWords = mergeWordLists(localSt.customWords, cloudSt.customWords);
+        localSt.xp = Math.max(Number(localSt.xp) || 0, Number(cloudSt.xp) || 0);
+        localSt.longestStreak = Math.max(Number(localSt.longestStreak) || 1, Number(cloudSt.longestStreak) || 1);
+        localSt.streak = Math.max(Number(localSt.streak) || 1, Number(cloudSt.streak) || 1);
+
+        if (cloudSt.bookId && !Object.keys(localSt.completed).length && (localSt.xp === (Number(cloudSt.xp) || 0))) {
+          localSt.bookId = cloudSt.bookId;
+          localSt.lessonNum = Number(cloudSt.lessonNum) || 1;
+        }
+        touchStudyDay(true);
+      }
+
+      async function pushCloudProgress() {
+        const token = await ensureValidAccessToken();
+        if (!token || !authSession || !authSession.user) return false;
+        authUiState.syncStatus = "syncing";
+        try {
+          const payload = {
+            user_id: authSession.user.id,
+            display_name: getAuthDisplayName(),
+            state_json: state,
+            updated_at: new Date().toISOString(),
+          };
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/user_progress?on_conflict=user_id`, {
+            method: "POST",
+            headers: {
+              "apikey": SUPABASE_KEY,
+              "Authorization": `Bearer ${token}`,
+              "Content-Type": "application/json",
+              "Prefer": "resolution=merge-duplicates,return=minimal",
+            },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) {
+            const errTxt = await parseSupabaseError(res, `HTTP ${res.status}`);
+            if (res.status === 404 || String(errTxt).includes("user_progress")) {
+              authUiState.msg = { type: "bad", text: "Chưa tạo bảng user_progress trên Supabase. Vui lòng chạy đoạn SQL setup một lần trong SQL Editor." };
+            } else {
+              authUiState.msg = { type: "bad", text: `Lỗi đồng bộ: ${translateAuthError(errTxt)}` };
+            }
+            authUiState.syncStatus = "error";
+            return false;
+          }
+          const now = new Date();
+          authUiState.lastSyncAt = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+          authUiState.syncStatus = "ok";
+          return true;
+        } catch (err) {
+          authUiState.syncStatus = "error";
+          return false;
+        }
+      }
+
+      async function pullAndMergeCloudProgress() {
+        const token = await ensureValidAccessToken();
+        if (!token || !authSession || !authSession.user) return false;
+        authUiState.syncStatus = "syncing";
+        try {
+          const uid = encodeURIComponent(authSession.user.id);
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/user_progress?user_id=eq.${uid}&select=state_json,display_name,updated_at`, {
+            headers: {
+              "apikey": SUPABASE_KEY,
+              "Authorization": `Bearer ${token}`,
+            },
+          });
+          if (!res.ok) {
+            const errTxt = await parseSupabaseError(res, `HTTP ${res.status}`);
+            if (res.status === 404 || String(errTxt).includes("user_progress")) {
+              authUiState.msg = { type: "bad", text: "Chưa tạo bảng user_progress trên Supabase. Hãy chạy script SQL trong Supabase Dashboard." };
+            }
+            authUiState.syncStatus = "error";
+            return false;
+          }
+          const rows = await res.json();
+          if (Array.isArray(rows) && rows.length && rows[0].state_json) {
+            mergeProgressState(state, rows[0].state_json);
+            saveState(true);
+            renderAll();
+          }
+          await pushCloudProgress();
+          return true;
+        } catch (err) {
+          authUiState.syncStatus = "error";
+          return false;
+        }
+      }
+
+      function scheduleCloudSync() {
+        if (!authSession || !authSession.access_token) return;
+        if (_cloudSyncTimer) clearTimeout(_cloudSyncTimer);
+        _cloudSyncTimer = setTimeout(() => {
+          _cloudSyncTimer = null;
+          pushCloudProgress().then(() => {
+            const modal = document.getElementById("authModal");
+            if (modal && !modal.classList.contains("hidden")) renderAuthModalBody();
+          });
+        }, 1200);
+      }
+
+      async function authSignIn(email, password) {
+        authUiState.busy = true;
+        authUiState.msg = null;
+        renderAuthModalBody();
+        try {
+          const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+            method: "POST",
+            headers: {
+              "apikey": SUPABASE_KEY,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
+          if (!res.ok) {
+            const msg = await parseSupabaseError(res, "Đăng nhập thất bại");
+            authUiState.msg = { type: "bad", text: translateAuthError(msg) };
+            return;
+          }
+          const data = await res.json();
+          const nowSec = Math.floor(Date.now() / 1000);
+          saveAuthSession({
+            access_token: data.access_token,
+            refresh_token: data.refresh_token,
+            expires_at: data.expires_at || (nowSec + (Number(data.expires_in) || 3600)),
+            user: data.user,
+          });
+          updateAuthButton();
+          const ok = await pullAndMergeCloudProgress();
+          if (ok && !authUiState.msg) {
+            authUiState.msg = { type: "ok", text: "Đăng nhập & đồng bộ dữ liệu thành công!" };
+          }
+        } catch (err) {
+          authUiState.msg = { type: "bad", text: translateAuthError(err && err.message) };
+        } finally {
+          authUiState.busy = false;
+          updateAuthButton();
+          renderAuthModalBody();
+        }
+      }
+
+      async function authSignUp(displayName, email, password) {
+        authUiState.busy = true;
+        authUiState.msg = null;
+        renderAuthModalBody();
+        try {
+          const res = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
+            method: "POST",
+            headers: {
+              "apikey": SUPABASE_KEY,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email,
+              password,
+              data: { display_name: displayName || email.split("@")[0] },
+            }),
+          });
+          if (!res.ok) {
+            const msg = await parseSupabaseError(res, "Đăng ký thất bại");
+            authUiState.msg = { type: "bad", text: translateAuthError(msg) };
+            return;
+          }
+          const data = await res.json();
+          if (data && data.access_token) {
+            const nowSec = Math.floor(Date.now() / 1000);
+            saveAuthSession({
+              access_token: data.access_token,
+              refresh_token: data.refresh_token,
+              expires_at: data.expires_at || (nowSec + (Number(data.expires_in) || 3600)),
+              user: data.user,
+            });
+            updateAuthButton();
+            await pushCloudProgress();
+            if (!authUiState.msg) {
+              authUiState.msg = { type: "ok", text: "Tạo tài khoản thành công & đã lưu tiến trình hiện tại lên đám mây!" };
+            }
+          } else {
+            authUiState.mode = "login";
+            authUiState.msg = {
+              type: "info",
+              text: `Đã tạo tài khoản cho ${email}. Vui lòng mở hộp thư đến (hoặc Spam) bấm vào link xác nhận rồi đăng nhập lại.`,
+            };
+          }
+        } catch (err) {
+          authUiState.msg = { type: "bad", text: translateAuthError(err && err.message) };
+        } finally {
+          authUiState.busy = false;
+          updateAuthButton();
+          renderAuthModalBody();
+        }
+      }
+
+      async function authSignOut() {
+        const token = authSession && authSession.access_token;
+        clearAuthSession();
+        authUiState.msg = { type: "info", text: "Đã đăng xuất. Tiến trình hiện tại vẫn được giữ an toàn trên trình duyệt này." };
+        renderAuthModalBody();
+        if (token) {
+          fetch(`${SUPABASE_URL}/auth/v1/logout`, {
+            method: "POST",
+            headers: { "apikey": SUPABASE_KEY, "Authorization": `Bearer ${token}` },
+          }).catch(() => {});
+        }
+      }
+
+      function renderAuthModalBody() {
+        const host = document.getElementById("authModalBody");
+        if (!host) return;
+        const msgHtml = authUiState.msg
+          ? `<div class="auth-msg ${authUiState.msg.type}">${escapeHtml(authUiState.msg.text)}</div>`
+          : "";
+
+        const backupSectionHtml = `
+          <div class="auth-backup-bar">
+            <span style="font-size:12px;color:var(--text-muted);">Sao lưu nhanh ra máy (.json):</span>
+            <div class="toolbar-row">
+              <button type="button" class="btn-pill" id="btnExportBackup" style="font-size:12px;padding:4px 9px;">${ico("download")} Tải xuống</button>
+              <label class="btn-pill" style="font-size:12px;padding:4px 9px;cursor:pointer;">
+                ${ico("upload")} Khôi phục
+                <input type="file" id="importBackupInput" accept=".json,application/json" class="hidden" />
+              </label>
+            </div>
+          </div>
+        `;
+
+        if (authSession && authSession.user) {
+          const doneCount = Object.keys(state.completed || {}).length;
+          const masteredCount = Object.keys(state.masteredWords || {}).length;
+          const syncTxt = authUiState.syncStatus === "syncing"
+            ? "Đang đồng bộ..."
+            : authUiState.lastSyncAt
+              ? `Đã đồng bộ lúc ${authUiState.lastSyncAt}`
+              : "Tự động đồng bộ khi bạn học bài";
+
+          host.innerHTML = `
+            ${msgHtml}
+            <div class="auth-profile-card">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+                <div>
+                  <div style="font-size:16px;font-weight:800;display:flex;align-items:center;gap:7px;">
+                    <span class="auth-dot"></span> ${escapeHtml(getAuthDisplayName())}
+                  </div>
+                  <div style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">${escapeHtml(authSession.user.email || "")}</div>
+                </div>
+                <span class="pos-tag" style="background:var(--primary-soft);color:var(--primary);">${ico("cloud")} Cloud Sync</span>
+              </div>
+              <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--border);font-size:12.5px;">
+                <span><strong>${state.streak}</strong> ngày</span>
+                <span><strong>${state.xp}</strong> XP</span>
+                <span><strong>${masteredCount}</strong> từ thuộc</span>
+                <span><strong>${doneCount}/58</strong> bài</span>
+              </div>
+              <div style="font-size:11.5px;color:var(--text-soft);margin-top:8px;">${escapeHtml(syncTxt)}</div>
+            </div>
+            <div class="toolbar-row" style="justify-content:space-between;">
+              <button type="button" class="btn-pill primary" id="btnSyncNow" ${authUiState.busy ? "disabled" : ""}>${ico("refresh")} ${authUiState.busy ? "Đang đồng bộ..." : "Đồng bộ ngay"}</button>
+              <button type="button" class="btn-pill" id="btnAuthLogout" style="color:var(--danger);border-color:var(--danger-border);">${ico("logout")} Đăng xuất</button>
+            </div>
+            ${backupSectionHtml}
+          `;
+          return;
+        }
+
+        const isSignup = authUiState.mode === "signup";
+        host.innerHTML = `
+          <div class="auth-tabs">
+            <button type="button" class="auth-tab ${!isSignup ? "active" : ""}" data-auth-tab="login">Đăng nhập</button>
+            <button type="button" class="auth-tab ${isSignup ? "active" : ""}" data-auth-tab="signup">Đăng ký mới</button>
+          </div>
+          ${msgHtml}
+          <form id="authForm">
+            ${isSignup ? `
+              <div class="auth-field">
+                <label for="authDisplayName">Tên hiển thị</label>
+                <input type="text" class="text-input" id="authDisplayName" placeholder="Ví dụ: Minh Anh" maxlength="40" />
+              </div>
+            ` : ""}
+            <div class="auth-field">
+              <label for="authEmail">Email</label>
+              <input type="email" class="text-input" id="authEmail" placeholder="tenban@gmail.com" required />
+            </div>
+            <div class="auth-field" style="margin-bottom:14px;">
+              <label for="authPassword">Mật khẩu (tối thiểu 6 ký tự)</label>
+              <input type="password" class="text-input" id="authPassword" placeholder="••••••" minlength="6" required />
+            </div>
+            <button type="submit" class="btn-pill primary" style="width:100%;justify-content:center;padding:9px 14px;font-size:13.5px;" ${authUiState.busy ? "disabled" : ""}>
+              ${authUiState.busy ? "Đang xử lý..." : (isSignup ? "Tạo tài khoản & Lưu tiến độ" : "Đăng nhập & Đồng bộ")}
+            </button>
+          </form>
+          <div style="font-size:11.5px;color:var(--text-soft);margin-top:10px;line-height:1.45;">
+            Đăng nhập miễn phí giúp lưu bài đã học, chuỗi ngày, XP và Sổ tay từ vựng để học tiếp trên điện thoại lẫn máy tính.
+          </div>
+          ${backupSectionHtml}
+        `;
+      }
+
       /* Event Delegation */
       document.addEventListener("click", (e) => {
+        if (e.target.closest("#btnOpenAuth")) {
+          authUiState.msg = null;
+          renderAuthModalBody();
+          document.getElementById("authModal").classList.remove("hidden");
+          return;
+        }
+        if (e.target.closest("#btnCloseAuth") || e.target.id === "authModal") {
+          document.getElementById("authModal").classList.add("hidden");
+          return;
+        }
+        const authTabBtn = e.target.closest("[data-auth-tab]");
+        if (authTabBtn) {
+          authUiState.mode = authTabBtn.dataset.authTab;
+          authUiState.msg = null;
+          renderAuthModalBody();
+          return;
+        }
+        if (e.target.closest("#btnSyncNow")) {
+          if (authUiState.busy) return;
+          authUiState.busy = true;
+          authUiState.msg = null;
+          renderAuthModalBody();
+          pullAndMergeCloudProgress().then((ok) => {
+            if (ok && !authUiState.msg) {
+              authUiState.msg = { type: "ok", text: "Đã đồng bộ dữ liệu mới nhất!" };
+            }
+          }).finally(() => {
+            authUiState.busy = false;
+            updateAuthButton();
+            renderAuthModalBody();
+          });
+          return;
+        }
+        if (e.target.closest("#btnAuthLogout")) {
+          authSignOut();
+          return;
+        }
+        if (e.target.closest("#btnExportBackup")) {
+          const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), state }, null, 2)], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `tiengtrungdehieu_backup_${getLocalDateKey()}.json`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          authUiState.msg = { type: "ok", text: "Đã tải tệp sao lưu (.json) về máy!" };
+          renderAuthModalBody();
+          return;
+        }
+
         if (e.target.closest("#btnCloseWordPeek")) {
           closeWordPeekPopover();
           return;
@@ -8886,6 +9512,51 @@
         renderSearchResults(e.target.value);
       });
 
+      document.addEventListener("submit", (e) => {
+        if (e.target && e.target.id === "authForm") {
+          e.preventDefault();
+          if (authUiState.busy) return;
+          const email = (document.getElementById("authEmail")?.value || "").trim();
+          const password = document.getElementById("authPassword")?.value || "";
+          if (!email || password.length < 6) {
+            authUiState.msg = { type: "bad", text: "Vui lòng nhập email hợp lệ và mật khẩu từ 6 ký tự trở lên." };
+            renderAuthModalBody();
+            return;
+          }
+          if (authUiState.mode === "signup") {
+            const displayName = (document.getElementById("authDisplayName")?.value || "").trim();
+            authSignUp(displayName, email, password);
+          } else {
+            authSignIn(email, password);
+          }
+        }
+      });
+
+      document.addEventListener("change", (e) => {
+        if (e.target && e.target.id === "importBackupInput") {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const parsed = JSON.parse(String(reader.result || "{}"));
+              const incoming = parsed.state || parsed;
+              if (!incoming || typeof incoming !== "object" || (!incoming.dailyXp && !incoming.completed && typeof incoming.xp !== "number")) {
+                throw new Error("Tệp sao lưu không hợp lệ.");
+              }
+              mergeProgressState(state, incoming);
+              saveState();
+              renderAll();
+              authUiState.msg = { type: "ok", text: "Đã khôi phục tiến độ từ tệp sao lưu!" };
+            } catch (err) {
+              authUiState.msg = { type: "bad", text: "Không đọc được tệp sao lưu (.json)." };
+            }
+            renderAuthModalBody();
+          };
+          reader.readAsText(file);
+        }
+      });
+
       document.getElementById("customWordForm").addEventListener("submit", (e) => {
         e.preventDefault();
         const hz = document.getElementById("cwHanzi").value.trim();
@@ -8920,6 +9591,7 @@
           document.getElementById("progressModal").classList.add("hidden");
           document.getElementById("roadmapModal").classList.add("hidden");
           document.getElementById("vocabImgModal").classList.add("hidden");
+          document.getElementById("authModal").classList.add("hidden");
           document.getElementById("sidebar").classList.remove("open");
         } else if (/^[1-4]$/.test(e.key) && tag !== "input" && tag !== "textarea" && state.activeTab === "vocab" && vocabLabState.subMode === "quiz" && vocabLabState.quizChosen === null && !vocabLabState.quizFinished) {
           const optBtn = document.querySelector(`[data-quiz-opt="${Number(e.key) - 1}"]`);
@@ -8941,8 +9613,11 @@
         window.speechSynthesis.getVoices();
       }
       touchStudyDay(true);
-      saveState();
+      saveState(true);
       renderAll();
+      if (authSession && authSession.access_token) {
+        pullAndMergeCloudProgress().catch(() => {});
+      }
     })();
   </script>
 </body>

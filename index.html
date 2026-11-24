@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tiếng Trung Dễ Hiểu — Tự học giáo trình HSK 3.0 chuẩn 58 bài: bài khóa 4 phần, đọc hiểu tiếng Trung chạm tra từ tức thì, flashcard 3D, nét viết chữ Hán động và đồng bộ tiến độ miễn phí." />
   <title>Tiếng Trung Dễ Hiểu · Lộ Trình HSK 3.0 Chuẩn Giáo Trình</title>
-  <link rel="icon" type="image/png" href="2_Avatar_Facebook_TiengTrungDeHieu.png" />
+  <link rel="icon" type="image/png" href="assets/logo_favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Itim&family=Lora:wght@500;600;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Nunito:wght@500;600;700;800&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" /></noscript>
 
-  <!-- Offline-safe static data scripts (works over file:// without fetch CORS issues) -->
-  <script src="data/hsk1_data.js"></script>
-  <script src="data/hsk2_data.js"></script>
-  <script src="data/hsk3_data.js"></script>
-  <script src="data/hsk4a_data.js"></script>
-  <script src="data/reference_data.js"></script>
-  <script src="data/vocab_images.js"></script>
-  <script src="data/stroke_data.js"></script>
-  <script src="data/textbook_texts.js"></script>
-  <script src="data/extended_dict.js"></script>
+  <!-- Core curriculum scripts deferred (non-blocking initial render, 100% file:// offline safe); heavy stroke/dict/reference load on demand -->
+  <script defer src="data/hsk1_data.js"></script>
+  <script defer src="data/hsk2_data.js"></script>
+  <script defer src="data/hsk3_data.js"></script>
+  <script defer src="data/hsk4a_data.js"></script>
+  <script defer src="data/vocab_images.js"></script>
+  <script defer src="data/textbook_texts.js"></script>
 
   <style>
     :root {
@@ -29,13 +28,13 @@
       --border: #e6dfd4;
       --border-strong: #d4cbbd;
       --text-main: #1b2430;
-      --text-muted: #5a6575;
-      --text-soft: #8590a0;
+      --text-muted: #4b5563;
+      --text-soft: #525d6d;
       --primary: #0f766e;
       --primary-hover: #0b5d56;
       --primary-soft: #e9f6f3;
       --primary-border: #a7dbd2;
-      --accent: #d95d39;
+      --accent: #b53b17;
       --accent-soft: #fff2eb;
       --accent-border: #fdba8c;
       --success: #15803d;
@@ -50,7 +49,7 @@
       --radius-md: 12px;
       --radius-lg: 16px;
       --font-vi: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --font-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Heiti SC", sans-serif;
+      --font-zh: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC", "Heiti SC", sans-serif;
     }
 
     html[data-theme="dark"] {
@@ -236,8 +235,11 @@
       padding: 1px 5px;
       border-radius: 99px;
       background: var(--bg-hover);
-      color: var(--text-soft);
+      color: #4b5563;
       font-weight: 700;
+    }
+    html[data-theme="dark"] .book-tab-count {
+      color: #cbd5e1;
     }
     .book-tab.active .book-tab-count {
       background: var(--primary-soft);
@@ -1966,12 +1968,12 @@
     body.focus-mode .sidebar { display: none; }
     body.focus-mode .workspace { grid-template-columns: 1fr; max-width: 1000px; }
 
-    /* Tone Color Coding */
-    .tone-t1 { color: #0284c7 !important; }
-    .tone-t2 { color: #15803d !important; }
-    .tone-t3 { color: #d97706 !important; }
-    .tone-t4 { color: #dc2626 !important; }
-    .tone-t0 { color: #64748b !important; }
+    /* Tone Color Coding (WCAG AA >= 4.5:1 on light & dark surfaces) */
+    .tone-t1 { color: #0369a1 !important; }
+    .tone-t2 { color: #166534 !important; }
+    .tone-t3 { color: #92400e !important; }
+    .tone-t4 { color: #b91c1c !important; }
+    .tone-t0 { color: #475569 !important; }
     html[data-theme="dark"] .tone-t1 { color: #38bdf8 !important; }
     html[data-theme="dark"] .tone-t2 { color: #4ade80 !important; }
     html[data-theme="dark"] .tone-t3 { color: #fbbf24 !important; }
@@ -2647,7 +2649,7 @@
   <header class="topbar">
     <div class="brand">
       <button class="btn-pill mobile-sidebar-btn" id="btnMobileSidebar" title="Danh sách bài học">☰ Bài học</button>
-      <div class="brand-seal"><img src="2_Avatar_Facebook_TiengTrungDeHieu.png" alt="Tiếng Trung Dễ Hiểu" /></div>
+      <div class="brand-seal"><img src="assets/logo_avatar.jpg" alt="Tiếng Trung Dễ Hiểu" width="34" height="34" decoding="async" /></div>
       <div class="brand-text">
         <span class="brand-title">Tiếng Trung Dễ Hiểu</span>
       </div>
@@ -2678,7 +2680,7 @@
   <main class="workspace">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <h2 class="sidebar-book-title" id="sidebarBookTitle">HSK 1</h2>
+        <div class="sidebar-book-title" id="sidebarBookTitle">HSK 1</div>
         <p class="sidebar-book-sub" id="sidebarBookSub"></p>
         <div class="progress-track">
           <div class="progress-fill" id="bookProgressFill" style="width: 0%"></div>
@@ -2710,10 +2712,10 @@
       </div>
 
       <div class="mode-tabs" role="tablist">
-        <button class="mode-tab active" data-tab="study">Bài khóa</button>
-        <button class="mode-tab" data-tab="vocab">Từ vựng</button>
-        <button class="mode-tab" data-tab="workbook">Bài tập</button>
-        <button class="mode-tab" data-tab="skills">Kỹ năng</button>
+        <button class="mode-tab active" role="tab" aria-selected="true" data-tab="study">Bài khóa</button>
+        <button class="mode-tab" role="tab" aria-selected="false" data-tab="vocab">Từ vựng</button>
+        <button class="mode-tab" role="tab" aria-selected="false" data-tab="workbook">Bài tập</button>
+        <button class="mode-tab" role="tab" aria-selected="false" data-tab="skills">Kỹ năng</button>
       </div>
 
       <div id="tabContent"></div>
@@ -2881,12 +2883,58 @@
   <div id="printSheet"></div>
 
   <script>
-    (function () {
+    function initHoanguApp() {
       "use strict";
 
       const STORE_KEY = "hoangu_hsk30_v1";
       const BOOK_ORDER = ["hsk1", "hsk2", "hsk3", "hsk4a"];
       const curriculum = window.HSK_CURRICULUM || {};
+
+      /* On-demand lazy loader for heavy offline data scripts (stroke_data, extended_dict, reference_data) */
+      const _lazyScriptCache = {};
+      function loadDataScriptOnce(src) {
+        if (_lazyScriptCache[src]) return _lazyScriptCache[src];
+        _lazyScriptCache[src] = new Promise((resolve) => {
+          const s = document.createElement("script");
+          s.src = src;
+          s.onload = () => {
+            if (typeof _charIndexCache !== "undefined") _charIndexCache = null;
+            if (typeof _dictMapCache !== "undefined") _dictMapCache = null;
+            resolve(true);
+          };
+          s.onerror = () => resolve(false);
+          document.head.appendChild(s);
+        });
+        return _lazyScriptCache[src];
+      }
+      function ensureStrokeData() {
+        return window.HANZI_STROKE_DATA ? Promise.resolve(true) : loadDataScriptOnce("data/stroke_data.js");
+      }
+      function ensureExtendedDict() {
+        return window.EXTENDED_DICT ? Promise.resolve(true) : loadDataScriptOnce("data/extended_dict.js");
+      }
+      function ensureReferenceData() {
+        return window.PINYIN_REF ? Promise.resolve(true) : loadDataScriptOnce("data/reference_data.js");
+      }
+
+      const _loadedOptionalFonts = new Set();
+      const OPTIONAL_FONT_URLS = {
+        nunito: "https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap",
+        itim: "https://fonts.googleapis.com/css2?family=Itim&display=swap",
+        lora: "https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap",
+        "noto-serif": "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700&display=swap",
+        fangsong: "https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap",
+        mashan: "https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap",
+      };
+      function ensureOptionalFontLoaded(fontId) {
+        const href = OPTIONAL_FONT_URLS[fontId];
+        if (!href || _loadedOptionalFonts.has(fontId)) return;
+        _loadedOptionalFonts.add(fontId);
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = href;
+        document.head.appendChild(link);
+      }
 
       /* Crisp inline Lucide-style SVG icons (100% offline-safe) */
       const ICO = {
@@ -4113,7 +4161,7 @@
       ];
 
       const FONT_ZH_OPTIONS = [
-        { id: "noto-sans", name: "Noto Sans SC", desc: "Chữ in hiện đại (Mặc định)", css: '"Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif' },
+        { id: "noto-sans", name: "Chữ in hiện đại (Hệ thống)", desc: "Mặc định sắc nét, tải tức thì", css: '"PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC", "Heiti SC", sans-serif' },
         { id: "noto-serif", name: "Chữ Tống (Serif / SimSun)", desc: "Cổ điển, giống sách giáo trình", css: '"Noto Serif SC", "SimSun", "Songti SC", serif' },
         { id: "kaiti", name: "Khải Thư (KaiTi)", desc: "Nét bút Khải, chuẩn luyện viết", css: '"KaiTi", "STKaiti", "BiauKai", "Noto Serif SC", serif' },
         { id: "fangsong", name: "Phỏng Tống (FangSong)", desc: "Thanh mảnh, chuẩn đề thi giấy", css: '"ZCOOL XiaoWei", "FangSong", "STFangsong", serif' },
@@ -4281,6 +4329,8 @@
         const root = document.documentElement;
         const fv = FONT_VI_OPTIONS.find((f) => f.id === state.fontVi) || FONT_VI_OPTIONS[0];
         const fz = FONT_ZH_OPTIONS.find((f) => f.id === state.fontZh) || FONT_ZH_OPTIONS[0];
+        ensureOptionalFontLoaded(fv.id);
+        ensureOptionalFontLoaded(fz.id);
         root.style.setProperty("--font-vi", fv.css);
         root.style.setProperty("--font-zh", fz.css);
         root.style.setProperty("--ui-scale", String((Number(state.fontScale) || 100) / 100));
@@ -4537,8 +4587,8 @@
                   <div class="vocab-py ${state.showPinyin ? "" : "hidden"}">${renderColoredPinyin(v.pinyin)}</div>
                 </div>
                 <div class="toolbar-row">
-                  <button class="audio-btn" data-speak="${escapeHtml(v.hanzi)}" title="Phát âm">${ico("volume")}</button>
-                  <button class="star-btn ${saved ? "saved" : ""}" data-save-word='${escapeHtml(JSON.stringify({ hanzi: v.hanzi, pinyin: v.pinyin, vi: v.vi, source: b.shortName + " B" + l.lesson }))}' title="Lưu vào Sổ tay">
+                  <button class="audio-btn" data-speak="${escapeHtml(v.hanzi)}" title="Phát âm" aria-label="Phát âm từ ${escapeHtml(v.hanzi)}">${ico("volume")}</button>
+                  <button class="star-btn ${saved ? "saved" : ""}" data-save-word='${escapeHtml(JSON.stringify({ hanzi: v.hanzi, pinyin: v.pinyin, vi: v.vi, source: b.shortName + " B" + l.lesson }))}' title="Lưu vào Sổ tay" aria-label="Lưu từ ${escapeHtml(v.hanzi)} vào Sổ tay">
                     ${saved ? "★" : "☆"}
                   </button>
                 </div>
@@ -4547,7 +4597,7 @@
               <div class="vocab-vi">${escapeHtml(v.vi)}</div>
               <div class="vocab-ex">
                 <span>${renderClickableHanzi(v.example)}</span>
-                <button class="audio-btn" data-speak="${escapeHtml(v.example)}" style="padding:2px 6px;">${ico("volume")}</button>
+                <button class="audio-btn" data-speak="${escapeHtml(v.example)}" style="padding:2px 6px;" title="Nghe câu ví dụ" aria-label="Nghe câu ví dụ">${ico("volume")}</button>
               </div>
             </div>
           `;
@@ -4556,7 +4606,7 @@
         const grammarHtml = l.grammarPoints.map((g) => `
           <div class="grammar-card">
             <span class="bento-label">Cấu trúc</span>
-            <h4 class="grammar-title">${escapeHtml(g.title)}</h4>
+            <h3 class="grammar-title">${escapeHtml(g.title)}</h3>
             <div class="bento-grid">
             <div class="bento-cell"><span class="bento-label">Cách dùng</span><p class="grammar-exp" style="margin:0">${escapeHtml(g.explanation)}</p></div>
             <div class="bento-cell"><span class="bento-label">Ví dụ</span>
@@ -4567,7 +4617,7 @@
                   <div style="font-size:13px;color:var(--primary);">${renderColoredPinyin(ex.pinyin)}</div>
                   <div style="font-size:13px;color:var(--text-muted);">${escapeHtml(ex.vi)}</div>
                 </div>
-                <button class="audio-btn" data-speak="${escapeHtml(ex.hanzi)}">${ico("volume")}</button>
+                <button class="audio-btn" data-speak="${escapeHtml(ex.hanzi)}" title="Nghe ví dụ" aria-label="Nghe ví dụ ngữ pháp">${ico("volume")}</button>
               </div>
             `).join("")}
             </div>
@@ -4600,7 +4650,7 @@
 
             <div class="section-card">
               <div class="section-head" style="margin-bottom:6px;">
-                <h3 class="section-title">${ico("book")} Bài khóa <span class="count-pill zh">课文 · ${lessonTexts.length}</span></h3>
+                <h2 class="section-title">${ico("book")} Bài khóa <span class="count-pill zh">课文 · ${lessonTexts.length}</span></h2>
                 <div class="toolbar-row">
                   ${studyTextState.subMode === "read" ? `
                     <button class="btn-pill primary" id="btnSpeakAllDialogues">${ico("play")} Nghe cả đoạn</button>
@@ -4611,9 +4661,9 @@
                 </div>
               </div>
 
-              <div class="text-part-tabs" role="tablist">
+              <div class="text-part-tabs" role="tablist" aria-label="Chọn bài khóa">
                 ${lessonTexts.map((t, ti) => `
-                  <button type="button" class="text-part-btn ${ti === studyTextState.textIdx ? "active" : ""}" data-text-part="${ti}">
+                  <button type="button" role="tab" aria-selected="${ti === studyTextState.textIdx ? "true" : "false"}" class="text-part-btn ${ti === studyTextState.textIdx ? "active" : ""}" data-text-part="${ti}">
                     <span>${escapeHtml(t.label || `Bài khóa ${ti + 1}`)}</span>
                   </button>
                 `).join("")}
@@ -4678,7 +4728,7 @@
 
             <div class="section-card">
               <div class="section-head">
-                <h3 class="section-title">${ico("layers")} Từ vựng trọng tâm <span class="count-pill zh">生词 · ${l.vocab.length}</span></h3>
+                <h2 class="section-title">${ico("layers")} Từ vựng trọng tâm <span class="count-pill zh">生词 · ${l.vocab.length}</span></h2>
                 <button class="btn-pill" data-open-print-studio="lesson">${ico("print")} In phiếu viết</button>
               </div>
               <div class="vocab-grid">${vocabHtml}</div>
@@ -4686,10 +4736,10 @@
 
             <div class="section-card">
               <div class="section-head">
-                <h3 class="section-title">${ico("sparkles")} Ngữ pháp &amp; Chiết tự <span class="count-pill zh">语法</span></h3>
+                <h2 class="section-title">${ico("sparkles")} Ngữ pháp &amp; Chiết tự <span class="count-pill zh">语法</span></h2>
               </div>
               <div class="etym-box">
-                <h4 class="etym-title">${escapeHtml(l.etymology.title)}</h4>
+                <h3 class="etym-title">${escapeHtml(l.etymology.title)}</h3>
                 <p class="etym-body">${escapeHtml(l.etymology.detail)}</p>
               </div>
               <div class="grammar-list">${grammarHtml}</div>
@@ -4877,7 +4927,7 @@
                         <div style="font-size:18px;font-weight:800;color:var(--text-main);margin:2px 0 6px;">${escapeHtml(v.vi)}</div>
                         <div class="vocab-ex" style="margin:0;">
                           <span><strong>Ví dụ:</strong> ${escapeHtml(v.example)}</span>
-                          <button class="audio-btn" data-speak="${escapeHtml(v.example)}">${ico("volume")}</button>
+                          <button class="audio-btn" data-speak="${escapeHtml(v.example)}" title="Nghe ví dụ" aria-label="Nghe câu ví dụ">${ico("volume")}</button>
                         </div>
                       </div>
                       ${renderVocabVisualHtml(v, false)}
@@ -5152,7 +5202,7 @@
           <div class="section-card">
             <div class="vocab-lab-header">
               <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                <h3 class="section-title">Từ vựng · Bài ${l.lesson} <span class="count-pill">${totalWords} từ</span></h3>
+                <h2 class="section-title">Từ vựng · Bài ${l.lesson} <span class="count-pill">${totalWords} từ</span></h2>
                 <button type="button" class="btn-pill" id="btnToggleVocabImg" style="font-size:12px;padding:4px 10px;">${ico("image")} ${state.showVocabImages !== false ? "Ảnh: Bật" : "Ảnh: Tắt"}</button>
               </div>
               <div style="min-width:200px;">
@@ -5482,7 +5532,7 @@
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${escapeHtml(tr("wbSec1"))} (<span class="zh">选词填空</span>)</h3>
+              <h2 class="section-title">${escapeHtml(tr("wbSec1"))} (<span class="zh">选词填空</span>)</h2>
               <button class="btn-pill" id="btnResetCloze">↺ Làm lại phần này</button>
             </div>
             <div class="word-bank">
@@ -5496,42 +5546,42 @@
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${escapeHtml(tr("wbSec2"))} (<span class="zh">连词成句</span>)</h3>
+              <h2 class="section-title">${escapeHtml(tr("wbSec2"))} (<span class="zh">连词成句</span>)</h2>
             </div>
             ${scrambleHtml}
           </div>
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${escapeHtml(tr("wbSec3"))} (<span class="zh">改错句</span>)</h3>
+              <h2 class="section-title">${escapeHtml(tr("wbSec3"))} (<span class="zh">改错句</span>)</h2>
             </div>
             ${correctionHtml}
           </div>
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${escapeHtml(tr("wbSec4"))} (<span class="zh">判断题</span>)</h3>
+              <h2 class="section-title">${escapeHtml(tr("wbSec4"))} (<span class="zh">判断题</span>)</h2>
             </div>
             ${tfHtml}
           </div>
 
           <div class="section-card" id="wbHardAnchor">
             <div class="section-head">
-              <h3 class="section-title">${escapeHtml(tr("wbSec5"))} (<span class="zh">无提示填空</span>) <span class="hard-badge">NÂNG CAO</span></h3>
+              <h2 class="section-title">${escapeHtml(tr("wbSec5"))} (<span class="zh">无提示填空</span>) <span class="hard-badge">NÂNG CAO</span></h2>
             </div>
             ${noHintHtml}
           </div>
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${escapeHtml(tr("wbSec6"))} (<span class="zh">散字组句</span>) <span class="hard-badge">NÂNG CAO</span></h3>
+              <h2 class="section-title">${escapeHtml(tr("wbSec6"))} (<span class="zh">散字组句</span>) <span class="hard-badge">NÂNG CAO</span></h2>
             </div>
             ${hardScrHtml}
           </div>
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${escapeHtml(tr("wbSec7"))} (<span class="zh">语病与硬核翻译</span>) <span class="hard-badge">NÂNG CAO</span></h3>
+              <h2 class="section-title">${escapeHtml(tr("wbSec7"))} (<span class="zh">语病与硬核翻译</span>) <span class="hard-badge">NÂNG CAO</span></h2>
             </div>
             ${mcqHtml}
             ${strictTransHtml}
@@ -5618,7 +5668,7 @@
         return `
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${ico("headphones")} Nghe chép chính tả <span class="count-pill zh">听写</span></h3>
+              <h2 class="section-title">${ico("headphones")} Nghe chép chính tả <span class="count-pill zh">听写</span></h2>
               <button class="btn-pill ${state.dictationIme ? "primary" : ""}" id="btnToggleDictIme">
                 ${state.dictationIme ? "Đang dùng Pinyin số (ni3 ➔ nǐ)" : "Bật Pinyin số"}
               </button>
@@ -5629,7 +5679,7 @@
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${ico("refresh")} Luyện dịch hai chiều <span class="count-pill zh">翻译练习</span></h3>
+              <h2 class="section-title">${ico("refresh")} Luyện dịch hai chiều <span class="count-pill zh">翻译练习</span></h2>
             </div>
             ${cnViHtml}
             ${viCnHtml}
@@ -5637,7 +5687,7 @@
 
           <div class="section-card">
             <div class="section-head">
-              <h3 class="section-title">${ico("chat")} Hỏi đáp tình huống <span class="count-pill zh">情境问答</span></h3>
+              <h2 class="section-title">${ico("chat")} Hỏi đáp tình huống <span class="count-pill zh">情境问答</span></h2>
             </div>
             ${qaHtml}
           </div>
@@ -5820,16 +5870,30 @@
         const l = getCurrentLesson();
         if (!l) return;
         document.querySelectorAll(".mode-tab").forEach((t) => {
-          t.classList.toggle("active", t.dataset.tab === state.activeTab);
+          const isAct = t.dataset.tab === state.activeTab;
+          t.classList.toggle("active", isAct);
+          t.setAttribute("aria-selected", isAct ? "true" : "false");
         });
         const host = document.getElementById("tabContent");
         if (state.activeTab === "study") {
           host.innerHTML = renderStudyTab(l);
           updateDialoguePlayerButtons();
           if (memoState.open) redrawStudyMemo();
+          if (studyTextState.subMode === "comprehension" && !window.EXTENDED_DICT) {
+            ensureExtendedDict().then((ok) => {
+              if (ok && state.activeTab === "study" && studyTextState.subMode === "comprehension") renderTabContent();
+            });
+          }
         } else if (state.activeTab === "vocab") {
           host.innerHTML = renderVocabLabTab(l);
-          if (vocabLabState.subMode === "write") redrawWritePad();
+          if (vocabLabState.subMode === "write") {
+            redrawWritePad();
+            if (!window.HANZI_STROKE_DATA) {
+              ensureStrokeData().then((ok) => {
+                if (ok && state.activeTab === "vocab" && vocabLabState.subMode === "write") renderTabContent();
+              });
+            }
+          }
         } else if (state.activeTab === "workbook") {
           host.innerHTML = renderWorkbookTab(l);
         } else {
@@ -5886,7 +5950,7 @@
               </div>
               <div class="toolbar-row">
                 <button type="button" class="btn-pill" id="btnOpenRoadmapFromBanner" style="font-size:12px;padding:4px 10px;">Chi tiết</button>
-                <button type="button" class="btn-pill icon-only-btn" id="btnHideStarterBanner" style="padding:4px 7px;" title="Thu gọn">${ico("x")}</button>
+                <button type="button" class="btn-pill icon-only-btn" id="btnHideStarterBanner" style="padding:4px 7px;" title="Thu gọn" aria-label="Thu gọn lộ trình người mới">${ico("x")}</button>
               </div>
             </div>
             <div class="starter-flow">
@@ -6282,8 +6346,8 @@
                 <div class="vocab-py">${escapeHtml(w.pinyin)}</div>
               </div>
               <div class="toolbar-row">
-                <button class="audio-btn" data-speak="${escapeHtml(w.hanzi)}">🔊</button>
-                <button class="btn-pill" data-del-notebook="${w.custom ? "custom" : "saved"}" data-idx="${w.idx}" style="padding:3px 8px;">✕</button>
+                <button class="audio-btn" data-speak="${escapeHtml(w.hanzi)}" aria-label="Nghe phát âm ${escapeHtml(w.hanzi)}">🔊</button>
+                <button class="btn-pill" data-del-notebook="${w.custom ? "custom" : "saved"}" data-idx="${w.idx}" style="padding:3px 8px;" aria-label="Xóa từ ${escapeHtml(w.hanzi)} khỏi sổ tay">✕</button>
               </div>
             </div>
             <div class="vocab-vi">${escapeHtml(w.vi)}</div>
@@ -6556,6 +6620,14 @@
         touchStudyDay();
         const pop = document.getElementById("wordPeekPopover");
         if (!pop) return;
+        if (!window.EXTENDED_DICT) {
+          ensureExtendedDict().then((ok) => {
+            const curPop = document.getElementById("wordPeekPopover");
+            if (ok && curPop && !curPop.classList.contains("hidden") && wordPeekState.word === word) {
+              curPop.innerHTML = renderWordPeekHtml(word);
+            }
+          });
+        }
         document.querySelectorAll(".hz-dict-word.active-peek").forEach((el) => el.classList.remove("active-peek"));
         if (anchorEl && anchorEl.classList) anchorEl.classList.add("active-peek");
         wordPeekState.word = word;
@@ -6910,8 +6982,8 @@
                           ${w.lesson
                             ? `<button type="button" class="btn-pill" data-char-jump-book="${w.bookId}" data-char-jump-lesson="${w.lesson}" style="padding:3px 9px;font-size:11.5px;">${escapeHtml(w.bookShort)} · B${w.lesson}</button>`
                             : `<span class="pos-tag" style="font-size:11px;">${escapeHtml(srcLabel)}</span>`}
-                          <button type="button" class="audio-btn" data-speak="${escapeHtml(w.hanzi)}">🔊</button>
-                          <button type="button" class="star-btn ${isSaved ? "saved" : ""}" data-save-word='${escapeHtml(JSON.stringify({ hanzi: w.hanzi, pinyin: w.pinyin, vi: w.vi, source: srcLabel }))}'>${isSaved ? "★" : "☆"}</button>
+                          <button type="button" class="audio-btn" data-speak="${escapeHtml(w.hanzi)}" aria-label="Nghe phát âm ${escapeHtml(w.hanzi)}">🔊</button>
+                          <button type="button" class="star-btn ${isSaved ? "saved" : ""}" data-save-word='${escapeHtml(JSON.stringify({ hanzi: w.hanzi, pinyin: w.pinyin, vi: w.vi, source: srcLabel }))}' aria-label="Lưu từ ${escapeHtml(w.hanzi)} vào sổ tay">${isSaved ? "★" : "☆"}</button>
                         </div>
                       </div>
                     `;
@@ -6932,6 +7004,7 @@
         touchStudyDay();
         stopStrokeAnim();
         charInspectorState.char = ch;
+        const needLazy = !window.HANZI_STROKE_DATA || !window.EXTENDED_DICT || !window.PINYIN_REF;
         charInspectorState.mode = getCharStrokeData(ch) ? "stroke" : "draw";
         charInspectorState.stepIdx = 0;
         charInspectorState.strokes = [];
@@ -6939,6 +7012,21 @@
         document.getElementById("charModal").classList.remove("hidden");
         if (charInspectorState.mode === "stroke") {
           playStrokeSequence("charStrokeHost", "charStrokeLabel", "data-stroke-step", ch, 0, true);
+        }
+        if (needLazy) {
+          const hadStrokes = !!getCharStrokeData(ch);
+          Promise.all([ensureStrokeData(), ensureExtendedDict(), ensureReferenceData()]).then(() => {
+            const modal = document.getElementById("charModal");
+            if (!modal || modal.classList.contains("hidden") || charInspectorState.char !== ch) return;
+            if (!hadStrokes && getCharStrokeData(ch) && !charInspectorState.strokes.length) {
+              charInspectorState.mode = "stroke";
+              charInspectorState.stepIdx = 0;
+            }
+            renderCharModalBody();
+            if (charInspectorState.mode === "stroke" && !hadStrokes) {
+              playStrokeSequence("charStrokeHost", "charStrokeLabel", "data-stroke-step", ch, 0, true);
+            }
+          });
         }
       }
 
@@ -9308,7 +9396,7 @@
           document.getElementById("roadmapModal").classList.add("hidden");
           return;
         }
-        if (e.target.id === "btnHideStarterBanner") {
+        if (e.target.closest("#btnHideStarterBanner")) {
           state.hideStarterBanner = true;
           saveState();
           renderStarterGuideBanner();
@@ -9326,8 +9414,14 @@
           const act = rmActionBtn.dataset.roadmapAction;
           document.getElementById("roadmapModal").classList.add("hidden");
           if (act === "tools") {
-            renderToolsModalBody();
+            const thost = document.getElementById("toolsModalBody");
+            if (!window.PINYIN_REF && thost) {
+              thost.innerHTML = '<div style="padding:24px;text-align:center;color:var(--text-muted);">Đang tải bảng Pinyin &amp; Bộ thủ...</div>';
+            } else {
+              renderToolsModalBody();
+            }
             document.getElementById("toolsModal").classList.remove("hidden");
+            if (!window.PINYIN_REF) ensureReferenceData().then(() => renderToolsModalBody());
           } else {
             state.activeTab = act;
             saveState();
@@ -9344,8 +9438,15 @@
 
         // Reference Tools Modal controls
         if (e.target.closest("#btnOpenTools")) {
-          renderToolsModalBody();
-          document.getElementById("toolsModal").classList.remove("hidden");
+          const thost = document.getElementById("toolsModalBody");
+          if (!window.PINYIN_REF && thost) {
+            thost.innerHTML = '<div style="padding:24px;text-align:center;color:var(--text-muted);">Đang tải bảng Pinyin &amp; Bộ thủ...</div>';
+            document.getElementById("toolsModal").classList.remove("hidden");
+            ensureReferenceData().then(() => renderToolsModalBody());
+          } else {
+            renderToolsModalBody();
+            document.getElementById("toolsModal").classList.remove("hidden");
+          }
           return;
         }
         if (e.target.id === "btnCloseTools" || e.target.id === "toolsModal") {
@@ -9395,6 +9496,13 @@
           sInp.value = "";
           renderSearchResults("");
           sInp.focus();
+          if (!window.EXTENDED_DICT) {
+            ensureExtendedDict().then((ok) => {
+              if (ok && !document.getElementById("searchModal").classList.contains("hidden")) {
+                renderSearchResults(sInp.value || "");
+              }
+            });
+          }
           return;
         }
         if (e.target.id === "btnCloseSearch" || e.target.id === "searchModal") {
@@ -9577,8 +9685,16 @@
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
           e.preventDefault();
           document.getElementById("searchModal").classList.remove("hidden");
-          renderSearchResults(document.getElementById("searchInput").value || "");
-          document.getElementById("searchInput").focus();
+          const sInp = document.getElementById("searchInput");
+          renderSearchResults(sInp.value || "");
+          sInp.focus();
+          if (!window.EXTENDED_DICT) {
+            ensureExtendedDict().then((ok) => {
+              if (ok && !document.getElementById("searchModal").classList.contains("hidden")) {
+                renderSearchResults(sInp.value || "");
+              }
+            });
+          }
         } else if (e.key === "Escape") {
           stopStrokeAnim();
           closeWordPeekPopover();
@@ -9618,7 +9734,12 @@
       if (authSession && authSession.access_token) {
         pullAndMergeCloudProgress().catch(() => {});
       }
-    })();
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initHoanguApp);
+    } else {
+      initHoanguApp();
+    }
   </script>
 </body>
 </html>

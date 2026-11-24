@@ -8,18 +8,31 @@
   <link rel="icon" type="image/png" href="assets/logo_favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" /></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" /></noscript>
 
-  <!-- Core curriculum scripts deferred (non-blocking initial render, 100% file:// offline safe); heavy stroke/dict/reference load on demand -->
+  <!-- Only HSK 1 loads initially (deferred, 100% file:// offline safe); HSK 2-4A, vocab images, stroke/dict/reference load on demand -->
   <script defer src="data/hsk1_data.js"></script>
-  <script defer src="data/hsk2_data.js"></script>
-  <script defer src="data/hsk3_data.js"></script>
-  <script defer src="data/hsk4a_data.js"></script>
-  <script defer src="data/vocab_images.js"></script>
-  <script defer src="data/textbook_texts.js"></script>
+  <script defer src="data/textbook_texts_hsk1.js"></script>
+  <script>
+    try {
+      var __s = JSON.parse(localStorage.getItem("hoangu_hsk30_v1") || "null");
+      if (__s) {
+        if (__s.theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+        if (__s.hideStarterBanner || __s.focusMode) document.documentElement.classList.add("hide-starter");
+      }
+    } catch (e) {}
+  </script>
 
   <style>
+    @font-face {
+      font-family: "Be Vietnam Pro Fallback";
+      src: local("Roboto"), local("Segoe UI"), local("Arial");
+      size-adjust: 105%;
+      ascent-override: 96%;
+      descent-override: 25%;
+      line-gap-override: 0%;
+    }
     :root {
       --bg-page: #faf8f5;
       --bg-surface: #ffffff;
@@ -48,7 +61,7 @@
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
-      --font-vi: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-vi: "Be Vietnam Pro", "Be Vietnam Pro Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-zh: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Noto Sans SC", "Heiti SC", sans-serif;
     }
 
@@ -2187,6 +2200,7 @@
       padding: 10px 14px;
       box-shadow: var(--shadow-sm);
     }
+    html.hide-starter #starterGuideHost { display: none; }
     .starter-banner-top {
       display: flex;
       align-items: center;
@@ -2619,6 +2633,8 @@
     }
     @media (max-width: 1180px) {
       .topbar { flex-wrap: wrap; padding: 8px 16px; }
+      .book-tabs, .topbar-actions { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+      .book-tabs::-webkit-scrollbar, .topbar-actions::-webkit-scrollbar { display: none; }
       .sidebar { top: 116px; max-height: calc(100vh - 132px); }
     }
     @media (max-width: 960px) {
@@ -2648,45 +2664,50 @@
 
   <header class="topbar">
     <div class="brand">
-      <button class="btn-pill mobile-sidebar-btn" id="btnMobileSidebar" title="Danh sách bài học">☰ Bài học</button>
+      <button class="btn-pill mobile-sidebar-btn" id="btnMobileSidebar" title="Danh sách bài học"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg> <span>Bài học</span></button>
       <div class="brand-seal"><img src="assets/logo_avatar.jpg" alt="Tiếng Trung Dễ Hiểu" width="34" height="34" decoding="async" /></div>
       <div class="brand-text">
         <span class="brand-title">Tiếng Trung Dễ Hiểu</span>
       </div>
     </div>
 
-    <nav class="book-tabs" id="bookTabs" aria-label="Chọn tập giáo trình HSK 3.0"></nav>
+    <nav class="book-tabs" id="bookTabs" aria-label="Chọn tập giáo trình HSK 3.0">
+      <button class="book-tab active" data-book="hsk1"><span>HSK 1</span><span class="book-tab-count">0/15</span></button>
+      <button class="book-tab" data-book="hsk2"><span>HSK 2</span><span class="book-tab-count">0/15</span></button>
+      <button class="book-tab" data-book="hsk3"><span>HSK 3</span><span class="book-tab-count">0/18</span></button>
+      <button class="book-tab" data-book="hsk4a"><span>HSK 4 Thượng</span><span class="book-tab-count">0/10</span></button>
+    </nav>
 
     <div class="topbar-actions">
       <button class="btn-pill" id="btnOpenRoadmap" title="Lộ trình học HSK 3.0 &amp; hướng dẫn từng bước">
-        <span id="lblRoadmapBtn">Lộ trình</span>
+        <svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> <span id="lblRoadmapBtn">Lộ trình</span>
       </button>
       <button class="btn-pill" id="btnOpenTools" title="Bảng Pinyin 410 âm, 214 Bộ thủ &amp; Quy tắc Hán-Việt">
-        Pinyin
+        <svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg> <span>Pinyin</span>
       </button>
       <button class="btn-pill" id="btnOpenSearch" title="Tìm kiếm toàn bộ 58 bài (Ctrl+K)">
-        Tìm <span class="kbd-hint">Ctrl+K</span>
+        <svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20 20-3.5-3.5"/></svg> <span>Tìm</span> <span class="kbd-hint">Ctrl+K</span>
       </button>
       <button class="btn-pill" id="btnOpenNotebook" title="Sổ tay từ vựng cá nhân">
-        Sổ tay <span class="badge-num" id="savedCountBadge">0</span>
+        <svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v17l-6-3.5L6 21Z"/></svg> <span>Sổ tay</span> <span class="badge-num" id="savedCountBadge">0</span>
       </button>
-      <button type="button" class="streak-pill" id="streakBadge" title="Xem tiến độ, chuỗi ngày học &amp; lịch 16 tuần">1 ngày · 0 XP</button>
-      <button type="button" class="btn-pill auth-pill" id="btnOpenAuth" title="Đăng nhập / Đồng bộ tiến độ học lên đám mây">Đăng nhập</button>
-      <button class="btn-pill icon-only-btn" id="btnOpenSettings" title="Cài đặt ngôn ngữ &amp; hiển thị" aria-label="Cài đặt"></button>
-      <button class="btn-pill icon-only-btn" id="btnToggleTheme" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện"></button>
+      <button type="button" class="streak-pill" id="streakBadge" title="Xem tiến độ, chuỗi ngày học &amp; lịch 16 tuần"><svg class="ui-ico flame-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c.8 3.2 4 5.1 4 8.7a4 4 0 1 1-8 0c0-1.9.8-3.6 2-5.1.1 1.6 1.1 2.4 2 2.4-.6-1.7-.4-4 0-6Z"/></svg> <span>1 ngày · 0 XP</span></button>
+      <button type="button" class="btn-pill auth-pill" id="btnOpenAuth" title="Đăng nhập để lưu &amp; đồng bộ tiến trình giữa các thiết bị"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg> <span>Đăng nhập</span></button>
+      <button class="btn-pill icon-only-btn" id="btnOpenSettings" title="Cài đặt ngôn ngữ &amp; hiển thị" aria-label="Cài đặt"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82 1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg></button>
+      <button class="btn-pill icon-only-btn" id="btnToggleTheme" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg></button>
     </div>
   </header>
 
   <main class="workspace">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <div class="sidebar-book-title" id="sidebarBookTitle">HSK 1</div>
-        <p class="sidebar-book-sub" id="sidebarBookSub"></p>
+        <div class="sidebar-book-title" id="sidebarBookTitle">HSK 1 (新HSK教程 1)</div>
+        <p class="sidebar-book-sub" id="sidebarBookSub">15 bài nền tảng · Chào hỏi, gia đình, thời gian, mua sắm &amp; hoạt động hằng ngày</p>
         <div class="progress-track">
           <div class="progress-fill" id="bookProgressFill" style="width: 0%"></div>
         </div>
         <div class="progress-label">
-          <span id="bookProgressText">0 / 15 bài hoàn thành</span>
+          <span id="bookProgressText">0 / 15 bài đã học</span>
           <span id="bookProgressPct">0%</span>
         </div>
       </div>
@@ -2694,31 +2715,83 @@
     </aside>
 
     <section class="main-col">
-      <div id="starterGuideHost"></div>
+      <div id="starterGuideHost">
+        <div class="starter-banner">
+          <div class="starter-banner-top">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <strong style="font-size:13.5px;color:var(--primary);display:inline-flex;align-items:center;gap:6px;"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Lộ trình người mới</strong>
+              <span class="count-pill">0/5 mốc làm quen</span>
+            </div>
+            <div class="toolbar-row">
+              <button type="button" class="btn-pill" id="btnOpenRoadmapFromBanner" style="font-size:12px;padding:4px 10px;">Chi tiết</button>
+              <button type="button" class="btn-pill icon-only-btn" id="btnHideStarterBanner" style="padding:4px 7px;" title="Thu gọn" aria-label="Thu gọn lộ trình người mới"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+            </div>
+          </div>
+          <div class="starter-flow">
+            <button type="button" class="starter-chip" data-roadmap-action="tools">1 Pinyin &amp; Bộ thủ</button>
+            <span class="starter-arrow">→</span>
+            <button type="button" class="starter-chip" data-roadmap-action="study">2 Bài khóa</button>
+            <span class="starter-arrow">→</span>
+            <button type="button" class="starter-chip" data-roadmap-action="vocab">3 Từ vựng</button>
+            <span class="starter-arrow">→</span>
+            <button type="button" class="starter-chip" data-roadmap-action="workbook">4 Bài tập</button>
+            <span class="starter-arrow">→</span>
+            <button type="button" class="starter-chip" data-roadmap-action="skills">5 Kỹ năng</button>
+          </div>
+        </div>
+      </div>
 
       <div class="hero-card">
         <div>
-          <div class="hero-eyebrow" id="heroEyebrow">HSK 1 · BÀI 01</div>
-          <h1 class="hero-title-zh" id="heroTitleZh"></h1>
-          <p class="hero-pinyin" id="heroPinyin"></p>
-          <p class="hero-vi" id="heroVi"></p>
+          <div class="hero-eyebrow" id="heroEyebrow">HSK 1 · BÀI 01 · SƠ CẤP · CẤP 1</div>
+          <h1 class="hero-title-zh" id="heroTitleZh">AI小语，你好！</h1>
+          <p class="hero-pinyin" id="heroPinyin">AI Xiǎoyǔ, nǐ hǎo!</p>
+          <p class="hero-vi" id="heroVi">Chào AI Tiểu Ngữ!</p>
         </div>
         <div class="hero-actions">
-          <button class="btn-pill" id="btnFocusMode" title="Thu gọn danh sách bài để tập trung học">Tập trung</button>
-          <button class="btn-pill" id="btnSpeakTitle" title="Nghe đọc tiêu đề bài học">Nghe</button>
-          <button class="btn-pill primary" id="btnToggleComplete">Hoàn thành</button>
-          <button class="btn-pill" id="btnNextLesson">Bài tiếp →</button>
+          <button class="btn-pill" id="btnFocusMode" title="Thu gọn danh sách bài để tập trung học"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg> <span>Tập trung</span></button>
+          <button class="btn-pill" id="btnSpeakTitle" title="Nghe đọc tiêu đề bài học"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a8.5 8.5 0 0 1 0 12"/></svg> <span>Nghe</span></button>
+          <button class="btn-pill primary" id="btnToggleComplete"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Hoàn thành</span></button>
+          <button class="btn-pill" id="btnNextLesson"><span>Bài tiếp →</span></button>
         </div>
       </div>
 
       <div class="mode-tabs" role="tablist">
-        <button class="mode-tab active" role="tab" aria-selected="true" data-tab="study">Bài khóa</button>
-        <button class="mode-tab" role="tab" aria-selected="false" data-tab="vocab">Từ vựng</button>
-        <button class="mode-tab" role="tab" aria-selected="false" data-tab="workbook">Bài tập</button>
-        <button class="mode-tab" role="tab" aria-selected="false" data-tab="skills">Kỹ năng</button>
+        <button class="mode-tab active" role="tab" aria-selected="true" data-tab="study"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22Z"/><path d="M4 19.5V5.5"/><path d="M8 7h8"/></svg> <span>Bài khóa</span></button>
+        <button class="mode-tab" role="tab" aria-selected="false" data-tab="vocab"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 3 3 8 12 13 21 8 12 3"/><polyline points="3 13 12 18 21 13"/><polyline points="3 18 12 23 21 18"/></svg> <span>Từ vựng</span></button>
+        <button class="mode-tab" role="tab" aria-selected="false" data-tab="workbook"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> <span>Bài tập</span></button>
+        <button class="mode-tab" role="tab" aria-selected="false" data-tab="skills"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg> <span>Kỹ năng</span></button>
       </div>
 
-      <div id="tabContent"></div>
+      <div id="tabContent">
+        <div class="study-memo-shell" id="studyMemoShell">
+          <div class="section-card">
+            <div class="section-head" style="margin-bottom:6px;">
+              <h2 class="section-title"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22Z"/><path d="M4 19.5V5.5"/><path d="M8 7h8"/></svg> Bài khóa <span class="count-pill zh">课文 · 4</span></h2>
+              <div class="toolbar-row">
+                <button class="btn-pill primary" id="btnSpeakAllDialogues"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg> Nghe cả đoạn</button>
+                <button class="btn-pill" id="btnToggleRoleplay" title="Đóng vai trong hội thoại"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg> Đóng vai</button>
+                <button class="btn-pill" id="btnToggleMemo" title="Ghi chú viết tay lên bài học"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg> Ghi chú</button>
+              </div>
+            </div>
+            <div class="text-part-tabs" role="tablist" aria-label="Chọn bài khóa">
+              <button type="button" role="tab" aria-selected="true" class="text-part-btn active" data-text-part="0"><span>Bài khóa 1 (课文 1)</span></button>
+              <button type="button" role="tab" aria-selected="false" class="text-part-btn" data-text-part="1"><span>Bài khóa 2 (课文 2)</span></button>
+              <button type="button" role="tab" aria-selected="false" class="text-part-btn" data-text-part="2"><span>Bài khóa 3 (课文 3)</span></button>
+              <button type="button" role="tab" aria-selected="false" class="text-part-btn" data-text-part="3"><span>Bài khóa 4 (绕口令)</span></button>
+            </div>
+            <div class="text-scene-bar">
+              <div class="zh" style="font-weight:700;color:var(--primary);">开学第一天，在办公室里，王一飞和AI助教小语打招呼。</div>
+              <div style="color:var(--text-muted);margin-top:2px;">Ngày đầu tiên khai giảng, trong văn phòng, Vương Nhất Phi chào hỏi trợ giảng AI Tiểu Ngữ.</div>
+            </div>
+            <div class="text-submode-bar">
+              <button type="button" class="text-submode-btn active" data-text-submode="read">Đọc bài (2)</button>
+              <button type="button" class="text-submode-btn" data-text-submode="comprehension">Đọc hiểu (2)</button>
+              <button type="button" class="text-submode-btn" data-text-submode="dictation">Nghe chép (2)</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -2888,9 +2961,15 @@
 
       const STORE_KEY = "hoangu_hsk30_v1";
       const BOOK_ORDER = ["hsk1", "hsk2", "hsk3", "hsk4a"];
-      const curriculum = window.HSK_CURRICULUM || {};
+      const BOOK_META = {
+        hsk1:  { id: "hsk1",  shortName: "HSK 1",        name: "HSK 1 (新HSK教程 1)",          badge: "Sơ cấp · Cấp 1",      totalLessons: 15, dataSrc: "data/hsk1_data.js",  textSrc: "data/textbook_texts_hsk1.js" },
+        hsk2:  { id: "hsk2",  shortName: "HSK 2",        name: "HSK 2 (新HSK教程 2)",          badge: "Sơ cấp · Cấp 2",      totalLessons: 15, dataSrc: "data/hsk2_data.js",  textSrc: "data/textbook_texts_hsk2.js" },
+        hsk3:  { id: "hsk3",  shortName: "HSK 3",        name: "HSK 3 (新HSK教程 3)",          badge: "Trung cấp · Cấp 3",   totalLessons: 18, dataSrc: "data/hsk3_data.js",  textSrc: "data/textbook_texts_hsk3.js" },
+        hsk4a: { id: "hsk4a", shortName: "HSK 4 Thượng", name: "HSK 4 Thượng (新HSK教程 4上)", badge: "Trung cao · Cấp 4上", totalLessons: 10, dataSrc: "data/hsk4a_data.js", textSrc: "data/textbook_texts_hsk4a.js" },
+      };
+      const curriculum = window.HSK_CURRICULUM = window.HSK_CURRICULUM || {};
 
-      /* On-demand lazy loader for heavy offline data scripts (stroke_data, extended_dict, reference_data) */
+      /* On-demand lazy loader for heavy/per-book offline data scripts (100% file:// safe) */
       const _lazyScriptCache = {};
       function loadDataScriptOnce(src) {
         if (_lazyScriptCache[src]) return _lazyScriptCache[src];
@@ -2907,6 +2986,32 @@
         });
         return _lazyScriptCache[src];
       }
+      function countCompletedForBook(bookId) {
+        const prefix = `${bookId}-`;
+        let n = 0;
+        if (state && state.completed) {
+          for (const k in state.completed) {
+            if (k.startsWith(prefix) && state.completed[k]) n++;
+          }
+        }
+        return n;
+      }
+      function ensureBookLoaded(bookId) {
+        const meta = BOOK_META[bookId];
+        if (!meta) return Promise.resolve(false);
+        const jobs = [];
+        if (!curriculum[bookId]) jobs.push(loadDataScriptOnce(meta.dataSrc));
+        if (!(window.TEXTBOOK_TEXTS && window.TEXTBOOK_TEXTS[`${bookId}-1`])) {
+          jobs.push(loadDataScriptOnce(meta.textSrc));
+        }
+        return jobs.length ? Promise.all(jobs).then((res) => res.every(Boolean)) : Promise.resolve(true);
+      }
+      function ensureAllBooksLoaded() {
+        return Promise.all(BOOK_ORDER.map((id) => ensureBookLoaded(id)));
+      }
+      function ensureVocabImages() {
+        return window.VOCAB_IMAGE_MAP ? Promise.resolve(true) : loadDataScriptOnce("data/vocab_images.js");
+      }
       function ensureStrokeData() {
         return window.HANZI_STROKE_DATA ? Promise.resolve(true) : loadDataScriptOnce("data/stroke_data.js");
       }
@@ -2916,6 +3021,7 @@
       function ensureReferenceData() {
         return window.PINYIN_REF ? Promise.resolve(true) : loadDataScriptOnce("data/reference_data.js");
       }
+      window.__ensureAllCurriculumData = () => Promise.all([ensureAllBooksLoaded(), ensureVocabImages()]);
 
       const _loadedOptionalFonts = new Set();
       const OPTIONAL_FONT_URLS = {
@@ -3465,12 +3571,19 @@
         vocabImgTargetHanzi = hanzi;
         const lbl = document.getElementById("vocabImgTargetLabel");
         if (lbl) lbl.textContent = hanzi;
-        const found = findVocabByHanzi(hanzi);
         const pv = document.getElementById("vocabImgPreviewBox");
-        if (pv) pv.innerHTML = `<img src="${escapeHtml(getVocabImgSrc(found))}" alt="${escapeHtml(hanzi)}" />`;
+        if (pv) pv.innerHTML = `<img src="${escapeHtml(getVocabImgSrc(findVocabByHanzi(hanzi)))}" alt="${escapeHtml(hanzi)}" />`;
         const urlIn = document.getElementById("vocabImgUrlInput");
         if (urlIn) urlIn.value = (state.customWordImages && state.customWordImages[hanzi]) || "";
         document.getElementById("vocabImgModal").classList.remove("hidden");
+        if (!window.VOCAB_IMAGE_MAP) {
+          ensureVocabImages().then((ok) => {
+            const m = document.getElementById("vocabImgModal");
+            if (ok && m && !m.classList.contains("hidden") && vocabImgTargetHanzi === hanzi && pv) {
+              pv.innerHTML = `<img src="${escapeHtml(getVocabImgSrc(findVocabByHanzi(hanzi)))}" alt="${escapeHtml(hanzi)}" />`;
+            }
+          });
+        }
       }
 
       function resizeImageFileToDataUrl(file, maxDim, callback) {
@@ -4153,7 +4266,7 @@
       const hardTransInputs = {};
 
       const FONT_VI_OPTIONS = [
-        { id: "be-vietnam", name: "Be Vietnam Pro", desc: "Chuẩn hiện đại", css: '"Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' },
+        { id: "be-vietnam", name: "Be Vietnam Pro", desc: "Chuẩn hiện đại", css: '"Be Vietnam Pro", "Be Vietnam Pro Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' },
         { id: "nunito", name: "Nunito", desc: "Tròn mềm, dễ đọc", css: '"Nunito", "Be Vietnam Pro", "Segoe UI Rounded", sans-serif' },
         { id: "itim", name: "Itim", desc: "Nét viết tay sổ tay", css: '"Itim", "Be Vietnam Pro", "Comic Sans MS", cursive' },
         { id: "lora", name: "Lora", desc: "Chữ in sách cổ điển", css: '"Lora", Georgia, "Times New Roman", serif' },
@@ -4388,9 +4501,9 @@
       function renderBookTabs() {
         const container = document.getElementById("bookTabs");
         container.innerHTML = BOOK_ORDER.map((id) => {
-          const b = curriculum[id];
+          const b = BOOK_META[id] || curriculum[id];
           if (!b) return "";
-          const doneCount = b.lessons.filter((l) => state.completed[lessonKey(id, l.lesson)]).length;
+          const doneCount = countCompletedForBook(id);
           return `<button class="book-tab ${state.bookId === id ? "active" : ""}" data-book="${id}">
             <span>${escapeHtml(b.shortName)}</span>
             <span class="book-tab-count">${doneCount}/${b.totalLessons}</span>
@@ -5886,6 +5999,11 @@
           }
         } else if (state.activeTab === "vocab") {
           host.innerHTML = renderVocabLabTab(l);
+          if (!window.VOCAB_IMAGE_MAP) {
+            ensureVocabImages().then((ok) => {
+              if (ok && state.activeTab === "vocab") renderTabContent();
+            });
+          }
           if (vocabLabState.subMode === "write") {
             redrawWritePad();
             if (!window.HANZI_STROKE_DATA) {
@@ -5901,11 +6019,12 @@
         }
       }
 
-      function selectBook(bookId) {
-        if (!curriculum[bookId]) return;
+      function selectBook(bookId, targetLessonNum = 1) {
+        const meta = BOOK_META[bookId];
+        if (!meta) return;
         stopDialoguePlayback(true);
         state.bookId = bookId;
-        state.lessonNum = 1;
+        state.lessonNum = targetLessonNum;
         studyTextState.textIdx = 0;
         studyTextState.subMode = "read";
         studyTextState.showRefInQuiz = false;
@@ -5913,6 +6032,18 @@
         roleplayState.playing = false; roleplayState.turnIdx = 0; roleplayState.userSpeaker = ""; roleplayState.runId += 1;
         resetVocabLabForLesson();
         saveState();
+        const textReady = !!(window.TEXTBOOK_TEXTS && window.TEXTBOOK_TEXTS[`${bookId}-1`]);
+        if (!curriculum[bookId] || !textReady) {
+          renderBookTabs();
+          const host = document.getElementById("tabContent");
+          if (host) {
+            host.innerHTML = `<div class="section-card" style="text-align:center;padding:32px;color:var(--text-muted);">Đang tải giáo trình ${escapeHtml(meta.shortName)}...</div>`;
+          }
+          ensureBookLoaded(bookId).then(() => {
+            if (state.bookId === bookId) renderAll();
+          });
+          return;
+        }
         renderAll();
       }
 
@@ -5936,7 +6067,9 @@
       function renderStarterGuideBanner() {
         const host = document.getElementById("starterGuideHost");
         if (!host) return;
-        if (state.hideStarterBanner || state.focusMode) {
+        const hideBanner = !!(state.hideStarterBanner || state.focusMode);
+        document.documentElement.classList.toggle("hide-starter", hideBanner);
+        if (hideBanner) {
           host.innerHTML = "";
           return;
         }
@@ -7004,7 +7137,7 @@
         touchStudyDay();
         stopStrokeAnim();
         charInspectorState.char = ch;
-        const needLazy = !window.HANZI_STROKE_DATA || !window.EXTENDED_DICT || !window.PINYIN_REF;
+        const needLazy = !window.HANZI_STROKE_DATA || !window.EXTENDED_DICT || !window.PINYIN_REF || BOOK_ORDER.some((id) => !curriculum[id]);
         charInspectorState.mode = getCharStrokeData(ch) ? "stroke" : "draw";
         charInspectorState.stepIdx = 0;
         charInspectorState.strokes = [];
@@ -7015,7 +7148,7 @@
         }
         if (needLazy) {
           const hadStrokes = !!getCharStrokeData(ch);
-          Promise.all([ensureStrokeData(), ensureExtendedDict(), ensureReferenceData()]).then(() => {
+          Promise.all([ensureStrokeData(), ensureExtendedDict(), ensureReferenceData(), ensureAllBooksLoaded()]).then(() => {
             const modal = document.getElementById("charModal");
             if (!modal || modal.classList.contains("hidden") || charInspectorState.char !== ch) return;
             if (!hadStrokes && getCharStrokeData(ch) && !charInspectorState.strokes.length) {
@@ -7491,10 +7624,10 @@
           <strong style="display:block;font-size:14.5px;margin-bottom:8px;">🗺️ 3. Lộ trình tổng thể 4 chặng · 58 bài chuẩn HSK 3.0</strong>
           <div class="stage-roadmap-list">
             ${BOOK_ORDER.map((bId, idx) => {
-              const b = curriculum[bId];
+              const b = BOOK_META[bId] || curriculum[bId];
               if (!b) return "";
-              const info = stageDetails[bId] || { pace: "", goal: b.subtitle };
-              const doneLessons = b.lessons.filter((l) => state.completed[lessonKey(bId, l.lesson)]).length;
+              const info = stageDetails[bId] || { pace: "", goal: b.subtitle || "" };
+              const doneLessons = countCompletedForBook(bId);
               const pct = Math.round((doneLessons / b.totalLessons) * 100);
               return `
                 <div class="stage-roadmap-card">
@@ -7530,25 +7663,35 @@
         const rankSpan = rank.nextXp ? (rank.nextXp - rank.minXp) : 1;
         const rankPct = rank.nextXp ? Math.min(100, Math.max(4, Math.round(((xp - rank.minXp) / rankSpan) * 100))) : 100;
 
+        const needBookStats = BOOK_ORDER.some((id) => !curriculum[id]);
+        if (needBookStats) {
+          ensureAllBooksLoaded().then(() => {
+            const m = document.getElementById("progressModal");
+            if (m && !m.classList.contains("hidden")) renderProgressModal();
+          });
+        }
         const bookCardsHtml = BOOK_ORDER.map((bId) => {
+          const meta = BOOK_META[bId] || curriculum[bId];
+          if (!meta) return "";
           const b = curriculum[bId];
-          if (!b) return "";
-          const doneLessons = b.lessons.filter((l) => state.completed[lessonKey(bId, l.lesson)]).length;
-          const pct = Math.round((doneLessons / b.totalLessons) * 100);
+          const doneLessons = countCompletedForBook(bId);
+          const pct = Math.round((doneLessons / meta.totalLessons) * 100);
           let bookWords = 0, bookMastered = 0;
-          b.lessons.forEach((l) => (l.vocab || []).forEach((v) => {
-            bookWords++;
-            if (state.masteredWords && state.masteredWords[v.hanzi]) bookMastered++;
-          }));
+          if (b && b.lessons) {
+            b.lessons.forEach((l) => (l.vocab || []).forEach((v) => {
+              bookWords++;
+              if (state.masteredWords && state.masteredWords[v.hanzi]) bookMastered++;
+            }));
+          }
           return `
             <div class="roadmap-card">
               <div style="display:flex;justify-content:space-between;align-items:center;">
-                <strong>${escapeHtml(b.shortName)}</strong>
-                <span class="drill-idx">${doneLessons}/${b.totalLessons} bài</span>
+                <strong>${escapeHtml(meta.shortName)}</strong>
+                <span class="drill-idx">${doneLessons}/${meta.totalLessons} bài</span>
               </div>
-              <div style="font-size:12px;color:var(--text-muted);">${escapeHtml(b.badge)}</div>
+              <div style="font-size:12px;color:var(--text-muted);">${escapeHtml(meta.badge)}</div>
               <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-              <div style="font-size:12px;color:var(--text-muted);">Từ đã thuộc: <strong>${bookMastered}</strong>/${bookWords}</div>
+              <div style="font-size:12px;color:var(--text-muted);">Từ đã thuộc: <strong>${b ? bookMastered : "—"}</strong>${b ? `/${bookWords}` : ""}</div>
               <button type="button" class="btn-pill primary" data-prog-jump="${bId}" style="margin-top:auto;">Vào học ${ico("arrowRight")}</button>
             </div>
           `;
@@ -8970,10 +9113,7 @@
         const charJumpBtn = e.target.closest("[data-char-jump-book]");
         if (charJumpBtn) {
           document.getElementById("charModal").classList.add("hidden");
-          state.bookId = charJumpBtn.dataset.charJumpBook;
-          state.lessonNum = Number(charJumpBtn.dataset.charJumpLesson);
-          saveState();
-          renderAll();
+          selectBook(charJumpBtn.dataset.charJumpBook, Number(charJumpBtn.dataset.charJumpLesson));
           return;
         }
 
@@ -9496,9 +9636,9 @@
           sInp.value = "";
           renderSearchResults("");
           sInp.focus();
-          if (!window.EXTENDED_DICT) {
-            ensureExtendedDict().then((ok) => {
-              if (ok && !document.getElementById("searchModal").classList.contains("hidden")) {
+          if (!window.EXTENDED_DICT || BOOK_ORDER.some((id) => !curriculum[id])) {
+            Promise.all([ensureExtendedDict(), ensureAllBooksLoaded()]).then(() => {
+              if (!document.getElementById("searchModal").classList.contains("hidden")) {
                 renderSearchResults(sInp.value || "");
               }
             });
@@ -9511,11 +9651,8 @@
         }
         const jumpBtn = e.target.closest("[data-jump-book]");
         if (jumpBtn) {
-          state.bookId = jumpBtn.dataset.jumpBook;
-          state.lessonNum = Number(jumpBtn.dataset.jumpLesson);
           document.getElementById("searchModal").classList.add("hidden");
-          saveState();
-          renderAll();
+          selectBook(jumpBtn.dataset.jumpBook, Number(jumpBtn.dataset.jumpLesson));
           return;
         }
 
@@ -9688,9 +9825,9 @@
           const sInp = document.getElementById("searchInput");
           renderSearchResults(sInp.value || "");
           sInp.focus();
-          if (!window.EXTENDED_DICT) {
-            ensureExtendedDict().then((ok) => {
-              if (ok && !document.getElementById("searchModal").classList.contains("hidden")) {
+          if (!window.EXTENDED_DICT || BOOK_ORDER.some((id) => !curriculum[id])) {
+            Promise.all([ensureExtendedDict(), ensureAllBooksLoaded()]).then(() => {
+              if (!document.getElementById("searchModal").classList.contains("hidden")) {
                 renderSearchResults(sInp.value || "");
               }
             });
@@ -9731,6 +9868,14 @@
       touchStudyDay(true);
       saveState(true);
       renderAll();
+      if (state.bookId !== "hsk1" && (!curriculum[state.bookId] || !(window.TEXTBOOK_TEXTS && window.TEXTBOOK_TEXTS[`${state.bookId}-1`]))) {
+        ensureBookLoaded(state.bookId).then(() => renderAll());
+      }
+      if (state.activeTab === "vocab" && !window.VOCAB_IMAGE_MAP) {
+        ensureVocabImages().then((ok) => {
+          if (ok && state.activeTab === "vocab") renderTabContent();
+        });
+      }
       if (authSession && authSession.access_token) {
         pullAndMergeCloudProgress().catch(() => {});
       }

@@ -4,8 +4,8 @@ window.HSK_CURRICULUM["hsk4a"] = {
   "id": "hsk4a",
   "name": "HSK 4 Thượng (新HSK教程 4上)",
   "shortName": "HSK 4 Thượng",
-  "subtitle": "10 bài cao cấp nền tảng · Diễn đạt học thuật, phản biện logic & câu phức nâng cao",
-  "badge": "Trung cao cấp · Tập Thượng",
+  "subtitle": "10 bài cao cấp nền tảng · Diễn đạt học thuật, phản biện logic & nâng cấp HSK 3.0 (4.1)",
+  "badge": "Trung cao · Tập Thượng",
   "totalLessons": 10,
   "lessons": [
     {
@@ -82,6 +82,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "động từ",
           "vi": "thích nghi, quen với",
           "example": "他很快适应了这里的生活。"
+        },
+        {
+          "hanzi": "新鲜感",
+          "pinyin": "xīnxiāngǎn",
+          "pos": "danh từ",
+          "vi": "cảm giác mới mẻ (nâng cấp HSK 3.0 · 4.1)",
+          "example": "两个人在一起生活，只有新鲜感是不够的。"
+        },
+        {
+          "hanzi": "好笑",
+          "pinyin": "hǎoxiào",
+          "pos": "tính từ",
+          "vi": "buồn cười, tức cười",
+          "example": "他说的话很好笑，大家都笑了。"
+        },
+        {
+          "hanzi": "仅仅",
+          "pinyin": "jǐnjǐn",
+          "pos": "phó từ",
+          "vi": "chỉ, vẻn vẹn (nhấn ít/hạn hẹp)",
+          "example": "我仅仅用了二十分钟就写完了作业。"
+        },
+        {
+          "hanzi": "老是",
+          "pinyin": "lǎoshi",
+          "pos": "phó từ",
+          "vi": "suốt ngày, cứ mãi (thói quen xấu)",
+          "example": "他老是迟到，今天又晚了半个小时。"
+        },
+        {
+          "hanzi": "少年",
+          "pinyin": "shàonián",
+          "pos": "danh từ",
+          "vi": "thiếu niên (6–12/18 tuổi)",
+          "example": "少年时的我很喜欢画画。"
+        },
+        {
+          "hanzi": "青年",
+          "pinyin": "qīngnián",
+          "pos": "danh từ",
+          "vi": "thanh niên",
+          "example": "越来越多的青年人用AI解决生活中的问题。"
         }
       ],
       "etymology": {
@@ -112,6 +154,40 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Có thể đảo vị trí giữa 一方面 và chủ ngữ nếu 2 vế cùng chủ ngữ."
+        },
+        {
+          "title": "Lượng từ mượn từ danh từ: 脸、手、盒、屋子、桌子 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 一脸 + Danh từ/Tính từ: đầy mặt vẻ gì (一脸汗, 一脸幸福).\n• 一手 + Danh từ: tay nghề khéo léo (做一手好菜, 写得一手好字).\n• 一盒 (một hộp), 一屋子 (đầy ắp cả phòng), 一桌子 (cả bàn đầy đồ ăn/người).",
+          "examples": [
+            {
+              "hanzi": "我爷爷的字写得特别好，爸爸也写得一手好字。",
+              "pinyin": "Wǒ yéye de zì xiě de tèbié hǎo, bàba yě xiě de yì shǒu hǎo zì.",
+              "vi": "Chữ ông nội tôi viết rất đẹp, bố tôi cũng viết được nét chữ rất đẹp."
+            },
+            {
+              "hanzi": "妈妈做的菜太好吃了！我也希望能像她一样做一手好菜。",
+              "pinyin": "Māma zuò de cài tài hǎochī le! Wǒ yě xīwàng néng zuò yì shǒu hǎo cài.",
+              "vi": "Món mẹ nấu ngon quá! Tôi cũng mong có thể nấu khéo như mẹ."
+            }
+          ],
+          "trap": "Không nhầm '一屋子人' (đông nghịt người đầy phòng) với '一个屋子' (một căn phòng)."
+        },
+        {
+          "title": "Phó từ tần suất 老 & Cụm cố định 一A一B · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 老 + Động từ: cứ mãi, luôn luôn (hay mang sắc thái phàn nàn nhẹ: 老是迟到, 老发脾气).\n• 一A一B: 一心一意 (toàn tâm toàn ý), 一生一世 (trọn đời trọn kiếp), 一五一十 (đầu đuôi ngọn ngành), 一言一行 (từng lời nói việc làm).",
+          "examples": [
+            {
+              "hanzi": "请把今天发生的事情一五一十地告诉老师。",
+              "pinyin": "Qǐng bǎ jīntiān fāshēng de shìqing yìwǔyīshí de gàosu lǎoshī.",
+              "vi": "Hãy kể lại đầu đuôi sự việc hôm nay cho thầy giáo."
+            },
+            {
+              "hanzi": "学习的时候要一心一意，不要一边看书一边玩手机。",
+              "pinyin": "Xuéxí de shíhou yào yìxīnyíyì, búyào yìbiān kànshū yìbiān wán shǒujī.",
+              "vi": "Lúc học phải chuyên tâm nhất ý, đừng vừa đọc sách vừa nghịch điện thoại."
+            }
+          ],
+          "trap": "Tránh dùng 老 để khen thói quen tốt trang trọng (dùng 总是/一直 sẽ tự nhiên hơn)."
         }
       ],
       "exercises": {
@@ -121,7 +197,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "任何",
             "要是",
             "一方面",
-            "适应"
+            "适应",
+            "新鲜感",
+            "仅仅",
+            "老是",
+            "手",
+            "桌子"
           ],
           "items": [
             {
@@ -144,6 +225,27 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Zǎoqǐ duànliàn yìfāngmiàn néng zēngqiáng tǐzhì... yàoshi yǒu rènhé bù dǒng de dìfang, qǐng wèn wǒ.",
               "vi": "Dậy sớm tập luyện một mặt giúp khỏe mạnh... nếu có bất kỳ chỗ nào chưa hiểu hãy hỏi tôi.",
               "explanation": "一方面……; câu điều kiện 要是 đi với 任何."
+            },
+            {
+              "prompt": "两个人在一起生活，只有 ( ____ ) 是不够的；别着急，这 ( ____ ) 是开始。",
+              "answers": [
+                "新鲜感",
+                "仅仅"
+              ],
+              "pinyin": "Liǎng gè rén zài yìqǐ shēnghuó, zhǐyǒu xīnxiāngǎn shì bú gòu de; bié zháojí, zhè jǐnjǐn shì kāishǐ.",
+              "vi": "Hai người sống cùng nhau, chỉ có cảm giác mới mẻ là chưa đủ; đừng vội, đây mới chỉ là bắt đầu.",
+              "explanation": "Đề HSK 4.1 Bài 1: 新鲜感 (cảm giác mới mẻ); 仅仅 (chỉ mới)."
+            },
+            {
+              "prompt": "他 ( ____ ) 喜欢和我开玩笑；爷爷写得一 ( ____ ) 好字，妈妈做了一 ( ____ ) 好菜。",
+              "answers": [
+                "老是",
+                "手",
+                "桌子"
+              ],
+              "pinyin": "Tā lǎoshi xǐhuan hé wǒ kāiwánxiào; yéye xiě de yì shǒu hǎo zì, māma zuò le yì zhuōzi hǎo cài.",
+              "vi": "Anh ấy suốt ngày thích đùa với tôi; ông viết chữ rất khéo, mẹ nấu cả một bàn đồ ăn ngon.",
+              "explanation": "Đề HSK 4.1 Bài 1: 老是 (luôn/suốt ngày); 一手好字 (tài viết chữ); 一桌子菜 (một bàn đồ ăn)."
             }
           ]
         },
@@ -173,6 +275,19 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Xuǎnzé zhège zhuānyè, yìfāngmiàn shì yīnwèi xìngqù, lìng yìfāngmiàn yě shì wèile gōngzuò.",
             "vi": "Chọn chuyên ngành này một mặt vì sở thích, mặt khác cũng vì công việc sau này.",
             "explanation": "Vận dụng cấu trúc Bài 1 (HSK 4 Thượng): 任何 (bất kỳ), 要是…就… (nếu như... thì...), 随着 (cùng với sự...), 一方面…另一方面… (một mặt... mặt khác...)."
+          },
+          {
+            "parts": [
+              "学习的时候",
+              "要",
+              "一心一意",
+              "不要",
+              "玩手机"
+            ],
+            "answer": "学习的时候要一心一意，不要玩手机。",
+            "pinyin": "Wǒ yéye de zì xiě de tèbié hǎo, bàba yě xiě de yì shǒu hǎo zì.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 1).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 1."
           }
         ],
         "correction": [
@@ -181,6 +296,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "她几乎什么食物都吃，尤其爱吃烤鸭。（或：任何食物他都可以接受。）",
             "pinyin": "Suízhe niánlíng de zēngzhǎng, wǒ yuèláiyuè lǐjiě fùmǔ de xīnkǔ le.",
             "explanation": "任何 thiên về phạm vi bao quát nhấn mạnh 'bất kỳ... nào (dù là...)'; tránh dùng ghép 任何 + 都 + 一点儿 gây mâu thuẫn ngữ nghĩa."
+          },
+          {
+            "wrong": "他老是很早就按时来学校帮大家开门。",
+            "right": "他总是很早就按时来学校帮大家开门。",
+            "pinyin": "",
+            "explanation": "Phó từ 老/老是 thường mang sắc thái phàn nàn hoặc thói quen xấu/lặp lại ngoài ý muốn; khen tích cực nên dùng 总是 hoặc 一直."
           }
         ],
         "true_false": [
@@ -195,6 +316,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Suízhe niánlíng de zēngzhǎng, wǒ yuèláiyuè lǐjiě fùmǔ de xīnkǔ le.",
             "isTrue": false,
             "explanation": "Sai! 任何 thiên về phạm vi bao quát nhấn mạnh 'bất kỳ... nào (dù là...)'; tránh dùng ghép 任何 + 都 + 一点儿 gây mâu thuẫn ngữ nghĩa."
+          },
+          {
+            "statement": "Cụm từ '一五一十' dùng để chỉ việc kể lại tường tận, đầy đủ chi tiết sự việc.",
+            "pinyin": "Yìwǔyīshí",
+            "isTrue": true,
+            "explanation": "Chính xác theo Sổ tay HSK 4.1 Bài 1 (一五一十: in full detail)."
           }
         ],
         "dictation": [
@@ -247,6 +374,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '任何' và ngữ pháp Bài 1 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: 任何 (bất kỳ), 要是…就… (nếu như... thì...), 随着 (cùng với sự...), 一方面…另一方面… (một mặt... mặt khác...)",
             "sampleAnswer": "随着年龄的增长，我越来越理解父母的辛苦了。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你们国家划分少年、青年、中年、老年的年龄标准是什么？你现在的学习或工作情况如何？",
+            "pinyin": "Nǐmen guójiā huàfēn shàonián, qīngnián, zhōngnián, lǎonián de niánlíng biāozhǔn shì shénme?",
+            "vi": "Tiêu chuẩn chia độ tuổi thiếu niên, thanh niên, trung niên, cao tuổi ở nước bạn là gì? Tình hình học tập/công việc hiện tại của bạn ra sao? (Luyện nói ~2 phút theo HSK 4.1 Bài 1).",
+            "hint": "Dàn ý 4.1: (1) Nêu rõ mốc tuổi từng giai đoạn (vd: 6–18 thiếu niên, 18–35 thanh niên...); (2) Nêu độ tuổi hiện tại của bạn; (3) Kể hoạt động hằng ngày, tâm trạng và dự định tương lai.",
+            "sampleAnswer": "在我们国家，6到18岁是少年，18到35岁是青年，36到60岁是中年，60岁以上是老年。我今年20岁，是青年。现在我在上大学，每天上课、看书，周末会和同学一起吃饭、逛街、看电影，生活很幸福。我有自己的想法，现在努力学习，毕业以后找一份自己喜欢的工作。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 请以《我眼中的爱情》为题，写一篇不少于80字的短文。",
+            "pinyin": "Qǐng yǐ Wǒ yǎnzhōng de àiqíng wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn tối thiểu 80 chữ với đề tài: Tình yêu trong mắt tôi (theo chuẩn viết HSK 3.0 cấp 4 sách 4.1 Bài 1).",
+            "hint": "Bố cục 3 phần: (1) Mở bài nêu quan niệm chung; (2) Thân bài lấy ví dụ chuyện nhỏ hằng ngày, cùng sở thích, thấu hiểu nhau; (3) Kết bài khẳng định ý nghĩa.",
+            "sampleAnswer": "在我看来，爱情是简单又幸福的。两个人在一起，最好有共同的爱好，这样就可以一起做很多事情，比如一起打球、唱歌、做菜什么的。爱情不是仅仅互相喜欢就够了，还要接受对方的缺点，互相理解。和喜欢的人一起好好生活，每天都觉得很幸福，这就是我眼中的爱情。"
           }
         ]
       }
@@ -325,6 +466,41 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "liên từ",
           "vi": "nhưng mà, tuy nhiên (nhẹ nhàng)",
           "example": "那件衣服很漂亮，不过太贵了。"
+        },
+        {
+          "hanzi": "基本",
+          "pinyin": "jīběn",
+          "pos": "tính từ/phó từ",
+          "vi": "cơ bản, nền tảng",
+          "example": "按时完成作业是学习的基本要求。"
+        },
+        {
+          "hanzi": "基本上",
+          "pinyin": "jīběnshang",
+          "pos": "phó từ",
+          "vi": "về cơ bản, hầu như",
+          "example": "大家基本上都同意这个办法。"
+        },
+        {
+          "hanzi": "巧",
+          "pinyin": "qiǎo",
+          "pos": "tính từ",
+          "vi": "trùng hợp, khéo quá",
+          "example": "这么巧，我也打算去，一起吧。"
+        },
+        {
+          "hanzi": "日常",
+          "pinyin": "rìcháng",
+          "pos": "tính từ",
+          "vi": "hằng ngày, thường nhật",
+          "example": "在日常生活中，朋友给我很多帮助。"
+        },
+        {
+          "hanzi": "答应",
+          "pinyin": "dāying",
+          "pos": "động từ",
+          "vi": "đồng ý, nhận lời",
+          "example": "老同学邀请我参加聚会，我答应了。"
         }
       ],
       "etymology": {
@@ -355,6 +531,35 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Không dùng 就是了 khi người nói đang tức giận bác bỏ nghiêm trọng câu trước."
+        },
+        {
+          "title": "Động lượng từ 场、顿、趟 & Cụm 无A无B · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 场 (chǎng): cơn/trận có đầu có cuối (一场大雨, 一场大病).\n• 顿 (dùn): bữa ăn hoặc trận mắng (吃一顿火锅, 一日三顿).\n• 趟 (tàng): chuyến đi rồi về (去趟超市, 回了趟宿舍).\n• 无A无B: 无时无刻 (mọi lúc), 无声无息 (lặng lẽ), 无亲无故 (không thân thích), 无边无际 (mênh mông).",
+          "examples": [
+            {
+              "hanzi": "昨天我的中国朋友请我吃了一顿特别好吃的中餐。",
+              "pinyin": "Zuótiān wǒ de Zhōngguó péngyou qǐng wǒ chī le yí dùn tèbié hǎochī de Zhōngcān.",
+              "vi": "Hôm qua bạn Trung Quốc mời tôi ăn một bữa món Trung cực ngon."
+            },
+            {
+              "hanzi": "小猫无声无息地走进房间，没有发出一点儿声音。",
+              "pinyin": "Xiǎomāo wúshēngwúxī de zǒujìn fángjiān, méiyǒu fāchū yìdiǎnr shēngyīn.",
+              "vi": "Chú mèo con lặng lẽ bước vào phòng, không phát ra chút tiếng động nào."
+            }
+          ],
+          "trap": "Lưu ý thanh 3 của 场 trong 一场雨/一场病 đọc là chǎng (khác cháng: sân bãi)."
+        },
+        {
+          "title": "Câu phức lựa chọn 不是……，就是…… · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "Biểu thị sự việc thường xuyên chỉ rơi vào 1 trong 2 khả năng A hoặc B, không có ngoại lệ khác.",
+          "examples": [
+            {
+              "hanzi": "在北京租房子真不容易，不是离公司太远，就是价格太贵。",
+              "pinyin": "Zài Běijīng zū fángzi zhēn bù róngyì, bú shì lí gōngsī tài yuǎn, jiùshì jiàgé tài guì.",
+              "vi": "Thuê nhà ở Bắc Kinh thật không dễ, không xa công ty quá thì giá cũng đắt quá."
+            }
+          ],
+          "trap": "Phân biệt với '不是……，而是……' (phủ định A khẳng định B là sự thật duy nhất)."
         }
       ],
       "exercises": {
@@ -364,7 +569,11 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "由于",
             "并",
             "不过",
-            "就是了"
+            "就是了",
+            "基本",
+            "顿",
+            "答应",
+            "不是"
           ],
           "items": [
             {
@@ -387,6 +596,26 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Yíhuìr yǔ tíng le zài zǒu jiùshì le, búguò lùshàng kěnéng yǒudiǎnr dǔchē.",
               "vi": "Lát tạnh mưa rồi đi thế là xong, chỉ có điều đường có thể hơi tắc.",
               "explanation": "Trấn an nhẹ: 就是了; chuyển ý: 不过."
+            },
+            {
+              "prompt": "按时完成作业是学习最 ( ____ ) 的要求；周末我们一起去饭店吃了 ( ____ ) 火锅。",
+              "answers": [
+                "基本",
+                "顿"
+              ],
+              "pinyin": "Ànshí wánchéng zuòyè shì xuéxí zuì jīběn de yāoqiú; zhōumò wǒmen chī le dùn huǒguō.",
+              "vi": "Làm bài tập đúng hạn là yêu cầu cơ bản nhất; cuối tuần chúng tôi đi ăn một bữa lẩu.",
+              "explanation": "Đề HSK 4.1 Bài 2: 基本 (cơ bản); 顿 (lượng từ bữa ăn)."
+            },
+            {
+              "prompt": "昨天他 ( ____ ) 去逛街？不，他周末 ( ____ ) 在家看书，就是出去散步。",
+              "answers": [
+                "答应",
+                "不是"
+              ],
+              "pinyin": "Zuótiān tā dāying qù guàngjiē? Bù, tā zhōumò bú shì zài jiā kànshū, jiùshì chūqù sànbù.",
+              "vi": "Hôm qua anh ấy đồng ý đi dạo phố à? Không, cuối tuần anh ấy không đọc sách ở nhà thì cũng ra ngoài đi dạo.",
+              "explanation": "Đề HSK 4.1 Bài 2: 答应 (đồng ý); 不是……，就是…… (không A thì B)."
             }
           ]
         },
@@ -418,6 +647,19 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Zhè jiàn qúnzi yǒudiǎnr cháng, búguò gǎi duǎn yìdiǎn jiùshì le.",
             "vi": "Chiếc váy này hơi dài chút, nhưng sửa ngắn đi một tí là ổn thôi.",
             "explanation": "Vận dụng cấu trúc Bài 2 (HSK 4 Thượng): ×就是了 (chỉ cần... là được), …不过… (nhưng mà), 并 (không hề + phủ định), 由于 (do/bởi vì)."
+          },
+          {
+            "parts": [
+              "昨天",
+              "中国朋友",
+              "请我",
+              "吃了一顿",
+              "好吃的中餐"
+            ],
+            "answer": "昨天中国朋友请我吃了一顿好吃的中餐。",
+            "pinyin": "Zuótiān wǒ de Zhōngguó péngyou qǐng wǒ chī le yí dùn tèbié hǎochī de Zhōngcān.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 2).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 2."
           }
         ],
         "correction": [
@@ -426,6 +668,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "这个题其实并不难，你再仔细看看。",
             "pinyin": "Hěn duō rén yǐwéi tā hěn yánsù, qíshí tā bìng bù kěpà.",
             "explanation": "Phó từ 并 chỉ đứng TRƯỚC từ phủ định 不 / 没 để phản bác giả định, không kết hợp với câu khẳng định."
+          },
+          {
+            "wrong": "我去上海出差了一场，明天晚上才回来。",
+            "right": "我去上海出差了一趟，明天晚上才回来。",
+            "pinyin": "",
+            "explanation": "Lượt đi công tác/du lịch có đi có về dùng lượng từ 趟, không dùng 场."
           }
         ],
         "true_false": [
@@ -440,6 +688,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Hěn duō rén yǐwéi tā hěn yánsù, qíshí tā bìng bù kěpà.",
             "isTrue": false,
             "explanation": "Sai! Phó từ 并 chỉ đứng TRƯỚC từ phủ định 不 / 没 để phản bác giả định, không kết hợp với câu khẳng định."
+          },
+          {
+            "statement": "Cấu trúc '不是……，就是……' diễn tả 2 khả năng luân phiên xảy ra, khác với '不是……，而是……'.",
+            "pinyin": "Bú shì... jiùshì...",
+            "isTrue": true,
+            "explanation": "Chính xác theo Sổ tay HSK 4.1 Bài 2."
           }
         ],
         "dictation": [
@@ -492,6 +746,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '合适' và ngữ pháp Bài 2 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: ×就是了 (chỉ cần... là được), …不过… (nhưng mà), 并 (không hề + phủ định), 由于 (do/bởi vì)",
             "sampleAnswer": "很多人以为他很严肃，其实他并不可怕。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你觉得真正的朋友是什么样的？朋友做过的哪件事让你觉得他/她是你真正的朋友？",
+            "pinyin": "Nǐ juéde zhēnzhèng de péngyou shì shénmeyàng de? Péngyou zuò guo de nǎ jiàn shì ràng nǐ juéde tā shì zhēnzhèng de péngyou?",
+            "vi": "Theo bạn người bạn thực sự là người như thế nào? Việc nào bạn ấy từng làm khiến bạn thấy đó là tri kỷ? (Luyện nói 2 phút HSK 4.1 Bài 2).",
+            "hint": "Dàn ý 4.1: (1) Nêu tiêu chí (giúp lúc khó khăn, đồng hành lúc buồn); (2) Kể lúc mới quen và thói quen cùng làm; (3) Kể 1 kỷ niệm cụ thể (vd: bị ốm được bạn tới thăm và giảng bài hộ).",
+            "sampleAnswer": "我觉得真正的朋友，就是在遇到困难的时候能及时帮忙，无聊、难过的时候能陪在身边的人。我和好朋友是在学校认识的，我们是同班同学。有一次我生病请假，他专门来看我，还帮我补课，把我不懂的地方一点点讲清楚，这件事让我觉得他是我真正的朋友。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 谈谈你对朋友的理解，以《我的朋友》为题写一篇不少于80字的短文。",
+            "pinyin": "Qǐng yǐ Wǒ de péngyou wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ chủ đề 'Người bạn của tôi' (chuẩn viết HSK 4.1 Bài 2).",
+            "hint": "Nêu tầm quan trọng của bạn bè, kể việc cùng học cùng ăn hoặc cho mượn bút/an ủi khi buồn, rồi kết luận.",
+            "sampleAnswer": "在我的日常生活里，朋友是特别重要的人。我和好朋友是在学校认识的，我们平时一起学习、一起吃饭，放学后还会一起走路回家。有一次我忘了带笔，他马上把自己的借给我。我心情不好的时候，他也会陪我聊天儿。朋友就是能互相关心、互相帮助的人。有这样的朋友，我的生活变得很快乐。"
           }
         ]
       }
@@ -550,6 +818,41 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "cấu trúc nhượng bộ",
           "vi": "... thì đúng là ... nhưng mà ...",
           "example": "这条裙子漂亮是漂亮，不过稍微贵了点儿。"
+        },
+        {
+          "hanzi": "部门",
+          "pinyin": "bùmén",
+          "pos": "danh từ",
+          "vi": "phòng ban, bộ phận",
+          "example": "我爸爸在银行的一个重要部门工作。"
+        },
+        {
+          "hanzi": "小组",
+          "pinyin": "xiǎozǔ",
+          "pos": "danh từ",
+          "vi": "nhóm nhỏ, tổ",
+          "example": "我们小组每天都用汉语交流。"
+        },
+        {
+          "hanzi": "再次",
+          "pinyin": "zàicì",
+          "pos": "phó từ",
+          "vi": "một lần nữa (trang trọng)",
+          "example": "很高兴再次见到你。"
+        },
+        {
+          "hanzi": "文件",
+          "pinyin": "wénjiàn",
+          "pos": "danh từ",
+          "vi": "văn kiện, tài liệu, tệp",
+          "example": "这些文件很重要，你要好好收着。"
+        },
+        {
+          "hanzi": "从此",
+          "pinyin": "cóngcǐ",
+          "pos": "phó từ",
+          "vi": "từ đó về sau",
+          "example": "我们俩一起解决了这个问题，从此成了好朋友。"
         }
       ],
       "etymology": {
@@ -580,6 +883,23 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Khác với 所以 (giải thích lý do), 于是 chỉ chuỗi sự kiện nối tiếp tự nhiên ở quá khứ/kể chuyện."
+        },
+        {
+          "title": "Trình tự 首先……，然后…… & Cụm 有A有B · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 首先 + Việc 1，然后 + Việc 2 (最后 + Việc kết): Trình bày các bước rõ ràng.\n• 有A有B: 有说有笑 (vừa nói vừa cười), 有问有答 (có hỏi có đáp), 有来有往 (có đi có lại), 有声有色 (sống động), 有始有终 (có đầu có cuối).",
+          "examples": [
+            {
+              "hanzi": "寄快递的时候，我首先写好地址，然后把东西交给快递员，最后付钱。",
+              "pinyin": "Jì kuàidì de shíhou, wǒ shǒuxiān xiěhǎo dìzhǐ, ránhòu bǎ dōngxi jiāogěi kuàidìyuán, zuìhòu fùqián.",
+              "vi": "Khi gửi chuyển phát, trước tiên tôi ghi rõ địa chỉ, rồi đưa đồ cho nhân viên, cuối cùng trả tiền."
+            },
+            {
+              "hanzi": "他在公司做事情特别认真，都会有始有终地做完。",
+              "pinyin": "Tā zài gōngsī zuò shìqing tèbié rènzhēn, dōu huì yǒushǐyǒuzhōng de zuòwán.",
+              "vi": "Anh ấy làm việc ở công ty rất nghiêm túc, luôn làm trọn vẹn từ đầu đến cuối."
+            }
+          ],
+          "trap": "Phân biệt 再次 (đã xảy ra rồi giờ lặp lại lần nữa, trang trọng) với 再 (hành động tương lai chưa xảy ra)."
         }
       ],
       "exercises": {
@@ -589,7 +909,11 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "不仅",
             "甚至",
             "于是",
-            "好是好"
+            "好是好",
+            "部门",
+            "从此",
+            "文件",
+            "再次"
           ],
           "items": [
             {
@@ -612,6 +936,26 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Zhè jiā shūdiàn bùjǐn huánjìng yōuyǎ, hái bàn jiǎngzuò, yúshì wǒ chéng le chángkè.",
               "vi": "Hiệu sách này không chỉ không gian tao nhã mà còn tổ chức tọa đàm, thế là tôi thành khách quen.",
               "explanation": "不仅……还……; thế là: 于是."
+            },
+            {
+              "prompt": "请问在你们公司，哪个 ( ____ ) 负责招聘？我明白后 ( ____ ) 也没迟到过。",
+              "answers": [
+                "部门",
+                "从此"
+              ],
+              "pinyin": "Qǐngwèn zài nǐmen gōngsī, nǎge bùmén fùzé zhāopìn? Wǒ míngbai hòu cóngcǐ yě méi chídào guo.",
+              "vi": "Xin hỏi ở công ty các bạn phòng ban nào phụ trách tuyển dụng? Hiểu ra rồi từ đó tôi không bao giờ đi muộn nữa.",
+              "explanation": "Đề HSK 4.1 Bài 3: 部门 (phòng ban); 从此 (từ đó về sau)."
+            },
+            {
+              "prompt": "我要准备明天开会用的 ( ____ )；在会议最后，( ____ ) 感谢各位的帮助。",
+              "answers": [
+                "文件",
+                "再次"
+              ],
+              "pinyin": "Wǒ yào zhǔnbèi míngtiān kāihuì yòng de wénjiàn; zài huìyì zuìhòu, zàicì gǎnxiè gèwèi.",
+              "vi": "Tôi phải chuẩn bị tài liệu họp ngày mai; cuối cuộc họp một lần nữa cảm ơn mọi người.",
+              "explanation": "Đề HSK 4.1 Bài 3: 文件 (tài liệu); 再次 (một lần nữa)."
             }
           ]
         },
@@ -641,6 +985,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Wǒ wàng le dài xiànjīn, yúshì yòng shǒujī sǎo le yíxià èrwéimǎ.",
             "vi": "Tôi quên mang tiền mặt, thế là dùng điện thoại quét mã QR một cái.",
             "explanation": "Vận dụng cấu trúc Bài 3 (HSK 4 Thượng): …×是×，就是/不过…, 不仅/不光…还/而且…, 甚至 (thậm chí), …于是… (thế là...)."
+          },
+          {
+            "parts": [
+              "寄快递时",
+              "我首先",
+              "写好地址",
+              "然后",
+              "把东西",
+              "交给快递员"
+            ],
+            "answer": "寄快递时我首先写好地址，然后把东西交给快递员。",
+            "pinyin": "Jì kuàidì de shíhou, wǒ shǒuxiān xiěhǎo dìzhǐ, ránhòu bǎ dōngxi jiāogěi kuàidìyuán, zuìhòu fùqián.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 3).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 3."
           }
         ],
         "correction": [
@@ -649,6 +1007,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "这部电影好看是好看，就是时间太长了。",
             "pinyin": "Zhè kuǎn shǒujī bùjǐn pāizhào qīngchu, érqiě diànchí nàiyòng, shènzhì lián fángshuǐ gōngnéng dōu yǒu!",
             "explanation": "Cấu trúc lặp nhượng bộ phải dùng chữ 是 ở giữa ('好看是好看'), không dùng 但是."
+          },
+          {
+            "wrong": "老师讲得有问有色，同学们都听得很认真。",
+            "right": "老师讲得有声有色，同学们都听得很认真。",
+            "pinyin": "",
+            "explanation": "Mô tả lời giảng sinh động lôi cuốn dùng thành ngữ 有声有色."
           }
         ],
         "true_false": [
@@ -663,6 +1027,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Zhè kuǎn shǒujī bùjǐn pāizhào qīngchu, érqiě diànchí nàiyòng, shènzhì lián fángshuǐ gōngnéng dōu yǒu!",
             "isTrue": false,
             "explanation": "Sai! Cấu trúc lặp nhượng bộ phải dùng chữ 是 ở giữa ('好看是好看'), không dùng 但是."
+          },
+          {
+            "statement": "'有始有终' nghĩa là làm việc kiên trì từ đầu đến cuối, không bỏ dở giữa chừng.",
+            "pinyin": "Yǒushǐyǒuzhōng",
+            "isTrue": true,
+            "explanation": "Chính xác theo Sổ tay HSK 4.1 Bài 3."
           }
         ],
         "dictation": [
@@ -715,6 +1085,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '扫' và ngữ pháp Bài 3 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: …×是×，就是/不过…, 不仅/不光…还/而且…, 甚至 (thậm chí), …于是… (thế là...)",
             "sampleAnswer": "这款手机不仅拍照清楚，而且电池耐用，甚至连防水功能都有！"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你参加过什么小组？和小组的人一起做事，你首先会做什么，然后再做什么？",
+            "pinyin": "Nǐ cānjiā guo shénme xiǎozǔ? Hé xiǎozǔ de rén yìqǐ zuòshì, nǐ shǒuxiān huì zuò shénme, ránhòu zài zuò shénme?",
+            "vi": "Bạn từng tham gia nhóm học tập nào? Khi làm việc nhóm, trước tiên bạn làm gì, sau đó làm gì? (Luyện nói 2 phút HSK 4.1 Bài 3).",
+            "hint": "Kể số thành viên nhóm, dùng mẫu '首先……，然后……' tả cách phân công (chuẩn bị câu hỏi, liên hệ phỏng vấn, ghi chép, chụp ảnh) và nêu cảm nhận.",
+            "sampleAnswer": "我参加过班级的中文学习小组，我们小组一共有四个人。那次的学习任务是采访中国学生。接到任务后，我首先和大家一起弄清楚任务要求，然后我们分好工，各自准备：有人准备采访的问题，有人负责记笔记，还有人负责拍照。和组员一起完成任务后，我不仅练习了汉语，还提高了解决问题的能力。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 介绍一次难忘的小组活动，以《一次难忘的小组活动》为题写短文。",
+            "pinyin": "Qǐng yǐ Yí cì nánwàng de xiǎozǔ huódòng wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ kể một hoạt động nhóm đáng nhớ (HSK 4.1 Bài 3).",
+            "hint": "Giới thiệu nhóm gồm mấy người, kể kỷ niệm đáng nhớ (vd: lớp trưởng cho mượn sách giáo trình, rủ đi ăn căng tin), kết bài nêu sự gắn kết.",
+            "sampleAnswer": "我有一个班级学习小组，一共有四个人。上周我们一起练习汉语，讨论的话题是小组里谁给你的第一印象最深。我觉得班长给我的印象最深。因为第一次上课的时候，我还没有课本，班长主动把他的课本借给我看，还约我下课后一起去食堂吃饭。其他同学也说了自己的想法，我们聊得很开心。这次小组活动让我更加了解同学们，真是一次难忘的小组活动。"
           }
         ]
       }
@@ -773,6 +1157,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "động từ + kết quả",
           "vi": "giúp được (đạt kết quả)",
           "example": "很高兴能帮到你。"
+        },
+        {
+          "hanzi": "早晨",
+          "pinyin": "zǎochen",
+          "pos": "danh từ",
+          "vi": "buổi sáng sớm",
+          "example": "我每天早晨七点出门去上班。"
+        },
+        {
+          "hanzi": "不如",
+          "pinyin": "bùrú",
+          "pos": "động từ",
+          "vi": "không bằng, chi bằng",
+          "example": "商场里的东西太贵了，不如在网上买。"
+        },
+        {
+          "hanzi": "打工",
+          "pinyin": "dǎgōng",
+          "pos": "động từ",
+          "vi": "làm thêm, làm thuê",
+          "example": "我想先打工积累经验，毕业以后再找正式工作。"
+        },
+        {
+          "hanzi": "单位",
+          "pinyin": "dānwèi",
+          "pos": "danh từ",
+          "vi": "đơn vị công tác, cơ quan",
+          "example": "我的工作单位离家不太远。"
+        },
+        {
+          "hanzi": "工厂",
+          "pinyin": "gōngchǎng",
+          "pos": "danh từ",
+          "vi": "nhà máy, công xưởng",
+          "example": "这些工厂的工人来自不同的地方。"
+        },
+        {
+          "hanzi": "人员",
+          "pinyin": "rényuán",
+          "pos": "danh từ",
+          "vi": "nhân viên, nhân sự",
+          "example": "我已通知明天参加会议的人员八点到。"
         }
       ],
       "etymology": {
@@ -803,6 +1229,35 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Tránh nhầm trật tự 既 đứng trước động từ khi có hai động từ khác nhau: 既能锻炼身体，又能放松心情."
+        },
+        {
+          "title": "Câu so sánh A不如B(+Tính từ) & 差(一)点儿 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• A + 不如 + B (+ Tính từ): A không bằng B ở mặt nào đó (在家自学不如来学校上课好).\n• 差(一)点儿 + V: suýt nữa thì xảy ra chuyện không hay nhưng chưa xảy ra (差点儿迟到); nhưng 差(一)点儿 + 没 + V lại là suýt không làm được nhưng CUỐI CÙNG ĐÃ LÀM ĐƯỢC (差点儿没认出来 = suýt nữa không nhận ra -> đã nhận ra!).",
+          "examples": [
+            {
+              "hanzi": "在家自学汉语不如来学校跟老师上课好，有问题可以马上问老师。",
+              "pinyin": "Zài jiā zìxué Hànyǔ bùrú lái xuéxiào gēn lǎoshī shàngkè hǎo.",
+              "vi": "Tự học tiếng Trung ở nhà không tốt bằng đến trường học cùng thầy cô."
+            },
+            {
+              "hanzi": "这么多年没见，我差点儿没认出来！",
+              "pinyin": "Zhème duō nián méi jiàn, wǒ chàdiǎnr méi rèn chūlái!",
+              "vi": "Bao năm không gặp, suýt chút nữa tôi đã không nhận ra bạn rồi!"
+            }
+          ],
+          "trap": "Rất dễ bẫy: '差点儿迟到' = không muộn; '差点儿没赶上车' = suýt lỡ xe (tức là VẪN KỊP LÊN XE!)."
+        },
+        {
+          "title": "Cụm khẩu ngữ 有的是 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "Nhấn mạnh số lượng vô cùng nhiều, không thiếu thứ gì: 有的是 + Danh từ hoặc Danh từ + 有的是.",
+          "examples": [
+            {
+              "hanzi": "我们学校的图书馆有的是中文书，一定能找到合适的书。",
+              "pinyin": "Wǒmen xuéxiào de túshūguǎn yǒudeshì Zhōngwénshū.",
+              "vi": "Thư viện trường chúng tôi có cả kho sách tiếng Trung."
+            }
+          ],
+          "trap": "Không chen thêm số lượng cụ thể sau 有的是 (không nói '有的是很多书')."
         }
       ],
       "exercises": {
@@ -812,7 +1267,13 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "来不及",
             "既",
             "再说",
-            "不了"
+            "不了",
+            "工厂",
+            "人员",
+            "不如",
+            "打工",
+            "早晨",
+            "单位"
           ],
           "items": [
             {
@@ -835,6 +1296,28 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Zhème duō zuòyè xiě bu liǎo! Zhège fāng'àn jì shěnglì yòu shěngshí, zàishuō míngtiān wǒ yě máng.",
               "vi": "Nhiều bài tập thế viết không nổi! Phương án này vừa đỡ sức vừa tiết kiệm giờ, vả lại mai mình cũng bận.",
               "explanation": "Không nổi/hết: 不了 (liǎo); vừa... vừa...: 既……又……; vả lại: 再说."
+            },
+            {
+              "prompt": "那家汽车 ( ____ ) 的服务 ( ____ ) 都非常认真；商场里的水果 ( ____ ) 网上的新鲜。",
+              "answers": [
+                "工厂",
+                "人员",
+                "不如"
+              ],
+              "pinyin": "Nà jiā qìchē gōngchǎng de fúwù rényuán dōu fēicháng rènzhēn; shāngchǎng lǐ de shuǐguǒ bùrú wǎngshàng de xīnxiān.",
+              "vi": "Nhân viên phục vụ của nhà máy ô tô kia đều rất nghiêm túc; hoa quả siêu thị không tươi bằng trên mạng.",
+              "explanation": "Đề HSK 4.1 Bài 4: 工厂 (nhà máy), 人员 (nhân viên), A不如B."
+            },
+            {
+              "prompt": "很多大学生利用周末去 ( ____ ) 赚零花钱；我每天 ( ____ ) 七点从 ( ____ ) 出发。",
+              "answers": [
+                "打工",
+                "早晨",
+                "单位"
+              ],
+              "pinyin": "Hěnduō dàxuéshēng lìyòng zhōumò qù dǎgōng; wǒ měitiān zǎochen qī diǎn cóng dānwèi chūfā.",
+              "vi": "Nhiều sinh viên đi làm thêm cuối tuần; mỗi sáng 7 giờ tôi xuất phát từ cơ quan.",
+              "explanation": "Đề HSK 4.1 Bài 4: 打工 (làm thêm), 早晨 (sáng sớm), 单位 (cơ quan)."
             }
           ]
         },
@@ -863,6 +1346,19 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Wǒ bù xiǎng mǎi zhè jiàn yǔróngfú, yánsè tài àn, zàishuō jiàgé yě tài guì le.",
             "vi": "Tôi không muốn mua chiếc áo phao này, màu tối quá, vả lại giá cũng đắt quá rồi.",
             "explanation": "Vận dụng cấu trúc Bài 4 (HSK 4 Thượng): V+得/不+了 (liǎo), 再说 (vả lại/hơn nữa), 既…又/也…, 来得及 / 来不及 (kịp / không kịp)."
+          },
+          {
+            "parts": [
+              "打车",
+              "去",
+              "那还不如",
+              "坐地铁",
+              "快呢"
+            ],
+            "answer": "打车去那还不如坐地铁快呢。",
+            "pinyin": "Zài jiā zìxué Hànyǔ bùrú lái xuéxiào gēn lǎoshī shàngkè hǎo.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 4).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 4."
           }
         ],
         "correction": [
@@ -871,6 +1367,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "这么多饺子，我一个人吃不了 / 吃不完。",
             "pinyin": "Lí dēngjī zhǐ shèng shí fēnzhōng le, kǒngpà láibují chī zǎofàn le.",
             "explanation": "Không ghép chung hai bổ ngữ 完 và 了 vào một động từ — chọn một trong hai (吃不完 hoặc 吃不了)."
+          },
+          {
+            "wrong": "这么重要的话我昨天差点儿忘了没有记下来。",
+            "right": "这么重要的话我昨天差点儿忘了记下来。",
+            "pinyin": "",
+            "explanation": "Đã dùng '忘了' thì tránh ghép thêm '没有' cùng lúc gây lộn nghĩa khẳng định/phủ định của 差点儿."
           }
         ],
         "true_false": [
@@ -885,6 +1387,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Lí dēngjī zhǐ shèng shí fēnzhōng le, kǒngpà láibují chī zǎofàn le.",
             "isTrue": false,
             "explanation": "Sai! Không ghép chung hai bổ ngữ 完 và 了 vào một động từ — chọn một trong hai (吃不完 hoặc 吃不了)."
+          },
+          {
+            "statement": "Câu '我差点儿没及格' có nghĩa là người nói suýt nữa bị trượt, nhưng kết quả cuối cùng vẫn ĐỖ.",
+            "pinyin": "Wǒ chàdiǎnr méi jígé",
+            "isTrue": true,
+            "explanation": "Chính xác! Khi 没 đứng sau 差点儿 với nghĩa không mong muốn (没及格, 没认出来), kết quả là việc tích cực đã suýt soát xảy ra."
           }
         ],
         "dictation": [
@@ -937,6 +1445,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '了' và ngữ pháp Bài 4 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: V+得/不+了 (liǎo), 再说 (vả lại/hơn nữa), 既…又/也…, 来得及 / 来不及 (kịp / không kịp)",
             "sampleAnswer": "离登机只剩十分钟了，恐怕来不及吃早饭了。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你觉得工作最重要的是什么？有没有一件事让你觉得“认真负责才能把事情做好”？",
+            "pinyin": "Nǐ juéde gōngzuò zuì zhòngyào de shì shénme? Yǒu méiyǒu yí jiàn shì ràng nǐ juéde rènzhēn fùzé cái néng bǎ shìqing zuòhǎo?",
+            "vi": "Bạn thấy điều quan trọng nhất khi đi làm là gì? Có việc nào khiến bạn cảm thấy 'nghiêm túc trách nhiệm mới làm tốt được việc' không? (HSK 4.1 Bài 4).",
+            "hint": "Chọn 1-2 điểm: tích lũy kinh nghiệm, học hỏi kiến thức, tinh thần trách nhiệm. Kể việc ôn thi hoặc làm nhóm để minh họa.",
+            "sampleAnswer": "我觉得工作最重要的是认真负责。工作不只是为了赚钱，还能学习知识、积累经验。我现在的学习有点儿忙，我每天按时上课，下课以后先写作业再复习。上次考试前，我认真复习，按时完成作业，最后考得很好。所以我知道，认真负责才能把事情做好。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 谈谈你对理想工作的理解，以《我喜欢的工作》为题写短文。",
+            "pinyin": "Qǐng yǐ Wǒ xǐhuan de gōngzuò wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ chủ đề 'Công việc tôi yêu thích' (HSK 4.1 Bài 4).",
+            "hint": "Nêu thẳng nghề yêu thích (giáo viên/bác sĩ...), lý do yêu thích, thái độ làm việc (trách nhiệm, tích lũy kinh nghiệm) và ước mơ.",
+            "sampleAnswer": "我喜欢的工作是医生。我觉得医生的工作很重要，可以帮助生病的人，让他们身体变好。工作的时候，我会认真负责，努力学习更多知识，积累更多经验。虽然有时候会很忙，但我不怕困难。我希望以后能成为一名好医生，用我的专业帮助更多的人，让大家都健健康康的。"
           }
         ]
       }
@@ -995,6 +1517,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "danh từ",
           "vi": "khẩu vị, hương vị",
           "example": "南方和北方人的口味不太一样。"
+        },
+        {
+          "hanzi": "快递",
+          "pinyin": "kuàidì",
+          "pos": "danh từ/động từ",
+          "vi": "chuyển phát nhanh, giao hàng",
+          "example": "昨天刚在网上买的，今天快递就送到家门口了。"
+        },
+        {
+          "hanzi": "毛衣",
+          "pinyin": "máoyī",
+          "pos": "danh từ",
+          "vi": "áo len",
+          "example": "冬天可以先穿毛衣，外面再穿上外套。"
+        },
+        {
+          "hanzi": "上门",
+          "pinyin": "shàngmén",
+          "pos": "động từ",
+          "vi": "đến tận nhà, phục vụ tận nơi",
+          "example": "在网上买家具，商家会安排人送货上门。"
+        },
+        {
+          "hanzi": "外套",
+          "pinyin": "wàitào",
+          "pos": "danh từ",
+          "vi": "áo khoác ngoài",
+          "example": "早晨出门有点儿凉，你记得穿件外套。"
+        },
+        {
+          "hanzi": "零食",
+          "pinyin": "língshí",
+          "pos": "danh từ",
+          "vi": "đồ ăn vặt",
+          "example": "周末我常常一边看电影一边吃零食。"
+        },
+        {
+          "hanzi": "商品",
+          "pinyin": "shāngpǐn",
+          "pos": "danh từ",
+          "vi": "hàng hóa, sản phẩm",
+          "example": "买东西的时候不能只看价格，更要注意商品质量。"
         }
       ],
       "etymology": {
@@ -1025,6 +1589,35 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Nếu dùng phủ định là 不够 + Tính từ (不够大 chưa đủ lớn)."
+        },
+        {
+          "title": "Câu chữ 把 kết hợp động từ lặp lại A把B+V(一/了)V · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• A + 把 + B + V(一)V: thử làm nhanh / sắp làm nhẹ nhàng (把漫头热一热).\n• A + 把 + B + V了V: đã xử lý gọn gàng xong rồi (把房间打扫了打扫).",
+          "examples": [
+            {
+              "hanzi": "周末有空的时候，我把房间打扫了打扫，心情好多了。",
+              "pinyin": "Zhōumò yǒukòng de shíhou, wǒ bǎ fángjiān dǎsǎo le dǎsǎo, xīnqíng hǎo duō le.",
+              "vi": "Cuối tuần rảnh rỗi tôi dọn dẹp lại căn phòng, tâm trạng khá hơn nhiều."
+            }
+          ],
+          "trap": "Trong câu chữ 把, động từ lặp VV không mang tân ngữ hay chữ 了 đứng cuối sau lần lặp thứ hai."
+        },
+        {
+          "title": "Liên từ 不光……还/也…… & 说不定 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 不光 + A，还/也 + B: khẩu ngữ hơn 不仅……还…….\n• 说不定 + Mệnh đề: biết đâu, có lẽ (phỏng đoán khả năng cao nhưng chưa chắc 100%).",
+          "examples": [
+            {
+              "hanzi": "我们学习汉语，不光要多听多说，还要多读多写。",
+              "pinyin": "Wǒmen xuéxí Hànyǔ, bùguāng yào duō tīng duō shuō, hái yào duō dú duō xiě.",
+              "vi": "Học tiếng Trung không chỉ cần nghe nói nhiều mà còn phải đọc viết nhiều."
+            },
+            {
+              "hanzi": "要不顺便去趟超市吧，说不定晚上正好打折呢！",
+              "pinyin": "Yàobù shùnbiàn qù tàng chāoshì ba, shuōbudìng wǎnshang zhènghǎo dǎzhé ne!",
+              "vi": "Hay tiện thể ghé siêu thị đi, biết đâu buổi tối đúng dịp giảm giá đấy!"
+            }
+          ],
+          "trap": "不光 dùng cho 2 hành động/tính chất cùng chủ ngữ sẽ đặt sau chủ ngữ."
         }
       ],
       "exercises": {
@@ -1034,7 +1627,13 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "够",
             "各吃各的",
             "等",
-            "口味"
+            "口味",
+            "外套",
+            "快递",
+            "上门",
+            "商品",
+            "零食",
+            "说不定"
           ],
           "items": [
             {
@@ -1057,6 +1656,28 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Dàjiā kǒuwèi chāyì dà... jiù néng gè chī gè de la!",
               "vi": "Mọi người khẩu vị khác nhau... sau đó ai ăn món người nấy được rồi!",
               "explanation": "Khẩu vị: 口味; liệt kê: 等; ai ăn phần nấy: 各吃各的."
+            },
+            {
+              "prompt": "今天有点儿凉，记得穿 ( ____ )；我常在网上买日用品，( ____ ) 直接送货 ( ____ )。",
+              "answers": [
+                "外套",
+                "快递",
+                "上门"
+              ],
+              "pinyin": "Jīntiān yǒudiǎnr liáng, jìde chuān wàitào; kuàidì zhíjiē sònghuò shàngmén.",
+              "vi": "Hôm nay hơi lạnh nhớ mặc áo khoác; chuyển phát nhanh giao hàng trực tiếp tận nhà.",
+              "explanation": "Đề HSK 4.1 Bài 5: 外套 (áo khoác), 快递 (chuyển phát nhanh), 上门 (tận cửa)."
+            },
+            {
+              "prompt": "买 ( ____ ) 不能只看价格；周末我一边看电影一边吃 ( ____ )，天气阴得厉害，( ____ ) 会下雨。",
+              "answers": [
+                "商品",
+                "零食",
+                "说不定"
+              ],
+              "pinyin": "Mǎi shāngpǐn bùnéng zhǐ kàn jiàgé; chī língshí, shuōbudìng huì xiàyǔ.",
+              "vi": "Mua hàng hóa đừng chỉ nhìn giá; ăn đồ vặt, biết đâu trời sắp mưa.",
+              "explanation": "Đề HSK 4.1 Bài 5: 商品 (hàng hóa), 零食 (đồ ăn vặt), 说不定 (biết đâu)."
             }
           ]
         },
@@ -1086,6 +1707,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Jīntiān dài de shuǐ yīnggāi gòu wǒmen páshān hē le.",
             "vi": "Nước mang hôm nay chắc đủ cho chúng mình uống khi leo núi rồi.",
             "explanation": "Vận dụng cấu trúc Bài 5 (HSK 4 Thượng): 至少 (ít nhất), 够 (đủ), 各×各的 (mỗi người một kiểu), 等 (vân vân)."
+          },
+          {
+            "parts": [
+              "我给您",
+              "买了件",
+              "新毛衣",
+              "您快",
+              "把它",
+              "穿上试试"
+            ],
+            "answer": "我给您买了件新毛衣，您快把它穿上试试。",
+            "pinyin": "Zhōumò yǒukòng de shíhou, wǒ bǎ fángjiān dǎsǎo le dǎsǎo, xīnqíng hǎo duō le.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 5).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 5."
           }
         ],
         "correction": [
@@ -1094,6 +1729,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "这个教室坐不下五十个人。 / 五十个人来，椅子不够。",
             "pinyin": "Zhōumò zài jiā, dàjiā gè gàn gè de.",
             "explanation": "Bổ ngữ khả năng chứa nổi người dùng 坐得下 / 坐不下, còn 够 đánh giá số lượng vật phẩm có đủ đáp ứng mức độ không."
+          },
+          {
+            "wrong": "你快把桌上的杯子洗洗了，客人马上就到。",
+            "right": "你快把桌上的杯子洗洗 / 洗了洗，客人马上就到。",
+            "pinyin": "",
+            "explanation": "Động từ lặp VV (洗洗) biểu thị thử/làm nhẹ không gắn 了 ở đuôi; nếu đã xong thì đặt 了 ở giữa (洗了洗)."
           }
         ],
         "true_false": [
@@ -1108,6 +1749,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Zhōumò zài jiā, dàjiā gè gàn gè de.",
             "isTrue": false,
             "explanation": "Sai! Bổ ngữ khả năng chứa nổi người dùng 坐得下 / 坐不下, còn 够 đánh giá số lượng vật phẩm có đủ đáp ứng mức độ không."
+          },
+          {
+            "statement": "'不光……，还/也……' dùng tương đương với '不仅……，而且……' nhưng thiên về khẩu ngữ tự nhiên hơn.",
+            "pinyin": "Bùguāng... hái...",
+            "isTrue": true,
+            "explanation": "Chính xác theo Sổ tay HSK 4.1 Bài 5."
           }
         ],
         "dictation": [
@@ -1160,6 +1807,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '至少' và ngữ pháp Bài 5 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: 至少 (ít nhất), 够 (đủ), 各×各的 (mỗi người một kiểu), 等 (vân vân)",
             "sampleAnswer": "周末在家，爸妈看电视我看书，大家各干各的。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你平时买东西最注意什么？你喜欢去超市购物还是网上购物？为什么？",
+            "pinyin": "Nǐ píngshí mǎi dōngxi zuì zhùyì shénme? Nǐ xǐhuan qù chāoshì gòuwù háishi wǎngshàng gòuwù?",
+            "vi": "Bình thường đi mua đồ bạn chú ý điều gì nhất? Bạn thích đi siêu thị hay mua sắm online? Chia sẻ kinh nghiệm mua hàng (HSK 4.1 Bài 5).",
+            "hint": "Nêu rõ tiêu chí (hạn sử dụng, chất lượng, mặc thử), so sánh ưu nhược điểm siêu thị và online, bật mí 1 mẹo (vd: lấy bánh mì/sữa đặt ở phía trong kệ sẽ tươi mới hơn).",
+            "sampleAnswer": "我平时买东西最注意质量。买食品的时候，我先看日期，要买最新鲜的；买衣服的时候，我会把衣服穿上试一试，不光要好看，还要穿着舒服才行。我更喜欢去超市购物，因为可以直接看到商品的样子，说不定还能赶上打折活动。我有一个小经验：买牛奶、面包时，一般放在架子里面的更新鲜。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 介绍一下你平时的购物习惯，以《我的购物习惯》为题写短文。",
+            "pinyin": "Qǐng yǐ Wǒ de gòuwù xíguàn wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ chủ đề 'Thói quen mua sắm của tôi' (HSK 4.1 Bài 5).",
+            "hint": "Nêu nguyên tắc 'chỉ mua thứ thật sự cần', kết hợp mua quần áo ở trung tâm thương mại và đồ dùng ở trên mạng.",
+            "sampleAnswer": "我有自己的购物习惯：只买真正需要的东西。我买东西不光会看价格，还会看质量好不好。买衣服的时候，我更愿意去商场，我会把喜欢的衣服穿上试一试，然后再决定买不买。有时候我也会在网上买一些日常需要用的商品，既便宜又方便。我很喜欢这样的购物方式。"
           }
         ]
       }
@@ -1218,6 +1879,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "liên từ mục đích",
           "vi": "để dễ, để tiện làm gì",
           "example": "早点出门，好赶上第一班车。"
+        },
+        {
+          "hanzi": "牌子",
+          "pinyin": "páizi",
+          "pos": "danh từ",
+          "vi": "nhãn hiệu, thương hiệu",
+          "example": "你这件衣服是什么牌子的？看起来质量很好。"
+        },
+        {
+          "hanzi": "食物",
+          "pinyin": "shíwù",
+          "pos": "danh từ",
+          "vi": "thức ăn, thực phẩm",
+          "example": "我们要多吃健康的食物，少吃零食。"
+        },
+        {
+          "hanzi": "视频",
+          "pinyin": "shìpín",
+          "pos": "danh từ",
+          "vi": "video",
+          "example": "他每天都会用手机拍短视频发到网上。"
+        },
+        {
+          "hanzi": "图片",
+          "pinyin": "túpiàn",
+          "pos": "danh từ",
+          "vi": "hình ảnh, bức ảnh",
+          "example": "如果你能加上几张图片，同学们会更容易了解。"
+        },
+        {
+          "hanzi": "推出",
+          "pinyin": "tuīchū",
+          "pos": "động từ",
+          "vi": "tung ra, giới thiệu (sản phẩm/ưu đãi)",
+          "example": "公司下周会推出一个新的工作计划。"
+        },
+        {
+          "hanzi": "节假日",
+          "pinyin": "jiéjiàrì",
+          "pos": "danh từ",
+          "vi": "ngày lễ và kỳ nghỉ",
+          "example": "节假日出门旅游的人特别多。"
         }
       ],
       "etymology": {
@@ -1248,6 +1951,35 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Nếu không có 好 (没什么可笑的) vẫn dùng được, nhưng thêm 好 sẽ mượt mà tự nhiên hơn."
+        },
+        {
+          "title": "Câu chữ 把 + Trạng ngữ & Không mấy 不怎么 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 主语 + 把 + 宾语 + 状语 + 动词: nhấn mạnh cách thức/mức độ/thời điểm xử lý (把计划都提前想好, 把材料认真地检查了一遍).\n• 不怎么 + V/Adj: không mấy..., không... lắm (giảm nhẹ, lịch sự: 不怎么出门, 头也不怎么疼了).",
+          "examples": [
+            {
+              "hanzi": "旅游前把计划都提前想好，这样旅游时才会更轻松。",
+              "pinyin": "Lǚyóu qián bǎ jìhuà dōu tíqián xiǎnghǎo, zhèyàng lǚyóu shí cái huì gèng qīngsōng.",
+              "vi": "Trước khi đi du lịch nghĩ kỹ trước hết mọi kế hoạch thì đi chơi mới thoải mái hơn."
+            },
+            {
+              "hanzi": "我刚搬来一个星期，对周围的环境还不怎么熟悉。",
+              "pinyin": "Wǒ gāng bānlái yígè xīngqī, duì zhōuwéi de huánjìng hái bù zěnme shúxi.",
+              "vi": "Tôi mới chuyển đến một tuần nên vẫn chưa quen môi trường xung quanh lắm."
+            }
+          ],
+          "trap": "Trạng ngữ thời gian/cách thức thường đặt SAU 宾语 và TRƯỚC động từ trong câu chữ 把."
+        },
+        {
+          "title": "Liên từ 加上 (Cộng thêm...) · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "……，加上 + Nguyên nhân/Điều kiện bổ sung -> Kết quả/Lựa chọn.",
+          "examples": [
+            {
+              "hanzi": "这家超市的东西很新鲜，加上价格也很便宜，附近的人都喜欢来这里买。",
+              "pinyin": "Zhè jiā chāoshì de dōngxi hěn xīnxiān, jiāshàng jiàgé yě hěn piányi.",
+              "vi": "Đồ ở siêu thị này rất tươi, cộng thêm giá lại rẻ nữa nên mọi người quanh đây đều thích tới mua."
+            }
+          ],
+          "trap": "Khác dấu phẩy với 而且: 加上 nối thêm điều kiện/nguyên nhân dẫn tới hệ quả phía sau."
         }
       ],
       "exercises": {
@@ -1257,7 +1989,13 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "厉害",
             "偶尔",
             "好",
-            "好担心的"
+            "好担心的",
+            "牌子",
+            "节假日",
+            "推出",
+            "图片",
+            "视频",
+            "食物"
           ],
           "items": [
             {
@@ -1280,6 +2018,28 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Tā píngshí zhǐshì ǒu'ěr kànkan diànyǐng, méi shénme hǎo dānxīn de.",
               "vi": "Bình thường cô ấy chỉ thỉnh thoảng xem phim, hiểu nhầm này chẳng có gì đáng lo cả.",
               "explanation": "Thỉnh thoảng: 偶尔; chẳng đáng lo: 没什么好担心的."
+            },
+            {
+              "prompt": "买东西时，我一般会选好一点儿的 ( ____ )；每到换季或 ( ____ )，各大商场都会 ( ____ ) 打折活动。",
+              "answers": [
+                "牌子",
+                "节假日",
+                "推出"
+              ],
+              "pinyin": "Mǎi dōngxi shí, wǒ yìbān huì xuǎn hǎo yìdiǎnr de páizi; měidào jiéjiàrì, gè dà shāngchǎng dōu huì tuīchū dǎzhé huódòng.",
+              "vi": "Khi mua đồ tôi hay chọn nhãn hiệu tốt một chút; mỗi dịp lễ các siêu thị lớn đều tung ra khuyến mãi.",
+              "explanation": "Đề HSK 4.1 Bài 6: 牌子 (thương hiệu), 节假日 (ngày lễ), 推出 (tung ra)."
+            },
+            {
+              "prompt": "如果加上几张 ( ____ ) 和 ( ____ )，大家会更容易看懂；我们要多吃健康的 ( ____ )。",
+              "answers": [
+                "图片",
+                "视频",
+                "食物"
+              ],
+              "pinyin": "Rúguǒ jiāshàng jǐ zhāng túpiàn hé shìpín, dàjiā huì gèng róngyì kàndǒng; duō chī jiànkāng de shíwù.",
+              "vi": "Nếu thêm vài hình ảnh và video mọi người sẽ dễ hiểu hơn; nên ăn nhiều thực phẩm lành mạnh.",
+              "explanation": "Đề HSK 4.1 Bài 6: 图片 (hình ảnh), 视频 (video), 食物 (thực phẩm)."
             }
           ]
         },
@@ -1309,6 +2069,19 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Dàjiā dōu shì yì jiā rén, yǒu shénme hǎo kèqi de!",
             "vi": "Mọi người đều là người một nhà cả, có gì đâu mà khách sáo!",
             "explanation": "Vận dụng cấu trúc Bài 6 (HSK 4 Thượng): 厉害 (dữ dội/giỏi), (没)有什么(好)×的 (có gì đáng...), 偶尔 (thỉnh thoảng), …好… (để tiện...)."
+          },
+          {
+            "parts": [
+              "小王",
+              "你把",
+              "这些材料",
+              "按照时间顺序",
+              "放好"
+            ],
+            "answer": "小王，你把这些材料按照时间顺序放好。",
+            "pinyin": "Lǚyóu qián bǎ jìhuà dōu tíqián xiǎnghǎo, zhèyàng lǚyóu shí cái huì gèng qīngsōng.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 6).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 6."
           }
         ],
         "correction": [
@@ -1317,6 +2090,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "他平时很少迟到，只是偶尔来晚过一次。",
             "pinyin": "Qǐng bǎ chuānglián lākāi ba, hǎo ràng fángjiān lǐ liàngtang yìdiǎnr.",
             "explanation": "Không dùng cùng lúc 总是/经常 (luôn luôn) với 偶尔 (hiếm khi/thỉnh thoảng) vì trái ngược hoàn toàn tần suất."
+          },
+          {
+            "wrong": "她性格很安静，不怎么很喜欢出去参加大聚会。",
+            "right": "她性格很安静，不怎么喜欢出去参加大聚会。",
+            "pinyin": "",
+            "explanation": "'不怎么' đã có nghĩa mức độ thấp ('không mấy'), không dùng chung với 很."
           }
         ],
         "true_false": [
@@ -1331,6 +2110,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Qǐng bǎ chuānglián lākāi ba, hǎo ràng fángjiān lǐ liàngtang yìdiǎnr.",
             "isTrue": false,
             "explanation": "Sai! Không dùng cùng lúc 总是/经常 (luôn luôn) với 偶尔 (hiếm khi/thỉnh thoảng) vì trái ngược hoàn toàn tần suất."
+          },
+          {
+            "statement": "'不怎么 + Động từ/Tính từ' mang sắc thái uyển chuyển hơn câu phủ định thẳng thừng với 不.",
+            "pinyin": "Bù zěnme",
+            "isTrue": true,
+            "explanation": "Chính xác theo Sổ tay HSK 4.1 Bài 6."
           }
         ],
         "dictation": [
@@ -1383,6 +2168,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '陪' và ngữ pháp Bài 6 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: 厉害 (dữ dội/giỏi), (没)有什么(好)×的 (có gì đáng...), 偶尔 (thỉnh thoảng), …好… (để tiện...)",
             "sampleAnswer": "请把窗帘拉开吧，好让房间里亮堂一点儿。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你同意“一分钱一分货”这句话吗？你买东西时会注意看牌子和质量吗？",
+            "pinyin": "Nǐ tóngyì yì fēn qián yì fēn huò zhè jù huà ma? Nǐ mǎi dōngxi shí huì zhùyì kàn páizi hé zhìliàng ma?",
+            "vi": "Bạn có đồng ý câu 'Tiền nào của nấy' không? Khi mua hàng bạn có xem nhãn hiệu, chất lượng và các chương trình ưu đãi không? (HSK 4.1 Bài 6).",
+            "hint": "Nêu quan điểm (đồ đắt thường bền, nhưng săn giảm giá/mua đồ vừa túi tiền vẫn có thể ngon-bổ-rẻ), kể cách xem ảnh/video và hạn sử dụng.",
+            "sampleAnswer": "我基本同意“一分钱一分货”。一般来说，价格高的东西牌子和质量更好；不过节日打折或者换季降价的时候，我们也能买到物美价廉的东西。我买食品时会看日期；网上买东西时，我会认真看介绍商品的图片和视频，只买自己真正需要的。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 结合购物经历，以《一分钱一分货》为题写一篇不少于80字的短文。",
+            "pinyin": "Qǐng yǐ Yì fēn qián yì fēn huò wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ chủ đề 'Tiền nào của nấy' (HSK 4.1 Bài 6).",
+            "hint": "Giải thích câu tục ngữ, kể cách so sánh ba nhà ('货比三家'), kết luận chọn hàng hợp lý cả giá lẫn chất lượng.",
+            "sampleAnswer": "买东西时，质量和价格都很重要。俗话说“一分钱一分货”，一般来说，价格高的东西质量更好。网上购物时，我会认真看商品的图片和视频，做到货比三家。如果商场推出打折活动，我也只买需要的东西。我认为，买东西不要只看价格，更要看质量，选择适合自己、物美价廉的商品才是最聪明的做法。"
           }
         ]
       }
@@ -1447,6 +2246,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "danh / động từ",
           "vi": "trách nhiệm / phụ trách",
           "example": "她对工作非常负责。"
+        },
+        {
+          "hanzi": "量",
+          "pinyin": "liáng",
+          "pos": "động từ",
+          "vi": "đo, cân đong (nhiệt độ, cân nặng)",
+          "example": "感觉不舒服的时候，要先量一量体温。"
+        },
+        {
+          "hanzi": "痛",
+          "pinyin": "tòng",
+          "pos": "tính từ/động từ",
+          "vi": "đau nhức, đau lòng",
+          "example": "最近天气变化很大，我不小心感冒了，头痛得厉害。"
+        },
+        {
+          "hanzi": "纸巾",
+          "pinyin": "zhǐjīn",
+          "pos": "danh từ",
+          "vi": "khăn giấy",
+          "example": "出门的时候最好带一包纸巾。"
+        },
+        {
+          "hanzi": "操场",
+          "pinyin": "cāochǎng",
+          "pos": "danh từ",
+          "vi": "sân tập, sân vận động trường",
+          "example": "课间休息时可以去操场活动一下身体。"
+        },
+        {
+          "hanzi": "信号",
+          "pinyin": "xìnhào",
+          "pos": "danh từ",
+          "vi": "tín hiệu, sóng (điện thoại)",
+          "example": "不好意思，刚才信号不好，我没听清楚。"
+        },
+        {
+          "hanzi": "以内",
+          "pinyin": "yǐnèi",
+          "pos": "phương vị từ",
+          "vi": "trong vòng, không quá (giới hạn)",
+          "example": "饭后三十分钟以内最好不要跑步。"
         }
       ],
       "etymology": {
@@ -1465,6 +2306,23 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Sau 使 bắt buộc phải có kết quả/tác động đi kèm (tính từ hoặc động từ + kết quả), không dùng '使他工作' theo kiểu nhờ vả thông thường như 让/请."
+        },
+        {
+          "title": "Câu ghép 不是……，而是…… & Bổ ngữ mức độ ……死了 / 得厉害 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 不是A，而是B: phủ định A, đính chính khẳng định B.\n• Adj/V tâm lý + 死了 / 得厉害: cực kỳ, dữ dội (热死了, 累死了, 肚子痛得厉害, 急死了).",
+          "examples": [
+            {
+              "hanzi": "最重要的不是价格便宜，而是自己真的需要。",
+              "pinyin": "Zuì zhòngyào de bú shì jiàgé piányi, érshì zìjǐ zhēnde xūyào.",
+              "vi": "Điều quan trọng nhất không phải giá rẻ, mà là bản thân thực sự cần."
+            },
+            {
+              "hanzi": "外面热死了，咱们还是别出门了，在家吹空调吧！",
+              "pinyin": "Wàimiàn rè sǐ le, zánmen háishi bié chūmén le, zài jiā chuī kōngtiáo ba!",
+              "vi": "Ngoài trời nóng chết đi được, đừng ra ngoài nữa, ở nhà bật điều hòa thôi!"
+            }
+          ],
+          "trap": "Cấu trúc '一 + Lượng từ + 比 + 一 + Lượng từ + Adj' cũng là điểm trọng tâm HSK 4 (天气一天比一天热, 大家一个比一个认真)."
         }
       ],
       "exercises": {
@@ -1474,7 +2332,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "就",
             "方面",
             "拿",
-            "使"
+            "使",
+            "纸巾",
+            "信号",
+            "量",
+            "操场",
+            "以内"
           ],
           "items": [
             {
@@ -1497,6 +2360,27 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Zhè cì tuánduì hézuò shǐ wǒ zài gōutōng fāngmiàn shōuhuò tèbié duō.",
               "vi": "Lần làm việc nhóm này khiến tôi thu hoạch rất nhiều về mặt giao tiếp.",
               "explanation": "Khiến cho: 使; về mặt: 在……方面."
+            },
+            {
+              "prompt": "哎呀，鼻子流血了！快用 ( ____ ) 擦一擦；我在地铁上 ( ____ ) 太差，等会儿给你 ( ____ ) 体重。",
+              "answers": [
+                "纸巾",
+                "信号",
+                "量"
+              ],
+              "pinyin": "Kuài yòng zhǐjīn cā yì cā; wǒ zài dìtiě shàng xìnhào tài chà, děnghuìr gěi nǐ liáng tǐzhòng.",
+              "vi": "Mau dùng khăn giấy lau đi; tôi trên tàu điện sóng kém quá, lát nữa cân thử cho bạn.",
+              "explanation": "Đề HSK 4.1 Bài 7: 纸巾 (khăn giấy), 信号 (sóng), 量 (cân/đo)."
+            },
+            {
+              "prompt": "同学们都在 ( ____ ) 看比赛；你可以借这本书一个月，一个月 ( ____ ) 还回来就行。",
+              "answers": [
+                "操场",
+                "以内"
+              ],
+              "pinyin": "Tóngxuémen dōu zài cāochǎng kàn bǐsài; yígè yuè yǐnèi huán huílái jiù xíng.",
+              "vi": "Các bạn đều đang ở sân vận động xem thi đấu; trong vòng một tháng trả lại là được.",
+              "explanation": "Đề HSK 4.1 Bài 7: 操场 (sân tập), 以内 (trong vòng)."
             }
           ]
         },
@@ -1526,6 +2410,18 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Zhè fèn gōngzuò jīnglì shǐ tā zài jiějué wèntí fāngmiàn chéngzhǎng de hěn kuài.",
             "vi": "Trải nghiệm công việc này khiến cậu ấy trưởng thành rất nhanh về mặt giải quyết vấn đề.",
             "explanation": "Vận dụng cấu trúc Bài 7 (HSK 4 Thượng): 在…方面 (về mặt...), 既然…就… (đã... thì...), 拿…来说 (lấy... làm ví dụ), 使 (khiến cho)."
+          },
+          {
+            "parts": [
+              "最好的医生",
+              "不是别人",
+              "而是",
+              "我们自己"
+            ],
+            "answer": "最好的医生不是别人，而是我们自己。",
+            "pinyin": "Zuì zhòngyào de bú shì jiàgé piányi, érshì zìjǐ zhēnde xūyào.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 7).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 7."
           }
         ],
         "correction": [
@@ -1534,6 +2430,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "我让 / 请弟弟帮我拿一下行李箱。",
             "pinyin": "Zhè fèn gōngzuò jīnglì shǐ tā zài jiějué wèntí fāngmiàn chéngzhǎng de hěn kuài.",
             "explanation": "使 không dùng cho hành động sai bảo/nhờ vả người khác làm việc cụ thể như 让 hay 请, mà diễn tả tác động gián tiếp gây ra biến đổi tâm lý/kết quả."
+          },
+          {
+            "wrong": "最近天气一天比两天暖和了，可以多散步。",
+            "right": "最近天气一天比一天暖和了，可以多散步。",
+            "pinyin": "",
+            "explanation": "Mẫu tăng tiến cố định lặp cùng số '一' hai vế: 一天比一天, không đổi sang 两天."
           }
         ],
         "true_false": [
@@ -1548,6 +2450,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Zhè fèn gōngzuò jīnglì shǐ tā zài jiějué wèntí fāngmiàn chéngzhǎng de hěn kuài.",
             "isTrue": false,
             "explanation": "Sai! 使 không dùng cho hành động sai bảo/nhờ vả người khác làm việc cụ thể như 让 hay 请, mà diễn tả tác động gián tiếp gây ra biến đổi tâm lý/kết quả."
+          },
+          {
+            "statement": "Động từ 量 (liáng) khi mang nghĩa 'đo nhiệt độ, cân nặng' đọc thanh 2; khi chỉ số lượng (数量) mới đọc thanh 4 (liàng).",
+            "pinyin": "Liáng tǐwēn",
+            "isTrue": true,
+            "explanation": "Chính xác! Đây là từ đa âm rất quan trọng ở HSK 4."
           }
         ],
         "dictation": [
@@ -1600,6 +2508,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '既然……就……' và ngữ pháp Bài 7 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: 在…方面 (về mặt...), 既然…就… (đã... thì...), 拿…来说 (lấy... làm ví dụ), 使 (khiến cho)",
             "sampleAnswer": "这份工作经历使他在解决问题方面成长得很快。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你同意“最好的医生是自己”这句话吗？你平时有哪些保持健康的好习惯？",
+            "pinyin": "Nǐ tóngyì zuì hǎo de yīshēng shì zìjǐ zhè jù huà ma? Nǐ píngshí yǒu nǎxiē bǎochí jiànkāng de hǎo xíguàn?",
+            "vi": "Bạn có đồng ý câu 'Bác sĩ tốt nhất là chính mình' không? Bạn có những thói quen giữ gìn sức khỏe nào và sẽ khuyên người ngồi lâu/hút thuốc ra sao? (HSK 4.1 Bài 7).",
+            "hint": "Nêu quan điểm (phòng bệnh hơn uống thuốc), kể thói quen ăn uống/đi bộ/mở cửa sổ/ngủ sớm và lời khuyên cụ thể.",
+            "sampleAnswer": "我同意“最好的医生是自己”这句话。平时自己注意饮食、运动和休息，比生病后吃药更重要。我平时有很多好习惯：每天饭后散步，不长时间看电脑，经常开窗换新鲜空气，早睡早起。我会提醒朋友少抽烟，久坐不动每小时起来活动一下，少看手机保护眼睛。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 谈谈你对健康与习惯的理解，以《最好的医生是自己》为题写短文。",
+            "pinyin": "Qǐng yǐ Zuì hǎo de yīshēng shì zìjǐ wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ chủ đề 'Bác sĩ tốt nhất là chính mình' (HSK 4.1 Bài 7).",
+            "hint": "Nhấn mạnh chăm sóc sức khỏe từ việc nhỏ hằng ngày (đi bộ, không thức khuya, mở cửa thoáng khí).",
+            "sampleAnswer": "我非常同意“最好的医生是自己”这句话。健康不是等到生病以后才去重视，而是要从每天的小事认真做起。我每天都会出去散步，既可以活动身体，又可以放松心情。我不抽烟，不长时间看手机，经常开窗通风，呼吸新鲜空气。我认为，最好的药是时间，最好的运动是散步。只要坚持好习惯，我们就能健康、快乐地生活。"
           }
         ]
       }
@@ -1658,6 +2580,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "cấu trúc đối xứng",
           "vi": "vừa có A vừa có B / có cười có nói",
           "example": "房间里有花有草 / 大家有说有笑。"
+        },
+        {
+          "hanzi": "前方",
+          "pinyin": "qiánfāng",
+          "pos": "phương vị từ",
+          "vi": "phía trước",
+          "example": "各位乘客，前方到站是五道口。"
+        },
+        {
+          "hanzi": "不断",
+          "pinyin": "bùduàn",
+          "pos": "phó từ",
+          "vi": "không ngừng, liên tục",
+          "example": "世界总是在不断地发展变化。"
+        },
+        {
+          "hanzi": "眼前",
+          "pinyin": "yǎnqián",
+          "pos": "danh từ",
+          "vi": "trước mắt, hiện tại",
+          "example": "我们要认真做好眼前的事。"
+        },
+        {
+          "hanzi": "赶快",
+          "pinyin": "gǎnkuài",
+          "pos": "phó từ",
+          "vi": "nhanh chóng, mau lên",
+          "example": "饭已经做好了，你赶快洗手吃饭吧。"
+        },
+        {
+          "hanzi": "错过",
+          "pinyin": "cuòguò",
+          "pos": "động từ",
+          "vi": "bỏ lỡ (cơ hội, thời gian)",
+          "example": "我们要用心生活，不要错过身边的美好。"
+        },
+        {
+          "hanzi": "失去",
+          "pinyin": "shīqù",
+          "pos": "động từ",
+          "vi": "mất đi (kiên nhẫn, niềm tin)",
+          "example": "如果学习压力太大，孩子很容易对学习失去兴趣。"
         }
       ],
       "etymology": {
@@ -1676,6 +2640,23 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Không nối '不管……但是……' — vế sau của 不管 BẮT BUỘC đi với 都 hoặc 也."
+        },
+        {
+          "title": "Phủ định kép nhấn mạnh (不是不 / 不能不 / 没有不) & 再也不/没 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• Phủ định kép: 不能不参加 (không thể không tham gia = bắt buộc), 这世界上没有不想被理解的人 (không ai không muốn được thấu hiểu), 不是不喜欢 (không phải không thích).\n• 再也不 + V (quyết tâm từ nay không bao giờ nữa) vs 再也没 + V (từ quá khứ đến nay chưa từng làm lại lần nào).",
+          "examples": [
+            {
+              "hanzi": "上次在那家店买的鞋穿了一周就坏了，我再也不去那儿买鞋了。",
+              "pinyin": "Shàng cì zài nà jiā diàn mǎi de xié chuān le yì zhōu jiù huài le, wǒ zài yě bú qù nàr mǎi xié le.",
+              "vi": "Đôi giày mua ở tiệm đó lần trước đi một tuần đã hỏng, tôi thề không bao giờ tới đó mua nữa."
+            },
+            {
+              "hanzi": "毕业都十年了，这么重要的同学聚会，我不能不参加。",
+              "pinyin": "Bìyè dōu shí nián le, zhème zhòngyào de tóngxué jùhuì, wǒ bùnéng bù cānjiā.",
+              "vi": "Tốt nghiệp mười năm rồi, buổi họp lớp quan trọng thế này tôi không thể không tham gia."
+            }
+          ],
+          "trap": "Thử làm tương lai luôn đi với 再也不; kể hồi ức đã qua luôn đi với 再也没 (+ 过)."
         }
       ],
       "exercises": {
@@ -1685,7 +2666,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "不管",
             "都",
             "否则",
-            "相比"
+            "相比",
+            "眼前",
+            "错过",
+            "赶快",
+            "失去",
+            "不断"
           ],
           "items": [
             {
@@ -1708,6 +2694,27 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Gēn qùnián xiāngbǐ, jīntiān dōngtiān lěng duō le, chuān hòu diǎn, fǒuzé róngyì gǎnmào.",
               "vi": "So với năm ngoái, mùa đông năm nay lạnh hơn nhiều, mặc dày vào nếu không rất dễ cảm lạnh.",
               "explanation": "So với: 跟……相比; nếu không thì: 否则."
+            },
+            {
+              "prompt": "我们要认真做好 ( ____ ) 的事；我没有报名，因为我 ( ____ ) 了报名时间。",
+              "answers": [
+                "眼前",
+                "错过"
+              ],
+              "pinyin": "Wǒmen yào rènzhēn zuòhǎo yǎnqián de shì; wǒ cuòguò le bàomíng shíjiān.",
+              "vi": "Ta phải làm tốt việc trước mắt; tôi lỡ mất thời gian đăng ký rồi.",
+              "explanation": "Đề HSK 4.1 Bài 8: 眼前 (trước mắt), 错过 (bỏ lỡ)."
+            },
+            {
+              "prompt": "把手机忘在教室了，快 ( ____ ) 去取吧！经常看短视频会让人慢慢 ( ____ ) 耐心；我在老师帮助下 ( ____ ) 提高汉语。",
+              "answers": [
+                "赶快",
+                "失去",
+                "不断"
+              ],
+              "pinyin": "Nà nǐ gǎnkuài qù qǔ ba! Jīngcháng kàn duǎn shìpín huì ràng rén mànmàn shīqù nàixīn; wǒ zài lǎoshī bāngzhù xià búduàn tígāo Hànyǔ.",
+              "vi": "Mau đi lấy đi! Xem nhiều video ngắn dễ làm người ta mất kiên nhẫn; tôi không ngừng nâng cao tiếng Trung.",
+              "explanation": "Đề HSK 4.1 Bài 8: 赶快 (mau lên), 失去 (mất đi), 不断 (không ngừng)."
             }
           ]
         },
@@ -1737,6 +2744,18 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Bùguǎn gōngzuò yǒu duō máng, měitiān yě yào bǎozhèng shuìmián, fǒuzé xiàolǜ huì yuèláiyuè dī.",
             "vi": "Bất kể công việc bận cỡ nào, mỗi ngày cũng phải ngủ đủ giấc, nếu không hiệu suất sẽ ngày càng giảm.",
             "explanation": "Vận dụng cấu trúc Bài 8 (HSK 4 Thượng): 不管…都/也…, …否则… (nếu không thì), 跟…相比 (so với...), 有A有B (có lúc thế này có lúc thế kia)."
+          },
+          {
+            "parts": [
+              "生活中",
+              "并不缺少美",
+              "缺少的是",
+              "发现美的眼睛"
+            ],
+            "answer": "生活中并不缺少美，缺少的是发现美的眼睛。",
+            "pinyin": "Shàng cì zài nà jiā diàn mǎi de xié chuān le yì zhōu jiù huài le, wǒ zài yě bú qù nàr mǎi xié le.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 8).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 8."
           }
         ],
         "correction": [
@@ -1745,6 +2764,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "虽然昨天下了很大的雨，但他还是坚持来了。",
             "pinyin": "Bùguǎn gōngzuò yǒu duō máng, měitiān yě yào bǎozhèng shuìmián, fǒuzé xiàolǜ huì yuèláiyuè dī.",
             "explanation": "Sự thật đã xảy ra ('hôm qua mưa to') không dùng 不管, phải dùng 虽然."
+          },
+          {
+            "wrong": "大学毕业去了南方后，我再也不见过北方的雪。",
+            "right": "大学毕业去了南方后，我再也没见过北方的雪。",
+            "pinyin": "",
+            "explanation": "Kể việc từ quá khứ tới nay chưa từng lặp lại (có 过) bắt buộc dùng 再也没."
           }
         ],
         "true_false": [
@@ -1759,6 +2784,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Bùguǎn gōngzuò yǒu duō máng, měitiān yě yào bǎozhèng shuìmián, fǒuzé xiàolǜ huì yuèláiyuè dī.",
             "isTrue": false,
             "explanation": "Sai! Sự thật đã xảy ra ('hôm qua mưa to') không dùng 不管, phải dùng 虽然."
+          },
+          {
+            "statement": "'人的一生不能没有健康的身体' là câu phủ định kép nhấn mạnh tầm quan trọng tuyệt đối của sức khỏe.",
+            "pinyin": "Bùnéng méiyǒu",
+            "isTrue": true,
+            "explanation": "Chính xác theo Sổ tay HSK 4.1 Bài 8."
           }
         ],
         "dictation": [
@@ -1811,6 +2842,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '放松' và ngữ pháp Bài 8 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: 不管…都/也…, …否则… (nếu không thì), 跟…相比 (so với...), 有A有B (có lúc thế này có lúc thế kia)",
             "sampleAnswer": "不管工作有多忙，每天也要保证充足的睡眠，否则效率会越来越低。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你同意“生活中不缺少美，缺少的是发现美的眼睛”这句话吗？你平时发现过哪些美？",
+            "pinyin": "Nǐ tóngyì shēnghuó zhōng bù quēshǎo měi zhè jù huà ma? Nǐ píngshí fāxiàn guo nǎxiē měi?",
+            "vi": "Bạn có đồng ý câu 'Cuộc sống không thiếu cái đẹp, chỉ thiếu đôi mắt biết phát hiện cái đẹp' không? Bạn từng phát hiện vẻ đẹp nào quanh mình? (HSK 4.1 Bài 8).",
+            "hint": "Ví dụ vẻ đẹp bình dị: ánh nắng sớm, bông hoa ven đường, sự quan tâm của gia đình và bạn bè, cách giúp người khác vui hơn.",
+            "sampleAnswer": "我同意这句话。因为生活中到处都有美，美就在我们的身边，只要我们用心感受，就能发现。我平时发现过很多美：早上的阳光很温暖，路边的小花很漂亮，家人的关心很让人感动，朋友的帮助也很美好。如果朋友不开心，我会陪他去公园散步，让他多感受身边的美好。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 谈谈你对“发现美”与“心情”的理解，以《生活中不缺少美》为题写短文。",
+            "pinyin": "Qǐng yǐ Shēnghuó zhōng bù quēshǎo měi wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ chủ đề 'Cuộc sống không thiếu cái đẹp' (HSK 4.1 Bài 8).",
+            "hint": "Mở bài dẫn danh ngôn, thân bài kể trải nghiệm du lịch ngắm cảnh và trò chuyện cùng người thân, kết bài rút ra thông điệp tích cực.",
+            "sampleAnswer": "生活中不缺少美，缺少的是发现美的眼睛。美就在我们身边，需要我们用心去看，用心去听。我喜欢旅游，去各地看美丽的风景。我也常常和家人、朋友一起聊天儿，感受他们对我的关心。我常常提醒自己保持好心情，用心发现生活里的美好。我认为，只要有心，生活中的美到处都是，学会发现美，我们的生活一定会更快乐、更温暖。"
           }
         ]
       }
@@ -1869,6 +2914,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "cấu trúc nhượng bộ",
           "vi": "dù không ... cũng vẫn ...",
           "example": "我今天不休息也要把报告做完。"
+        },
+        {
+          "hanzi": "目标",
+          "pinyin": "mùbiāo",
+          "pos": "danh từ",
+          "vi": "mục tiêu",
+          "example": "有了人生目标，我们才知道努力的方向。"
+        },
+        {
+          "hanzi": "对方",
+          "pinyin": "duìfāng",
+          "pos": "danh từ",
+          "vi": "đối phương, phía bên kia",
+          "example": "朋友之间要互相理解对方。"
+        },
+        {
+          "hanzi": "打败",
+          "pinyin": "dǎbài",
+          "pos": "động từ",
+          "vi": "đánh bại, vượt qua",
+          "example": "能打败我们的，往往不是别人，而是我们自己。"
+        },
+        {
+          "hanzi": "表现",
+          "pinyin": "biǎoxiàn",
+          "pos": "động từ/danh từ",
+          "vi": "thể hiện, biểu hiện",
+          "example": "一个人的表现能看出他的能力和责任心。"
+        },
+        {
+          "hanzi": "教练",
+          "pinyin": "jiàoliàn",
+          "pos": "danh từ",
+          "vi": "huấn luyện viên",
+          "example": "这位健身教练很有耐心。"
+        },
+        {
+          "hanzi": "梦想",
+          "pinyin": "mèngxiǎng",
+          "pos": "danh từ/động từ",
+          "vi": "ước mơ, mơ ước",
+          "example": "我们都要为了梦想而努力。"
         }
       ],
       "etymology": {
@@ -1887,6 +2974,23 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Không nói '从来不吃过' — đã có 过 thì phải phủ định bằng 没(有)."
+        },
+        {
+          "title": "Câu nhượng bộ 就是……，也…… & Câu hỏi tu từ 谁/哪儿/怎么 · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 就是 + Khó khăn/Giả thiết，也 + Kết quả không đổi: dù có... cũng vẫn...\n• Câu hỏi tu từ với đại từ nghi vấn (谁不知道？ = ai mà chẳng biết; 哪儿有时间玩？ = làm gì có thời gian chơi; 我怎么会知道？ = sao tôi biết được).",
+          "examples": [
+            {
+              "hanzi": "就是遇到再多的困难和失败，我也不会放弃自己的梦想。",
+              "pinyin": "Jiùshì yùdào zài duō de kùnnan hé shībài, wǒ yě bú huì fàngqì zìjǐ de mèngxiǎng.",
+              "vi": "Cho dù gặp nhiều khó khăn và thất bại đến đâu, tôi cũng không từ bỏ ước mơ của mình."
+            },
+            {
+              "hanzi": "这么简单的问题，谁不知道啊？",
+              "pinyin": "Zhème jiǎndān de wèntí, shuí bù zhīdào a?",
+              "vi": "Câu hỏi đơn giản thế này, ai mà chẳng biết chứ?"
+            }
+          ],
+          "trap": "Trong ngữ cảnh này '怎么都/也+不/没+V' biểu thị thử đủ mọi cách vẫn không thành (怎么也睡不着)."
         }
       ],
       "exercises": {
@@ -1896,7 +3000,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "可是",
             "从来",
             "刚刚好",
-            "从此"
+            "从此",
+            "对方",
+            "表现",
+            "目标",
+            "打败",
+            "梦想"
           ],
           "items": [
             {
@@ -1919,6 +3028,27 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Jǐnguǎn wǒmen láizì bùtóng guójiā, kěshì xìngqù yízhì, cóngcǐ chéng le dādàng.",
               "vi": "Dù chúng tôi đến từ các nước khác nhau nhưng sở thích rất hợp, từ đó thành cặp bài trùng.",
               "explanation": "尽管……可是……; từ đó: 从此."
+            },
+            {
+              "prompt": "第一次见面如果不准时，就会给 ( ____ ) 留下不好的印象；一个人的 ( ____ ) 能看出他的责任心。",
+              "answers": [
+                "对方",
+                "表现"
+              ],
+              "pinyin": "Dì yī cì jiànmiàn rúguǒ bù zhǔnshí, jiù huì gěi duìfāng liúxià bù hǎo de yìnxiàng; yígè rén de biǎoxiàn néng kànchū tā de zérènxīn.",
+              "vi": "Lần đầu gặp không đúng giờ sẽ để lại ấn tượng xấu cho đối phương; biểu hiện của một người thể hiện tinh thần trách nhiệm.",
+              "explanation": "Đề HSK 4.1 Bài 9: 对方 (đối phương), 表现 (biểu hiện)."
+            },
+            {
+              "prompt": "我已经适应这里了，下一个 ( ____ ) 是多交中国朋友；只要不放弃，我们就能在比赛中 ( ____ ) 对方，实现自己的 ( ____ )。",
+              "answers": [
+                "目标",
+                "打败",
+                "梦想"
+              ],
+              "pinyin": "Xià yígè mùbiāo shì duō jiāo Zhōngguó péngyou; wǒmen jiù néng dǎbài duìfāng, shíxiàn mèngxiǎng.",
+              "vi": "Mục tiêu tiếp theo là kết bạn; chỉ cần không bỏ cuộc sẽ đánh bại đối thủ và thực hiện ước mơ.",
+              "explanation": "Đề HSK 4.1 Bài 9: 目标 (mục tiêu), 打败 (đánh bại), 梦想 (ước mơ)."
             }
           ]
         },
@@ -1946,6 +3076,19 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Jǐnguǎn zhège rènwu nándù hěn dà, dànshì wǒ cónglái méiyǒu xiǎng guo fàngqì.",
             "vi": "Mặc dù nhiệm vụ này rất khó, nhưng từ trước đến giờ tôi chưa bao giờ nghĩ tới việc bỏ cuộc.",
             "explanation": "Vận dụng cấu trúc Bài 9 (HSK 4 Thượng): 不…也… (không... cũng...), 尽管…但是/可是… (mặc dù... nhưng...), 此 (này/đây), 从来 (xưa nay luôn/chưa từng)."
+          },
+          {
+            "parts": [
+              "只要",
+              "我们不放弃",
+              "就有机会",
+              "在比赛中",
+              "打败对方"
+            ],
+            "answer": "只要我们不放弃，就有机会在比赛中打败对方。",
+            "pinyin": "Jiùshì yùdào zài duō de kùnnan hé shībài, wǒ yě bú huì fàngqì zìjǐ de mèngxiǎng.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 9).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 9."
           }
         ],
         "correction": [
@@ -1954,6 +3097,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "尽管雨下得很大，可是我们还是要去，所以不会迟到。",
             "pinyin": "Jǐnguǎn zhège rènwu nándù hěn dà, dànshì wǒ cónglái méiyǒu xiǎng guo fàngqì.",
             "explanation": "Trong câu 尽管 thừa nhận sự thật, vế chuyển ngoặt phải đi với 可是 / 但是 trước khi nối tiếp kết luận."
+          },
+          {
+            "wrong": "我昨晚心里有事，怎么也很睡不着觉。",
+            "right": "我昨晚心里有事，怎么也睡不着觉。",
+            "pinyin": "",
+            "explanation": "'怎么也+不/没' không chèn thêm 很 vào giữa 也 và động từ phủ định."
           }
         ],
         "true_false": [
@@ -1968,6 +3117,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Jǐnguǎn zhège rènwu nándù hěn dà, dànshì wǒ cónglái méiyǒu xiǎng guo fàngqì.",
             "isTrue": false,
             "explanation": "Sai! Trong câu 尽管 thừa nhận sự thật, vế chuyển ngoặt phải đi với 可是 / 但是 trước khi nối tiếp kết luận."
+          },
+          {
+            "statement": "Câu tu từ '我哪儿有时间出去玩啊？' thực chất mang nghĩa khẳng định 'Tôi có nhiều thời gian đi chơi lắm'.",
+            "pinyin": "Nǎr yǒu shíjiān",
+            "isTrue": false,
+            "explanation": "Sai! Câu hỏi tu từ dạng khẳng định dùng đại từ nghi vấn (哪儿有) mang ý PHỦ ĐỊNH mạnh: 'Tôi làm gì có thời gian đi chơi!'."
           }
         ],
         "dictation": [
@@ -2020,6 +3175,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '尽管……但是……' và ngữ pháp Bài 9 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: 不…也… (không... cũng...), 尽管…但是/可是… (mặc dù... nhưng...), 此 (này/đây), 从来 (xưa nay luôn/chưa từng)",
             "sampleAnswer": "尽管这个任务难度很大，但是我从来没有想过放弃。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你参加过什么比赛？你觉得比赛最重要的是什么？如果比赛输了，你会怎么安慰自己或朋友？",
+            "pinyin": "Nǐ cānjiā guo shénme bǐsài? Nǐ juéde bǐsài zuì zhòngyào de shì shénme?",
+            "vi": "Bạn từng tham gia cuộc thi nào chưa? Điều quan trọng nhất khi thi đấu là gì và bạn sẽ động viên ra sao nếu thua? (HSK 4.1 Bài 9).",
+            "hint": "Kể tên cuộc thi (hùng biện tiếng Trung/thể thao), nêu tinh thần nỗ lực và kiên trì quan trọng hơn thắng thua.",
+            "sampleAnswer": "我参加过演讲比赛。我觉得比赛最重要的不是输赢，而是努力和坚持。比赛前我每天认真练习，多读多背，纠正发音，努力做到最好。如果输了，我会告诉自己别难过，只要努力过就是成功，继续加油，下次一定会更好。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 介绍一下你印象最深的一次比赛，以《一次难忘的比赛》为题写短文。",
+            "pinyin": "Qǐng yǐ Yí cì nánwàng de bǐsài wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ kể một cuộc thi đáng nhớ (HSK 4.1 Bài 9).",
+            "hint": "Nêu tên cuộc thi, quá trình luyện tập trước khi thi, diễn biến trên sân khấu và bài học trưởng thành.",
+            "sampleAnswer": "我最难忘的是一次汉语演讲比赛。比赛前，我每天认真练习，认真记好要说的内容，努力把音发准。比赛那天，我有点儿紧张，但我勇敢地走上台，顺利完成了演讲。虽然没有得奖，可我的汉语水平提高了很多。这次比赛让我变得更自信，也让我明白：只要努力坚持，就是成功。"
           }
         ]
       }
@@ -2078,6 +3247,48 @@ window.HSK_CURRICULUM["hsk4a"] = {
           "pos": "danh từ",
           "vi": "hệ thống sưởi ấm",
           "example": "北方的冬天室内都有暖气。"
+        },
+        {
+          "hanzi": "家乡",
+          "pinyin": "jiāxiāng",
+          "pos": "danh từ",
+          "vi": "quê hương",
+          "example": "家乡的美食是我永远忘不了的味道。"
+        },
+        {
+          "hanzi": "干活儿",
+          "pinyin": "gànhuór",
+          "pos": "động từ",
+          "vi": "làm việc (chân tay/việc nhà)",
+          "example": "周末妈妈经常在家干活儿，比如打扫房间。"
+        },
+        {
+          "hanzi": "产生",
+          "pinyin": "chǎnshēng",
+          "pos": "động từ",
+          "vi": "nảy sinh, tạo ra, sản sinh",
+          "example": "通过学习汉语，很多留学生对中国文化产生了兴趣。"
+        },
+        {
+          "hanzi": "赶紧",
+          "pinyin": "gǎnjǐn",
+          "pos": "phó từ",
+          "vi": "nhanh chóng, vội vàng",
+          "example": "九点有个招聘会，我得赶紧过去。"
+        },
+        {
+          "hanzi": "整个",
+          "pinyin": "zhěnggè",
+          "pos": "tính từ/đại từ",
+          "vi": "toàn bộ, cả (quá trình/ngày)",
+          "example": "因为心里有事，我整个晚上都没睡好。"
+        },
+        {
+          "hanzi": "出行",
+          "pinyin": "chūxíng",
+          "pos": "động từ",
+          "vi": "đi lại, di chuyển ra ngoài",
+          "example": "现在出行很方便，可以坐地铁或骑共享单车。"
         }
       ],
       "etymology": {
@@ -2096,6 +3307,23 @@ window.HSK_CURRICULUM["hsk4a"] = {
             }
           ],
           "trap": "Chữ 而 trong nghĩa tương phản đứng đầu vế 2, không đặt ở cuối câu."
+        },
+        {
+          "title": "Giới từ 作为 & Mẫu thực tế 动词+一X是一X · Nâng cấp HSK 3.0 (4.1)",
+          "explanation": "• 作为 + Danh từ vai trò/thân phận，Mệnh đề chính: Với tư cách là...\n• 动词 + 一 + Lượng từ + 是 + 一 + Lượng từ: làm được bao nhiêu hay bấy nhiêu (做一道是一道, 帮一个是一个, 过一天是一天, 记一个是一个).",
+          "examples": [
+            {
+              "hanzi": "作为父母，你们平时要多陪伴孩子，耐心听他们说话。",
+              "pinyin": "Zuòwéi fùmǔ, nǐmen píngshí yào duō péibàn háizi, nàixīn tīng tāmen shuōhuà.",
+              "vi": "Là cha mẹ, ngày thường các bạn cần ở bên con nhiều hơn và kiên nhẫn lắng nghe con nói."
+            },
+            {
+              "hanzi": "别着急，生词记一个是一个，你会的生词一定会越来越多。",
+              "pinyin": "Bié zháojí, shēngcí jì yígè shì yígè, nǐ huì de shēngcí yídìng huì yuèláiyuè duō.",
+              "vi": "Đừng vội, từ mới nhớ được từ nào hay từ nấy, vốn từ của bạn chắc chắn sẽ ngày càng nhiều."
+            }
+          ],
+          "trap": "Tránh dùng 作为 đứng độc lập không có danh từ/cụm danh từ theo sau."
         }
       ],
       "exercises": {
@@ -2105,7 +3333,11 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "而",
             "再次",
             "暖气",
-            "怎么着也得"
+            "怎么着也得",
+            "家乡",
+            "产生",
+            "赶紧",
+            "整个"
           ],
           "items": [
             {
@@ -2120,6 +3352,26 @@ window.HSK_CURRICULUM["hsk4a"] = {
               "pinyin": "Běifāng kāi nuǎnqì, ér nánfāng kāi kōngtiáo. Jīnnián zàicì lái Běijīng, zěnmezhe yě děi qù Chángchéng, jīhuì yǒudeshì!",
               "vi": "Miền Bắc bật sưởi còn miền Nam bật điều hòa. Đông này tôi lại đến Bắc Kinh lần nữa, kiểu gì cũng phải lên Vạn Lý Trường Thành, cơ hội còn nhiều!",
               "explanation": "Lò sưởi: 暖气; tương phản: 而; lần nữa: 再次; kiểu gì cũng phải: 怎么着也得; nhiều lắm: 有的是."
+            },
+            {
+              "prompt": "我的 ( ____ ) 在云南，那里风景非常美；通过学习汉语，很多留学生都对中国文化 ( ____ ) 了兴趣。",
+              "answers": [
+                "家乡",
+                "产生"
+              ],
+              "pinyin": "Wǒ de jiāxiāng zài Yúnnán; hěnduō liúxuéshēng duì Zhōngguó wénhuà chǎnshēng le xìngqù.",
+              "vi": "Quê hương tôi ở Vân Nam; nhiều du học sinh đã nảy sinh hứng thú với văn hóa Trung Quốc.",
+              "explanation": "Đề HSK 4.1 Bài 10: 家乡 (quê hương), 产生 (nảy sinh)."
+            },
+            {
+              "prompt": "九点有个招聘会，我得 ( ____ ) 过去；比赛 ( ____ ) 过程都非常紧张，最后我们赢了！",
+              "answers": [
+                "赶紧",
+                "整个"
+              ],
+              "pinyin": "Wǒ děi gǎnjǐn guòqù; bǐsài zhěnggè guòchéng dōu fēicháng jǐnzhāng.",
+              "vi": "Tôi phải vội qua đó ngay; toàn bộ quá trình trận đấu đều rất căng thẳng.",
+              "explanation": "Đề HSK 4.1 Bài 10: 赶紧 (nhanh chóng), 整个 (toàn bộ)."
             }
           ]
         },
@@ -2150,6 +3402,18 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Nánfāng de shānshuǐ wēnróu, ér běifāng de xuějǐng zhuàngguān.",
             "vi": "Núi sông phương Nam dịu dàng, còn cảnh tuyết phương Bắc lại tráng lệ.",
             "explanation": "Vận dụng cấu trúc Bài 10 (HSK 4 Thượng): 说什么/怎么着也得× (nói gì thì nói cũng phải...), 有的是 (tha hồ có/rất nhiều), 而 (nhưng trái lại), 再次 (lần nữa)."
+          },
+          {
+            "parts": [
+              "这么多练习题",
+              "别着急",
+              "做一道是一道",
+              "总能做完的"
+            ],
+            "answer": "这么多练习题别着急，做一道是一道，总能做完的。",
+            "pinyin": "Zuòwéi fùmǔ, nǐmen píngshí yào duō péibàn háizi, nàixīn tīng tāmen shuōhuà.",
+            "vi": "Luyện sắp xếp câu theo Sổ tay nâng cấp HSK 4.1 (Bài 10).",
+            "explanation": "Vận dụng điểm ngữ pháp nâng cấp HSK 3.0 từ Sổ tay 4.1 Bài 10."
           }
         ],
         "correction": [
@@ -2158,6 +3422,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "right": "我的书桌上有的是中文词典。",
             "pinyin": "Nánfāng de shānshuǐ wēnróu, ér běifāng de xuějǐng zhuàngguān.",
             "explanation": "有的是 tự nó đã mang nghĩa 'vô cùng nhiều' và kết thúc câu trực tiếp bằng danh từ, không thêm 了 hay '一大堆'."
+          },
+          {
+            "wrong": "作为在公司部门经理，最重要的是多和大家交流。",
+            "right": "作为公司的部门经理，最重要的是多和大家交流。",
+            "pinyin": "",
+            "explanation": "作为 trực tiếp kết hợp danh từ/chức vụ phía sau (作为部门经理 / 作为公司的部门经理), không chen giới từ 在."
           }
         ],
         "true_false": [
@@ -2172,6 +3442,12 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "pinyin": "Nánfāng de shānshuǐ wēnróu, ér běifāng de xuějǐng zhuàngguān.",
             "isTrue": false,
             "explanation": "Sai! 有的是 tự nó đã mang nghĩa 'vô cùng nhiều' và kết thúc câu trực tiếp bằng danh từ, không thêm 了 hay '一大堆'."
+          },
+          {
+            "statement": "Mẫu '能帮一个是一个' thể hiện thái độ tích cực, thực tế: giúp được ai thì hết lòng giúp người đó.",
+            "pinyin": "Néng bāng yígè shì yígè",
+            "isTrue": true,
+            "explanation": "Chính xác theo Sổ tay HSK 4.1 Bài 10."
           }
         ],
         "dictation": [
@@ -2224,6 +3500,20 @@ window.HSK_CURRICULUM["hsk4a"] = {
             "vi": "Hãy kết hợp '有的是' và ngữ pháp Bài 10 để trình bày quan điểm hoặc trải nghiệm của bạn.",
             "hint": "Áp dụng các cấu trúc: 说什么/怎么着也得× (nói gì thì nói cũng phải...), 有的是 (tha hồ có/rất nhiều), 而 (nhưng trái lại), 再次 (lần nữa)",
             "sampleAnswer": "中国各省风景不一样，南方的山水温柔，而北方的雪景壮观。"
+          },
+          {
+            "q": "[Nói HSK 3.0 · 说一说] 你觉得“有钱”和“幸福”是什么关系？请分享一件让你感到幸福的小事。",
+            "pinyin": "Nǐ juéde yǒuqián hé xìngfú shì shénme guānxi? Qǐng fēnxiǎng yí jiàn ràng nǐ gǎndào xìngfú de xiǎoshì.",
+            "vi": "Bạn nghĩ 'có tiền' và 'hạnh phúc' có mối quan hệ thế nào? Chia sẻ một chuyện nhỏ khiến bạn thấy hạnh phúc (HSK 4.1 Bài 10).",
+            "hint": "Phân tích tiền đáp ứng nhu cầu cơ bản nhưng không mua được thời gian và tình cảm; kể bữa cơm ấm áp bên gia đình.",
+            "sampleAnswer": "钱确实重要，但幸福不只是有钱，比如和家人在一起的时间、自己的好心情，这些是钱买不到的。让我感到幸福的事往往很简单：上周有天我特别累，下班回家妈妈已经做好了晚饭，我们坐在窗边吃饭聊天，那一刻什么烦恼都没有了。"
+          },
+          {
+            "q": "[Viết ≥80 chữ · 写一写] 谈谈你对幸福的理解，以《我眼中的幸福》为题写一篇不少于80字的短文。",
+            "pinyin": "Qǐng yǐ Wǒ yǎnzhōng de xìngfú wéi tí, xiě yì piān bù shǎoyú bāshí zì de duǎnwén.",
+            "vi": "Viết đoạn văn ≥80 chữ chủ đề 'Hạnh phúc trong mắt tôi' (HSK 4.1 Bài 10).",
+            "hint": "Nêu quan điểm hạnh phúc không có thước đo chung, kể 2 niềm vui giản dị hằng ngày, khẳng định biết trân trọng sẽ thấy hạnh phúc.",
+            "sampleAnswer": "我觉得，幸福没有统一的标准。对我来说，幸福常常来自生活里的小事。幸福是周末不用早起床，可以听喜欢的音乐。幸福也是和朋友一起去逛街，一边散步一边聊天儿。我没有很多钱，但是我有健康的身体、爱我的家人，也有时间做自己喜欢的事。其实，只要用心感受，你就能发现自己身边的幸福。"
           }
         ]
       }

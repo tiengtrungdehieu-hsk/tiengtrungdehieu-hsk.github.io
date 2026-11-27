@@ -970,9 +970,11 @@
       content: "";
       position: absolute;
       pointer-events: none;
+      z-index: 0;
     }
     .tianzige-box::before { inset: 0 50% 0 50%; border-left: 1px dashed rgba(122, 107, 93, 0.30); }
     .tianzige-box::after { inset: 50% 0 50% 0; border-top: 1px dashed rgba(122, 107, 93, 0.30); }
+    .tianzige-box > * { position: relative; z-index: 1; }
 
     .hero-card {
       background: var(--paper-white);
@@ -1333,8 +1335,27 @@
       line-height: 1.2;
       min-height: 17px;
     }
-    .tianzige-box { cursor: pointer; padding: 0; color: var(--text-main); }
+    .tianzige-box {
+      cursor: pointer;
+      padding: 0;
+      color: var(--text-main);
+      transition: border-color 0.16s ease, box-shadow 0.16s ease;
+    }
     .tianzige-box.compact { width: 54px; height: 54px; font-size: 1.6rem; }
+    .tianzige-box.has-stroke-svg { padding: 4px; }
+    .tianzige-box.is-writing {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2.5px rgba(240, 184, 93, 0.55);
+    }
+    html[data-theme="dark"] .tianzige-box.is-writing {
+      box-shadow: 0 0 0 2.5px rgba(214, 164, 85, 0.45);
+    }
+    .tianzige-stroke-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+    }
     .tianzige-hv {
       font-size: 11px;
       font-weight: 800;
@@ -6105,6 +6126,7 @@
           vocabLabState.fcAutoTimer = null;
         }
         vocabLabState.fcAutoplay = false;
+        stopFcStrokeAnim();
       }
 
       function getActiveVocabSource(l) {
@@ -6245,7 +6267,7 @@
             ${chars.map((ch, idx) => `
               <div class="tianzige-unit">
                 <span class="tianzige-py pinyin-aux">${escapeHtml(pys[idx] || "")}</span>
-                <button type="button" class="tianzige-box ${isCompact ? "compact" : ""}" data-inspect-char="${escapeHtml(ch)}" data-no-flip="1" title="Bấm xem thứ tự nét &amp; bộ thủ chữ ${escapeHtml(ch)}">${renderColoredHanzi(ch, pys[idx] || "")}</button>
+                <button type="button" class="tianzige-box ${isCompact ? "compact" : ""}" data-inspect-char="${escapeHtml(ch)}" data-fc-char-idx="${idx}" data-no-flip="1" title="Bấm xem thứ tự nét &amp; bộ thủ chữ ${escapeHtml(ch)}">${renderColoredHanzi(ch, pys[idx] || "")}</button>
                 <span class="tianzige-hv">${escapeHtml(hvs[idx] || "—")}</span>
               </div>
             `).join("")}
@@ -6323,7 +6345,10 @@
                       <div style="flex:1;min-width:180px;">
                         ${renderFlashcardTianziRow(v)}
                       </div>
-                      <button class="audio-btn" data-speak="${escapeHtml(v.hanzi)}">${ico("volume")} Đọc</button>
+                      <div class="toolbar-row" style="gap:6px;flex-shrink:0;">
+                        <button type="button" class="audio-btn" id="btnFcReplayStroke" data-no-flip="1" title="Chạy lại thứ tự nét viết">✍️ Viết lại</button>
+                        <button type="button" class="audio-btn" data-speak="${escapeHtml(v.hanzi)}">${ico("volume")} Đọc</button>
+                      </div>
                     </div>
                     <div class="fc-back-split">
                       <div class="fc-back-main">
@@ -7583,6 +7608,7 @@
           t.setAttribute("aria-selected", isAct ? "true" : "false");
         });
         const host = document.getElementById("tabContent");
+        stopFcStrokeAnim();
         if (state.activeTab === "study") {
           host.innerHTML = renderStudyTab(l);
           updateDialoguePlayerButtons();
@@ -7600,6 +7626,16 @@
             Promise.all([ensureVocabImages(), ensureHanVietData()]).then((res) => {
               if (res.some(Boolean) && state.activeTab === "vocab") renderTabContent();
             });
+          }
+          if (!window.HANZI_STROKE_DATA) {
+            ensureStrokeData().then((ok) => {
+              if (ok && state.view === "lesson" && state.activeTab === "vocab" && vocabLabState.subMode === "flashcard" && vocabLabState.flipped) {
+                startFlashcardStrokeAnimation(40);
+              }
+            });
+          }
+          if (vocabLabState.subMode === "flashcard" && vocabLabState.flipped) {
+            startFlashcardStrokeAnimation(80);
           }
           if (vocabLabState.subMode === "write") {
             redrawWritePad();
@@ -7620,6 +7656,7 @@
       }
 
       function setView(viewName) {
+        stopFcStrokeAnim();
         state.view = ["home", "book", "lesson"].includes(viewName) ? viewName : "home";
         closeMobileDrawer();
         renderAll();
@@ -8518,6 +8555,166 @@
             ${numBadges}
           </svg>
         `;
+      }
+
+      let fcStrokeAnim = { rafId: 0, timerId: 0, runId: 0 };
+
+      function stopFcStrokeAnim() {
+        fcStrokeAnim.runId += 1;
+        if (fcStrokeAnim.rafId) {
+          cancelAnimationFrame(fcStrokeAnim.rafId);
+          fcStrokeAnim.rafId = 0;
+        }
+        if (fcStrokeAnim.timerId) {
+          clearTimeout(fcStrokeAnim.timerId);
+          fcStrokeAnim.timerId = 0;
+        }
+        document.querySelectorAll("#flashcardBox .tianzige-box.is-writing").forEach((el) => {
+          el.classList.remove("is-writing");
+        });
+      }
+
+      function renderFcTianziStrokeFrame(boxEl, ch, mode, activeIdx, progress, runId, boxIdx) {
+        if (!boxEl) return;
+        const d = getCharStrokeData(ch);
+        if (!d || !Array.isArray(d.s) || !d.s.length) return;
+        boxEl.classList.add("has-stroke-svg");
+
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        const ghostCol = isDark ? "#475569" : "#94a3b8";
+        const doneCol = isDark ? "#e6ddd0" : "#1e293b";
+        const radCol = isDark ? "#fb923c" : "#b45309";
+        const activeCol = isDark ? "#2dd4bf" : "#0f766e";
+        const radSet = new Set(d.r || []);
+
+        const ghostLayer = d.s.map((p) => `<path d="${p}" fill="${ghostCol}" opacity="0.18"/>`).join("");
+
+        if (mode === "ghost") {
+          boxEl.innerHTML = `<svg class="tianzige-stroke-svg" viewBox="0 0 1024 1024" aria-hidden="true"><g transform="scale(1, -1) translate(0, -900)">${ghostLayer}</g></svg>`;
+          return;
+        }
+
+        if (mode === "done") {
+          const fullLayer = d.s.map((p, i) => `<path d="${p}" fill="${radSet.has(i) ? radCol : doneCol}"/>`).join("");
+          boxEl.innerHTML = `<svg class="tianzige-stroke-svg" viewBox="0 0 1024 1024" aria-hidden="true"><g transform="scale(1, -1) translate(0, -900)">${ghostLayer}${fullLayer}</g></svg>`;
+          return;
+        }
+
+        const total = d.s.length;
+        const idx = Math.max(0, Math.min(total - 1, activeIdx));
+        const maskId = `fc_m_${runId}_${boxIdx}_${idx}`;
+        const mPts = (d.m && d.m[idx]) || [];
+        const mD = medianPathD(mPts);
+        const mLen = medianLength(mPts) + 80;
+        const clamped = Math.max(0, Math.min(1, progress));
+        const dashOffset = mLen * (1 - clamped);
+        const tipPt = pointAtProgress(mPts, clamped);
+        const donePaths = d.s.slice(0, idx).map((p, i) => `<path d="${p}" fill="${radSet.has(i) ? radCol : doneCol}"/>`).join("");
+
+        boxEl.innerHTML = `
+          <svg class="tianzige-stroke-svg" viewBox="0 0 1024 1024" aria-hidden="true">
+            <defs>
+              <mask id="${maskId}">
+                <rect x="-100" y="-250" width="1224" height="1400" fill="#000"/>
+                <path d="${mD}" fill="none" stroke="#fff" stroke-width="230" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="${mLen}" stroke-dashoffset="${dashOffset}"/>
+              </mask>
+            </defs>
+            <g transform="scale(1, -1) translate(0, -900)">
+              ${ghostLayer}
+              ${donePaths}
+              ${clamped > 0 ? `<path d="${d.s[idx]}" fill="${activeCol}" mask="url(#${maskId})"/>` : ""}
+              ${clamped > 0.02 && clamped < 0.99 ? `<circle cx="${tipPt[0]}" cy="${tipPt[1]}" r="44" fill="#ef4444" opacity="0.92"/>` : ""}
+            </g>
+          </svg>
+        `;
+      }
+
+      function estimateFcWordStrokeDurationMs(v) {
+        if (!v || !v.hanzi) return 2600;
+        const chars = Array.from(String(v.hanzi)).filter((c) => /[\u4e00-\u9fff]/.test(c));
+        let totalStrokes = 0;
+        chars.forEach((ch) => {
+          const d = getCharStrokeData(ch);
+          totalStrokes += d && Array.isArray(d.s) ? d.s.length : 5;
+        });
+        return Math.min(7500, Math.max(3000, totalStrokes * 340 + 950));
+      }
+
+      function startFlashcardStrokeAnimation(delayMs = 260) {
+        stopFcStrokeAnim();
+        const runId = fcStrokeAnim.runId;
+        if (state.view !== "lesson" || state.activeTab !== "vocab" || vocabLabState.subMode !== "flashcard" || !vocabLabState.flipped) {
+          return;
+        }
+        if (!window.HANZI_STROKE_DATA) {
+          ensureStrokeData().then((ok) => {
+            if (ok && fcStrokeAnim.runId === runId && state.view === "lesson" && state.activeTab === "vocab" && vocabLabState.subMode === "flashcard" && vocabLabState.flipped) {
+              startFlashcardStrokeAnimation(40);
+            }
+          });
+          return;
+        }
+
+        const rawBoxes = Array.from(document.querySelectorAll("#flashcardBox .flashcard-back .tianzige-box[data-inspect-char]"));
+        const boxes = rawBoxes.filter((el) => !!getCharStrokeData(el.dataset.inspectChar));
+        if (!boxes.length) return;
+
+        boxes.forEach((el, bi) => {
+          el.classList.remove("is-writing");
+          renderFcTianziStrokeFrame(el, el.dataset.inspectChar, "ghost", 0, 0, runId, bi);
+        });
+
+        function animateCharAt(boxPos) {
+          if (fcStrokeAnim.runId !== runId || !vocabLabState.flipped || state.activeTab !== "vocab") return;
+          if (boxPos >= boxes.length) return;
+
+          const el = boxes[boxPos];
+          if (!el || !el.isConnected) return;
+          const ch = el.dataset.inspectChar;
+          const d = getCharStrokeData(ch);
+          if (!d || !Array.isArray(d.s) || !d.s.length) {
+            animateCharAt(boxPos + 1);
+            return;
+          }
+
+          el.classList.add("is-writing");
+          const total = d.s.length;
+
+          function animateStroke(sIdx) {
+            if (fcStrokeAnim.runId !== runId || !el.isConnected || !vocabLabState.flipped) return;
+            const mPts = (d.m && d.m[sIdx]) || [];
+            const mLen = medianLength(mPts);
+            const dur = Math.max(220, Math.min(440, Math.round(mLen * 0.44)));
+            const t0 = performance.now();
+
+            function step(now) {
+              if (fcStrokeAnim.runId !== runId || !el.isConnected || !vocabLabState.flipped) return;
+              const t = Math.min(1, (now - t0) / dur);
+              const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+              renderFcTianziStrokeFrame(el, ch, "draw", sIdx, eased, runId, boxPos);
+              if (t < 1) {
+                fcStrokeAnim.rafId = requestAnimationFrame(step);
+              } else if (sIdx + 1 < total) {
+                fcStrokeAnim.timerId = setTimeout(() => animateStroke(sIdx + 1), 85);
+              } else {
+                renderFcTianziStrokeFrame(el, ch, "done", total - 1, 1, runId, boxPos);
+                el.classList.remove("is-writing");
+                if (boxPos + 1 < boxes.length) {
+                  fcStrokeAnim.timerId = setTimeout(() => animateCharAt(boxPos + 1), 160);
+                }
+              }
+            }
+            fcStrokeAnim.rafId = requestAnimationFrame(step);
+          }
+
+          animateStroke(0);
+        }
+
+        if (delayMs > 0) {
+          fcStrokeAnim.timerId = setTimeout(() => animateCharAt(0), delayMs);
+        } else {
+          animateCharAt(0);
+        }
       }
 
       function buildStrokeStepStripHtml(ch, activeIdx, dataAttrName) {
@@ -10041,6 +10238,7 @@
         }
 
         if (e.target.closest("#btnFcShuffle")) {
+          stopFcStrokeAnim();
           vocabLabState.fcShuffled = !vocabLabState.fcShuffled;
           const src = getActiveVocabSource(getCurrentLesson());
           const base = vocabLabState.onlyUnmastered
@@ -10064,17 +10262,21 @@
                 stopFcAutoplay();
                 return;
               }
+              const src = getActiveVocabSource(getCurrentLesson());
+              const curW = src.vocab[vocabLabState.fcIndex % Math.max(1, src.vocab.length)];
               if (!vocabLabState.flipped) {
                 vocabLabState.flipped = true;
                 const cardEl = document.getElementById("flashcardBox");
                 if (cardEl) cardEl.classList.add("flipped");
-                vocabLabState.fcAutoTimer = setTimeout(stepAuto, 2300);
+                startFlashcardStrokeAnimation(260);
+                vocabLabState.fcAutoTimer = setTimeout(stepAuto, estimateFcWordStrokeDurationMs(curW));
               } else {
+                stopFcStrokeAnim();
                 vocabLabState.fcIndex += 1;
                 vocabLabState.flipped = false;
                 renderTabContent();
-                const src = getActiveVocabSource(getCurrentLesson());
-                const w = src.vocab[vocabLabState.fcIndex % Math.max(1, src.vocab.length)];
+                const nextSrc = getActiveVocabSource(getCurrentLesson());
+                const w = nextSrc.vocab[vocabLabState.fcIndex % Math.max(1, nextSrc.vocab.length)];
                 if (w) speak(w.hanzi);
                 vocabLabState.fcAutoTimer = setTimeout(stepAuto, 2000);
               }
@@ -10088,16 +10290,27 @@
           return;
         }
 
+        if (e.target.closest("#btnFcReplayStroke")) {
+          startFlashcardStrokeAnimation(0);
+          return;
+        }
+
         if (e.target.closest("[data-fc-flip]") && !e.target.closest("button, input, label, a, [data-no-flip]")) {
           touchStudyDay();
           vocabLabState.flipped = !vocabLabState.flipped;
           const cardEl = document.getElementById("flashcardBox");
-          if (cardEl) cardEl.classList.toggle("flipped", vocabLabState.flipped);
-          else renderTabContent();
+          if (cardEl) {
+            cardEl.classList.toggle("flipped", vocabLabState.flipped);
+            if (vocabLabState.flipped) startFlashcardStrokeAnimation(260);
+            else stopFcStrokeAnim();
+          } else {
+            renderTabContent();
+          }
           return;
         }
 
         if (e.target.id === "btnToggleFcFilter" || e.target.id === "btnShowAllCards") {
+          stopFcStrokeAnim();
           vocabLabState.onlyUnmastered = !vocabLabState.onlyUnmastered;
           vocabLabState.fcIndex = 0;
           vocabLabState.flipped = false;
@@ -10113,6 +10326,7 @@
         }
 
         if (e.target.id === "btnFcPrev") {
+          stopFcStrokeAnim();
           vocabLabState.fcIndex -= 1;
           vocabLabState.flipped = false;
           renderTabContent();
@@ -10120,6 +10334,7 @@
         }
 
         if (e.target.id === "btnFcNext") {
+          stopFcStrokeAnim();
           vocabLabState.fcIndex += 1;
           vocabLabState.flipped = false;
           renderTabContent();
@@ -10128,6 +10343,7 @@
 
         const fcRateBtn = e.target.closest("[data-fc-rate]");
         if (fcRateBtn) {
+          stopFcStrokeAnim();
           const l = getCurrentLesson();
           const src = getActiveVocabSource(l);
           let cards = vocabLabState.onlyUnmastered
@@ -11762,7 +11978,11 @@
             touchStudyDay();
             vocabLabState.flipped = !vocabLabState.flipped;
             const cardEl = document.getElementById("flashcardBox");
-            if (cardEl) cardEl.classList.toggle("flipped", vocabLabState.flipped);
+            if (cardEl) {
+              cardEl.classList.toggle("flipped", vocabLabState.flipped);
+              if (vocabLabState.flipped) startFlashcardStrokeAnimation(260);
+              else stopFcStrokeAnim();
+            }
           } else if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") {
             document.getElementById("btnFcPrev")?.click();
           } else if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") {

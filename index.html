@@ -468,6 +468,139 @@
       background: var(--paper-1);
       color: var(--ink-900);
     }
+    .btn-pill.feedback-pill {
+      background: var(--primary-soft);
+      color: var(--ink-900);
+      border-color: var(--border);
+      box-shadow: 2px 2px 0 var(--shadow-ink);
+    }
+    .btn-pill.feedback-pill:hover:not(:disabled) {
+      background: var(--main-hi);
+      color: #221f1c;
+    }
+    html[data-theme="dark"] .btn-pill.feedback-pill {
+      background: rgba(214, 164, 85, 0.22);
+      color: #f6e7cb;
+      border-color: rgba(214, 164, 85, 0.52);
+    }
+    html[data-theme="dark"] .btn-pill.feedback-pill:hover:not(:disabled) {
+      background: var(--main-hi);
+      color: #221f1c;
+    }
+    .fb-context-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: var(--paper-1);
+      border: 1px solid var(--border-soft);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .fb-star-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .fb-star-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--paper-white);
+      color: var(--ink-500);
+      font-size: 18px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.12s ease, background-color 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+    }
+    .fb-star-btn:hover { transform: translateY(-1px); border-color: var(--mustard-dark); }
+    .fb-star-btn.active {
+      background: #fef3c7;
+      border-color: #d97706;
+      color: #eab308;
+    }
+    html[data-theme="dark"] .fb-star-btn.active {
+      background: rgba(234, 179, 8, 0.2);
+      border-color: #eab308;
+      color: #facc15;
+    }
+    .fb-cat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .fb-cat-btn {
+      border: 1.5px solid var(--border);
+      background: var(--paper-white);
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-family: var(--font-vi);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+    }
+    .fb-cat-btn:hover { background: var(--paper-1); }
+    .fb-cat-btn.active {
+      background: var(--ink-900);
+      color: var(--paper-0);
+      border-color: var(--border);
+    }
+    html[data-theme="dark"] .fb-cat-btn.active {
+      background: var(--main-hi);
+      color: #221f1c;
+    }
+    .fb-textarea {
+      width: 100%;
+      min-height: 108px;
+      resize: vertical;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      background: var(--paper-white);
+      color: var(--text-main);
+      font-family: var(--font-vi);
+      font-size: 13.5px;
+      line-height: 1.5;
+      padding: 9px 11px;
+    }
+    .fb-textarea:focus {
+      outline: none;
+      border-color: var(--mustard-dark);
+      box-shadow: 0 0 0 2px var(--primary-soft);
+    }
+    .fb-char-count {
+      font-size: 11.5px;
+      color: var(--text-soft);
+      text-align: right;
+      margin-top: 4px;
+    }
+    .fb-history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 8px;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    .fb-history-item {
+      border: 1px solid var(--border-soft);
+      background: var(--paper-white);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
     .streak-pill {
       font-family: var(--font-vi);
       font-size: 12.5px;
@@ -3574,10 +3707,15 @@
       .brand-seal { width: 30px; height: 30px; }
       .brand-title { font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
       .topbar-actions { gap: 5px; }
+      .btn-pill.feedback-pill { padding: 4px 8px; font-size: 11.5px; }
       .streak-pill { padding: 4px 8px; font-size: 11.5px; }
       .btn-pill.auth-pill { padding: 5px 9px; font-size: 11.5px; }
       .bookshelf-grid, .lesson-grid { grid-template-columns: 1fr; }
       .mode-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 440px) {
+      .btn-pill.feedback-pill .fb-pill-label { display: none; }
+      .btn-pill.feedback-pill { padding: 4px 7px; }
     }
   </style>
 </head>
@@ -3593,6 +3731,7 @@
     </div>
 
     <div class="topbar-actions">
+      <button type="button" class="btn-pill feedback-pill" id="btnOpenFeedback" title="Gửi góp ý &amp; đánh giá trang web" aria-label="Góp ý về trang web"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg> <span class="fb-pill-label">Góp ý</span></button>
       <button type="button" class="streak-pill" id="streakBadge" title="Tiến độ &amp; Chuỗi ngày học"><svg class="ui-ico flame-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c.8 3.2 4 5.1 4 8.7a4 4 0 1 1-8 0c0-1.9.8-3.6 2-5.1.1 1.6 1.1 2.4 2 2.4-.6-1.7-.4-4 0-6Z"/></svg> <span>1 ngày · 0 XP</span></button>
       <button type="button" class="btn-pill auth-pill" id="btnOpenAuth" title="Đăng nhập / Đồng bộ tiến độ"><svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg> <span>Đăng nhập</span></button>
     </div>
@@ -3713,6 +3852,7 @@
         <button type="button" class="btn-pill" data-open-modal="roadmap">🧭 Lộ trình người mới</button>
         <button type="button" class="btn-pill" data-open-modal="tools">🈷️ Bảng Pinyin &amp; 214 Bộ thủ</button>
         <button type="button" class="btn-pill" data-open-modal="search">🔍 Tìm bài &amp; Từ điển</button>
+        <button type="button" class="btn-pill feedback-pill" data-open-modal="feedback">💬 Góp ý cải thiện web</button>
       </div>
     </section>
 
@@ -3906,6 +4046,17 @@
         <button class="btn-pill" id="btnCloseAuth">✕ Đóng</button>
       </div>
       <div class="modal-body" id="authModalBody"></div>
+    </div>
+  </div>
+
+  <!-- User Feedback Modal ("Góp ý") -->
+  <div class="modal-backdrop hidden" id="feedbackModal">
+    <div class="modal-card" style="max-width:500px;">
+      <div class="modal-head">
+        <strong>💬 Góp ý &amp; Đánh giá web</strong>
+        <button type="button" class="btn-pill" id="btnCloseFeedback">✕ Đóng</button>
+      </div>
+      <div class="modal-body" id="feedbackModalBody"></div>
     </div>
   </div>
 
@@ -10004,8 +10155,320 @@
         `;
       }
 
+      /* User Feedback ("Góp ý") Modal & Supabase + Offline Receipt */
+      const FEEDBACK_HISTORY_KEY = "hoangu_feedback_history_v1";
+      const FEEDBACK_CATEGORIES = [
+        { id: "bug", label: "🐞 Báo lỗi" },
+        { id: "feature", label: "💡 Đề xuất tính năng" },
+        { id: "ui", label: "🎨 Giao diện / Dễ dùng" },
+        { id: "praise", label: "❤️ Khen ngợi / Động viên" },
+      ];
+      const FEEDBACK_RATING_LABELS = {
+        1: "Chưa hài lòng",
+        2: "Cần cải thiện nhiều",
+        3: "Tạm ổn",
+        4: "Khá hay!",
+        5: "Rất thích!",
+      };
+      const feedbackUiState = {
+        category: "feature",
+        rating: 5,
+        message: "",
+        contact: "",
+        busy: false,
+        msg: null,
+        lastSentAt: 0,
+      };
+
+      function getCurrentPageContextLabel() {
+        if (state.view === "home") return "Trang chủ Kệ sách";
+        const meta = BOOK_META[state.bookId] || BOOK_META.hsk1;
+        if (state.view === "book") return `Danh sách bài · ${meta.shortName}`;
+        const tabNames = {
+          study: "Bài khóa",
+          vocab: "Từ vựng",
+          grammar: "Ngữ pháp",
+          workbook: "Bài tập",
+          skills: "Kỹ năng",
+        };
+        const tabLabel = tabNames[state.activeTab] || "Bài khóa";
+        const lsNum = formatLessonDisplayNum(meta.id, state.lessonNum || 1);
+        return `${meta.shortName} · Bài ${lsNum} · Tab ${tabLabel}`;
+      }
+
+      function loadFeedbackHistory() {
+        try {
+          const raw = localStorage.getItem(FEEDBACK_HISTORY_KEY);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (err) {
+          return [];
+        }
+      }
+
+      function saveFeedbackHistory(entry) {
+        try {
+          const list = loadFeedbackHistory();
+          list.unshift(entry);
+          localStorage.setItem(FEEDBACK_HISTORY_KEY, JSON.stringify(list.slice(0, 10)));
+        } catch (err) {}
+      }
+
+      function buildFeedbackCopyText(payload) {
+        const catObj = FEEDBACK_CATEGORIES.find((c) => c.id === payload.category) || FEEDBACK_CATEGORIES[1];
+        return [
+          `[Góp ý Tiếng Trung Dễ Hiểu]`,
+          `- Mục: ${catObj.label}`,
+          `- Đánh giá: ${payload.rating || 5}/5 sao`,
+          `- Vị trí: ${payload.page_context || getCurrentPageContextLabel()}`,
+          payload.sender_name ? `- Người gửi: ${payload.sender_name}` : "",
+          `- Nội dung: ${payload.message}`,
+        ].filter(Boolean).join("\n");
+      }
+
+      function renderFeedbackModalBody() {
+        const host = document.getElementById("feedbackModalBody");
+        if (!host) return;
+        const ctxLabel = getCurrentPageContextLabel();
+        const msgHtml = feedbackUiState.msg
+          ? `<div class="feedback-box ${feedbackUiState.msg.type === "ok" ? "ok" : "bad"}" style="margin:10px 0 0;">
+              <div>${escapeHtml(feedbackUiState.msg.text)}</div>
+              ${feedbackUiState.msg.copyText ? `
+                <div style="margin-top:8px;">
+                  <button type="button" class="btn-pill" id="btnCopyFeedbackFallback" style="font-size:12px;padding:4px 10px;">📋 Sao chép góp ý</button>
+                </div>
+              ` : ""}
+            </div>`
+          : "";
+
+        const history = loadFeedbackHistory();
+        const historyHtml = history.length ? `
+          <details style="margin-top:14px;border-top:1px dashed var(--border);padding-top:10px;">
+            <summary style="cursor:pointer;font-size:12.5px;font-weight:700;color:var(--text-muted);">
+              Lịch sử đã gửi trên máy này (${history.length})
+            </summary>
+            <div class="fb-history-list">
+              ${history.map((item) => {
+                const catObj = FEEDBACK_CATEGORIES.find((c) => c.id === item.category) || FEEDBACK_CATEGORIES[1];
+                const dStr = item.createdAt ? new Date(item.createdAt).toLocaleString("vi-VN") : "";
+                return `
+                  <div class="fb-history-item">
+                    <div style="display:flex;justify-content:space-between;gap:8px;font-weight:700;margin-bottom:3px;">
+                      <span>${escapeHtml(catObj.label)} · ${"★".repeat(item.rating || 5)}</span>
+                      <span style="font-size:11px;color:${item.synced ? "var(--success)" : "var(--warning)"};">${item.synced ? "✓ Đã gửi" : "Lưu cục bộ"}</span>
+                    </div>
+                    <div style="color:var(--text-main);">${escapeHtml(item.message || "")}</div>
+                    <div style="font-size:11px;color:var(--text-soft);margin-top:3px;">${escapeHtml(item.pageContext || "")}${dStr ? ` · ${escapeHtml(dStr)}` : ""}</div>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </details>
+        ` : "";
+
+        const msgLen = (feedbackUiState.message || "").length;
+        host.innerHTML = `
+          <p style="margin:0 0 10px;font-size:13px;color:var(--text-muted);line-height:1.5;">
+            Mọi góp ý của bạn giúp <strong>Tiếng Trung Dễ Hiểu</strong> hoàn thiện tốt hơn mỗi ngày!
+          </p>
+          <div class="fb-context-bar">📍 Đang xem: <strong>${escapeHtml(ctxLabel)}</strong></div>
+
+          <div style="font-size:12.5px;font-weight:700;margin-bottom:6px;">Trải nghiệm của bạn thế nào?</div>
+          <div class="fb-star-row" role="group" aria-label="Đánh giá từ 1 đến 5 sao">
+            ${[1, 2, 3, 4, 5].map((n) => `
+              <button type="button" class="fb-star-btn ${n <= feedbackUiState.rating ? "active" : ""}" data-fb-star="${n}" aria-label="${n} sao" title="${n} sao">${n <= feedbackUiState.rating ? "★" : "☆"}</button>
+            `).join("")}
+            <span style="font-size:12.5px;font-weight:700;color:var(--primary);margin-left:4px;">${feedbackUiState.rating}/5 · ${escapeHtml(FEEDBACK_RATING_LABELS[feedbackUiState.rating] || "")}</span>
+          </div>
+
+          <div style="font-size:12.5px;font-weight:700;margin-bottom:6px;">Chủ đề góp ý</div>
+          <div class="fb-cat-grid">
+            ${FEEDBACK_CATEGORIES.map((c) => `
+              <button type="button" class="fb-cat-btn ${feedbackUiState.category === c.id ? "active" : ""}" data-fb-cat="${c.id}">${escapeHtml(c.label)}</button>
+            `).join("")}
+          </div>
+
+          <form id="feedbackForm">
+            <div class="auth-field">
+              <label for="feedbackMessage">Nội dung góp ý <span style="color:var(--danger);">*</span></label>
+              <textarea id="feedbackMessage" class="fb-textarea" maxlength="2000" required placeholder="Ví dụ: Mình muốn thêm phần luyện nghe nhanh hơn, hoặc bài này có chỗ gõ nhầm...">${escapeHtml(feedbackUiState.message || "")}</textarea>
+              <div class="fb-char-count" id="fbCharCount">${msgLen} / 2000 ký tự</div>
+            </div>
+            <div class="auth-field" style="margin-bottom:14px;">
+              <label for="feedbackContact">Tên hoặc Email liên hệ (không bắt buộc)</label>
+              <input type="text" class="text-input" id="feedbackContact" maxlength="120" value="${escapeHtml(feedbackUiState.contact || "")}" placeholder="Ví dụ: Minh Anh · minhanh@gmail.com" />
+            </div>
+            <button type="submit" class="btn-pill primary" id="btnSubmitFeedback" style="width:100%;justify-content:center;padding:9px 14px;font-size:13.5px;" ${feedbackUiState.busy ? "disabled" : ""}>
+              ${feedbackUiState.busy ? "Đang gửi góp ý..." : "📨 Gửi góp ý"}
+            </button>
+          </form>
+          ${msgHtml}
+          ${historyHtml}
+        `;
+      }
+
+      async function submitUserFeedback() {
+        const msgInput = document.getElementById("feedbackMessage");
+        const contactInput = document.getElementById("feedbackContact");
+        if (msgInput) feedbackUiState.message = msgInput.value;
+        if (contactInput) feedbackUiState.contact = contactInput.value;
+
+        const trimmed = String(feedbackUiState.message || "").trim();
+        if (trimmed.length < 5) {
+          feedbackUiState.msg = { type: "bad", text: "Vui lòng nhập nội dung góp ý ít nhất 5 ký tự để chúng tôi hiểu rõ hơn nhé." };
+          renderFeedbackModalBody();
+          document.getElementById("feedbackMessage")?.focus();
+          return;
+        }
+        const nowMs = Date.now();
+        if (feedbackUiState.lastSentAt && nowMs - feedbackUiState.lastSentAt < 15000) {
+          const waitSec = Math.ceil((15000 - (nowMs - feedbackUiState.lastSentAt)) / 1000);
+          feedbackUiState.msg = { type: "bad", text: `Bạn vừa gửi góp ý xong, vui lòng đợi thêm ${waitSec} giây trước khi gửi tiếp nhé.` };
+          renderFeedbackModalBody();
+          return;
+        }
+
+        const pageContext = getCurrentPageContextLabel().slice(0, 160);
+        const senderName = String(feedbackUiState.contact || "").trim().slice(0, 120);
+        const payload = {
+          sender_name: senderName,
+          category: feedbackUiState.category || "feature",
+          rating: Math.min(5, Math.max(1, Number(feedbackUiState.rating) || 5)),
+          message: trimmed.slice(0, 2000),
+          page_context: pageContext,
+          user_agent: String(navigator.userAgent || "").slice(0, 240),
+          status: "new",
+        };
+
+        feedbackUiState.busy = true;
+        feedbackUiState.msg = null;
+        renderFeedbackModalBody();
+
+        try {
+          const headers = {
+            "apikey": SUPABASE_KEY,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal",
+          };
+          const token = await ensureValidAccessToken();
+          if (token && authSession && authSession.user && authSession.user.id) {
+            headers["Authorization"] = `Bearer ${token}`;
+            payload.user_id = authSession.user.id;
+          }
+
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/user_feedback`, {
+            method: "POST",
+            headers,
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) {
+            const errTxt = await parseSupabaseError(res, `HTTP ${res.status}`);
+            const isMissingTable = res.status === 404 || /user_feedback|PGRST205|42P01/i.test(errTxt);
+            saveFeedbackHistory({
+              createdAt: new Date().toISOString(),
+              category: payload.category,
+              rating: payload.rating,
+              message: payload.message,
+              pageContext,
+              synced: false,
+            });
+            feedbackUiState.busy = false;
+            feedbackUiState.msg = {
+              type: "bad",
+              text: isMissingTable
+                ? "Chưa khởi tạo bảng user_feedback trên Supabase — góp ý đã được lưu tạm trên máy. Bạn có thể bấm Sao chép bên dưới để gửi cho quản trị viên."
+                : `Chưa gửi được lên máy chủ (${translateAuthError(errTxt)}). Góp ý đã được lưu tạm trên máy.`,
+              copyText: buildFeedbackCopyText(payload),
+            };
+            renderFeedbackModalBody();
+            return;
+          }
+
+          saveFeedbackHistory({
+            createdAt: new Date().toISOString(),
+            category: payload.category,
+            rating: payload.rating,
+            message: payload.message,
+            pageContext,
+            synced: true,
+          });
+          feedbackUiState.busy = false;
+          feedbackUiState.lastSentAt = Date.now();
+          feedbackUiState.message = "";
+          feedbackUiState.msg = {
+            type: "ok",
+            text: "✅ Cảm ơn bạn rất nhiều! Góp ý của bạn đã được ghi nhận để đội ngũ Tiếng Trung Dễ Hiểu cải thiện trang web.",
+          };
+          renderFeedbackModalBody();
+        } catch (err) {
+          saveFeedbackHistory({
+            createdAt: new Date().toISOString(),
+            category: payload.category,
+            rating: payload.rating,
+            message: payload.message,
+            pageContext,
+            synced: false,
+          });
+          feedbackUiState.busy = false;
+          feedbackUiState.msg = {
+            type: "bad",
+            text: "Không có kết nối mạng — góp ý đã được lưu tạm trên máy của bạn.",
+            copyText: buildFeedbackCopyText(payload),
+          };
+          renderFeedbackModalBody();
+        }
+      }
+
       /* Event Delegation */
       document.addEventListener("click", (e) => {
+        if (e.target.closest("#btnOpenFeedback")) {
+          closeMobileDrawer();
+          feedbackUiState.msg = null;
+          if (!feedbackUiState.contact && authSession && authSession.user) {
+            const dn = getAuthDisplayName();
+            const em = authSession.user.email || "";
+            feedbackUiState.contact = dn && em && dn !== em ? `${dn} · ${em}` : (dn || em);
+          }
+          renderFeedbackModalBody();
+          document.getElementById("feedbackModal").classList.remove("hidden");
+          setTimeout(() => document.getElementById("feedbackMessage")?.focus(), 40);
+          return;
+        }
+        if (e.target.closest("#btnCloseFeedback") || e.target.id === "feedbackModal") {
+          document.getElementById("feedbackModal").classList.add("hidden");
+          return;
+        }
+        const fbStarBtn = e.target.closest("[data-fb-star]");
+        if (fbStarBtn) {
+          const msgIn = document.getElementById("feedbackMessage");
+          const cIn = document.getElementById("feedbackContact");
+          if (msgIn) feedbackUiState.message = msgIn.value;
+          if (cIn) feedbackUiState.contact = cIn.value;
+          feedbackUiState.rating = Number(fbStarBtn.dataset.fbStar) || 5;
+          renderFeedbackModalBody();
+          return;
+        }
+        const fbCatBtn = e.target.closest("[data-fb-cat]");
+        if (fbCatBtn) {
+          const msgIn = document.getElementById("feedbackMessage");
+          const cIn = document.getElementById("feedbackContact");
+          if (msgIn) feedbackUiState.message = msgIn.value;
+          if (cIn) feedbackUiState.contact = cIn.value;
+          feedbackUiState.category = fbCatBtn.dataset.fbCat || "feature";
+          renderFeedbackModalBody();
+          return;
+        }
+        if (e.target.closest("#btnCopyFeedbackFallback")) {
+          const txt = feedbackUiState.msg && feedbackUiState.msg.copyText;
+          if (txt && navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(txt).then(() => {
+              const b = document.getElementById("btnCopyFeedbackFallback");
+              if (b) b.textContent = "✓ Đã sao chép!";
+            }).catch(() => {});
+          }
+          return;
+        }
         if (e.target.closest("#btnOpenAuth")) {
           authUiState.msg = null;
           renderAuthModalBody();
@@ -10086,7 +10549,7 @@
 
         const quickModalBtn = e.target.closest("[data-open-modal]");
         if (quickModalBtn) {
-          const targetMap = { roadmap: "btnOpenRoadmap", tools: "btnOpenTools", search: "btnOpenSearch" };
+          const targetMap = { roadmap: "btnOpenRoadmap", tools: "btnOpenTools", search: "btnOpenSearch", feedback: "btnOpenFeedback" };
           const targetEl = document.getElementById(targetMap[quickModalBtn.dataset.openModal]);
           if (targetEl) targetEl.click();
           return;
@@ -11869,7 +12332,22 @@
         renderSearchResults(e.target.value);
       });
 
+      document.addEventListener("input", (e) => {
+        if (e.target && e.target.id === "feedbackMessage") {
+          feedbackUiState.message = e.target.value;
+          const cntEl = document.getElementById("fbCharCount");
+          if (cntEl) cntEl.textContent = `${e.target.value.length} / 2000 ký tự`;
+        } else if (e.target && e.target.id === "feedbackContact") {
+          feedbackUiState.contact = e.target.value;
+        }
+      });
+
       document.addEventListener("submit", (e) => {
+        if (e.target && e.target.id === "feedbackForm") {
+          e.preventDefault();
+          if (!feedbackUiState.busy) submitUserFeedback();
+          return;
+        }
         if (e.target && e.target.id === "authForm") {
           e.preventDefault();
           if (authUiState.busy) return;
@@ -11958,6 +12436,7 @@
           document.getElementById("vocabImgModal").classList.add("hidden");
           document.getElementById("mixedReviewModal").classList.add("hidden");
           document.getElementById("authModal").classList.add("hidden");
+          document.getElementById("feedbackModal").classList.add("hidden");
           closeMobileDrawer();
         } else if (/^[1-4]$/.test(e.key) && tag !== "input" && tag !== "textarea" && state.activeTab === "vocab" && vocabLabState.subMode === "quiz" && vocabLabState.quizChosen === null && !vocabLabState.quizFinished) {
           const optBtn = document.querySelector(`[data-quiz-opt="${Number(e.key) - 1}"]`);

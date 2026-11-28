@@ -3720,63 +3720,109 @@
 
     /* ============================================================
        Video Shadowing & Dictation Studio (#viewShadowing)
+       Aligned to UIUX Handbook: tokens, 8pt scale, >=12.5px floor,
+       clear CTA hierarchy, WCAG 2.2 AA focus/contrast/320px reflow
     ============================================================ */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
     .view-shadowing {
-      max-width: 1120px;
+      max-width: 1160px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 16px;
+      min-width: 0;
+    }
+    .view-shadowing :is(button, a, input, summary, [tabindex="0"]):focus-visible {
+      outline: 3px solid #1d4ed8;
+      outline-offset: 2px;
+      scroll-margin-top: 80px;
+    }
+    html[data-theme="dark"] .view-shadowing :is(button, a, input, summary, [tabindex="0"]):focus-visible {
+      outline-color: #93c5fd;
     }
     .sh-topbar {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      background: var(--surface);
+      gap: 12px;
+      background: var(--bg-surface);
       border: 2px solid var(--border);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
-      padding: 10px 14px;
+      padding: 12px 16px;
+      min-width: 0;
     }
     .sh-topbar-left, .sh-topbar-right {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 8px;
+      min-width: 0;
+    }
+    .sh-crumb-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 999px;
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border-soft);
+      color: var(--ink-700);
     }
     .sh-mode-switch {
       display: inline-flex;
-      background: var(--surface-2);
+      flex-wrap: wrap;
+      background: var(--bg-subtle);
       border: 2px solid var(--border);
       border-radius: 12px;
-      padding: 3px;
-      gap: 3px;
+      padding: 4px;
+      gap: 4px;
+      max-width: 100%;
     }
     .sh-mode-btn {
       border: 0;
       background: transparent;
       color: var(--ink-500-aa);
       font-family: inherit;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 800;
-      padding: 6px 12px;
-      border-radius: 9px;
+      min-height: 36px;
+      padding: 6px 14px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.15s, color 0.15s;
+      transition: background-color 0.15s, color 0.15s;
     }
+    .sh-mode-btn:hover { color: var(--ink-900); background: var(--bg-hover); }
     .sh-mode-btn.active {
       background: var(--ink-900);
       color: var(--paper-0);
     }
-    .btn-pill.sh-hide-vid-btn {
-      background: #fef3c7;
-      color: #92400e;
-      border-color: var(--border);
+    html[data-theme="dark"] .sh-mode-btn.active {
+      background: var(--main-hi);
+      color: #1f1b18;
     }
-    .dark .btn-pill.sh-hide-vid-btn {
-      background: rgba(240, 184, 93, 0.2);
+    .btn-pill.sh-hide-vid-btn {
+      background: var(--warning-soft);
+      color: #78350f;
+      border-color: var(--border);
+      min-height: 40px;
+    }
+    html[data-theme="dark"] .btn-pill.sh-hide-vid-btn {
+      background: rgba(214, 164, 85, 0.2);
       color: #fde68a;
     }
     .btn-pill.sh-hide-vid-btn.active {
@@ -3784,60 +3830,94 @@
       color: #1f1b18;
     }
     .sh-shortcuts-drawer {
-      background: var(--surface);
+      background: var(--bg-surface);
       border: 2px solid var(--border);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
       padding: 12px 16px;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 18px;
-      font-size: 13px;
+      gap: 12px 20px;
+      font-size: 13.5px;
+      line-height: 1.5;
     }
     .sh-kbd {
       display: inline-block;
-      padding: 2px 7px;
+      padding: 2px 8px;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 800;
-      background: var(--surface-2);
+      background: var(--bg-subtle);
+      color: var(--ink-900);
       border: 1.5px solid var(--border);
       border-radius: 6px;
       margin-right: 4px;
     }
     .sh-studio-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 16px;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 24px;
       align-items: start;
+      min-width: 0;
     }
     .sh-player-col {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
       min-width: 0;
     }
     .sh-card {
-      background: var(--surface);
+      background: var(--bg-surface);
       border: 2px solid var(--border);
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 14px;
+      box-shadow: var(--neo-shadow);
+      padding: 20px;
       min-width: 0;
     }
-    .sh-video-title-row {
+    html[data-skin="sketch"] .sh-card,
+    html[data-skin="sketch"] .sh-topbar,
+    html[data-skin="sketch"] .sh-line-item,
+    html[data-skin="sketch"] .sh-metric-box {
+      border-width: 1.5px;
+      border-radius: 12px 9px 14px 10px / 10px 13px 9px 12px;
+      box-shadow: none;
+    }
+    .sh-video-header {
+      margin-bottom: 12px;
+    }
+    .sh-video-h2 {
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 800;
+      margin: 0;
+      color: var(--ink-900);
+    }
+    .sh-video-sub {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--ink-500-aa);
+      margin: 4px 0 0;
       display: flex;
       flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 10px;
+      align-items: center;
+      gap: 4px 8px;
     }
+    .sh-text-link {
+      color: var(--accent);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .sh-text-link:hover { color: var(--ink-900); }
     .sh-video-box {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #1d1916;
+      background: #1a1613;
       border: 2px solid var(--border);
       border-radius: var(--radius-md);
       overflow: hidden;
@@ -3857,16 +3937,30 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 18px;
+      gap: 12px;
+      padding: 16px;
       text-align: center;
     }
     .sh-start-overlay {
-      background: linear-gradient(155deg, rgba(43, 35, 30, 0.92), rgba(187, 58, 48, 0.88));
-      color: #fcf3ea;
+      background: rgba(26, 22, 19, 0.90);
+      backdrop-filter: blur(6px);
+    }
+    .sh-start-card {
+      background: var(--bg-surface);
+      color: var(--ink-900);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--neo-shadow);
+      padding: 20px 24px;
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
     }
     .sh-video-curtain {
-      background: var(--paper-1);
+      background: var(--bg-subtle);
       color: var(--ink-900);
       z-index: 5;
     }
@@ -3874,8 +3968,8 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: linear-gradient(160deg, #fffaf3 0%, #f5e6d3 100%);
-      color: #2b2b2b;
+      background: var(--bg-subtle);
+      color: var(--ink-900);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -3883,31 +3977,31 @@
       padding: 20px;
       text-align: center;
       gap: 8px;
-    }
-    .dark .sh-tts-stage {
-      background: linear-gradient(160deg, #2d2722 0%, #201c18 100%);
-      color: #f4ece3;
+      overflow-y: auto;
     }
     .sh-start-cta {
-      padding: 12px 24px;
+      min-height: 44px;
+      padding: 10px 22px;
       font-size: 15px;
       font-weight: 800;
-      border-radius: 14px;
-      border: 2px solid #2b2b2b;
+      border-radius: 12px;
+      border: 2px solid var(--border);
       background: var(--main-hi);
       color: #1f1b18;
       box-shadow: 4px 4px 0 #1f1b18;
       cursor: pointer;
       font-family: inherit;
+      margin-top: 4px;
     }
     .sh-start-cta:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #1f1b18; }
     .sh-fallback-banner {
-      margin-top: 10px;
-      padding: 8px 12px;
+      margin-top: 12px;
+      padding: 12px;
       border-radius: 10px;
-      border: 1.5px dashed var(--border);
-      background: var(--surface-2);
-      font-size: 12.5px;
+      border: 1.5px dashed var(--border-soft);
+      background: var(--bg-subtle);
+      font-size: 13px;
+      line-height: 1.5;
       color: var(--ink-500-aa);
       display: flex;
       flex-wrap: wrap;
@@ -3918,50 +4012,110 @@
     .sh-seek-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       margin-top: 12px;
     }
     .sh-seek-range {
       flex: 1;
-      accent-color: var(--primary);
+      min-height: 32px;
+      accent-color: var(--accent);
       cursor: pointer;
     }
     .sh-clock {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 800;
       color: var(--ink-500-aa);
       white-space: nowrap;
     }
     .sh-pause-hint {
       margin-top: 8px;
-      padding: 8px 12px;
+      padding: 10px 12px;
       border-radius: 10px;
-      background: #fef3c7;
-      border: 1.5px solid var(--border);
-      color: #78350f;
-      font-size: 12.5px;
+      background: var(--warning-soft);
+      border: 1.5px solid var(--primary-border);
+      color: var(--ink-900);
+      font-size: 13.5px;
+      line-height: 1.45;
       font-weight: 700;
     }
-    .dark .sh-pause-hint {
-      background: rgba(240, 184, 93, 0.18);
-      color: #fde68a;
+    .sh-controls-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
     }
-    .sh-controls-bar {
+    .sh-transport-row, .sh-toggles-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 7px;
-      margin-top: 10px;
+      gap: 8px;
     }
-    .sh-controls-bar .btn-pill.ink-active {
+    .sh-transport-btn {
+      min-height: 44px;
+      padding: 0 12px;
+      font-size: 14px;
+      font-weight: 700;
+      background: var(--bg-surface);
+      color: var(--ink-900);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sh-transport-btn:hover { background: var(--bg-hover); }
+    .sh-primary-cta {
+      min-height: 44px;
+      padding: 0 18px;
+      font-size: 14.5px;
+      font-weight: 800;
       background: var(--ink-900);
       color: var(--paper-0);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    html[data-theme="dark"] .sh-primary-cta {
+      background: var(--main-hi);
+      color: #1f1b18;
+    }
+    .sh-primary-cta:hover { filter: brightness(1.06); }
+    .sh-toggle-pill {
+      min-height: 36px;
+      padding: 6px 12px;
+      font-size: 13.5px;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      color: var(--ink-700);
+      border: 1.5px solid var(--border-soft);
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .sh-toggle-pill:hover { background: var(--bg-hover); }
+    .sh-toggle-pill[aria-pressed="true"] {
+      background: var(--primary-soft);
+      border-color: var(--primary-border);
+      color: var(--ink-900);
     }
     .sh-recorder-card {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
     .sh-rec-row {
       display: flex;
@@ -3970,14 +4124,74 @@
       gap: 8px;
     }
     .sh-rec-btn.recording {
-      background: #dc2626;
+      background: var(--terracotta);
       color: #fff;
-      border-color: #991b1b;
+      border-color: var(--border);
     }
+    .sh-rec-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ef4444;
+      animation: shPulse 1s ease-in-out infinite;
+    }
+    @keyframes shPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+    .sh-status-box {
+      font-size: 13.5px;
+      line-height: 1.5;
+      border-radius: 10px;
+      padding: 10px 12px;
+      border: 1.5px solid var(--border-soft);
+      background: var(--bg-subtle);
+      color: var(--ink-900);
+    }
+    .sh-status-box.ok {
+      background: var(--success-soft);
+      border-color: var(--success-border);
+      color: var(--ink-900);
+    }
+    .sh-status-box.warn {
+      background: var(--warning-soft);
+      border-color: var(--primary-border);
+      color: var(--ink-900);
+    }
+    .sh-status-box.err {
+      background: var(--danger-soft);
+      border-color: var(--danger-border);
+      color: var(--danger);
+    }
+    .sh-caption {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink-500-aa);
+    }
+    .sh-accordion > summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink-900);
+      min-height: 32px;
+    }
+    .sh-accordion > summary::-webkit-details-marker { display: none; }
+    .sh-accordion-arrow {
+      font-size: 13px;
+      color: var(--ink-500-aa);
+      transition: transform 0.15s ease;
+    }
+    .sh-accordion[open] .sh-accordion-arrow { transform: rotate(180deg); }
     .sh-transcript-card {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       min-width: 0;
     }
     .sh-transcript-head {
@@ -3987,10 +4201,23 @@
       justify-content: space-between;
       gap: 8px;
     }
+    .sh-progress-track {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+    .sh-progress-fill {
+      height: 100%;
+      background: var(--main-hi);
+      transition: width 0.2s ease;
+    }
     .sh-transcript-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       max-height: 540px;
       overflow-y: auto;
       padding-right: 4px;
@@ -3998,98 +4225,157 @@
     .sh-line-item {
       border: 2px solid var(--border);
       border-radius: var(--radius-md);
-      background: var(--surface-2);
-      padding: 10px 12px;
+      background: var(--bg-subtle);
+      padding: 12px 14px;
       cursor: pointer;
-      transition: transform 0.12s, background 0.15s, border-color 0.15s;
+      transition: background-color 0.15s, border-color 0.15s;
     }
-    .sh-line-item:hover { background: var(--surface); }
+    .sh-line-item:hover { background: var(--bg-hover); }
     .sh-line-item.active {
-      background: var(--karaoke-sentence-bg, #fef3c7);
+      background: var(--karaoke-sentence-bg);
       border-color: var(--primary);
-      box-shadow: 3px 3px 0 var(--border);
+      box-shadow: var(--shadow-sm);
     }
     .sh-line-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .sh-line-time {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 800;
-      padding: 2px 7px;
+      padding: 2px 10px;
       border-radius: 999px;
-      background: var(--surface);
+      background: var(--bg-surface);
       border: 1.5px solid var(--border);
       color: var(--ink-500-aa);
     }
-    .sh-line-zh {
-      font-size: 19px;
+    .sh-line-loop-btn {
+      min-height: 32px;
+      padding: 4px 10px;
+      font-size: 13px;
       font-weight: 700;
-      line-height: 1.45;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--ink-900);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .sh-line-loop-btn:hover { background: var(--bg-hover); }
+    .sh-line-zh {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--ink-900);
     }
     .sh-line-py {
-      font-size: 13px;
+      font-size: 14px;
+      line-height: 1.45;
       color: var(--ink-500-aa);
-      margin-top: 2px;
+      margin-top: 4px;
+    }
+    .sh-line-vi {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink-700);
+      border-left: 3px solid var(--primary-border);
+      padding-left: 10px;
+      margin-top: 6px;
     }
     .sh-dict-metrics {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-bottom: 12px;
+      gap: 12px;
     }
     .sh-metric-box {
-      background: var(--surface-2);
+      background: var(--bg-subtle);
       border: 2px solid var(--border);
       border-radius: 12px;
-      padding: 10px 8px;
+      padding: 12px 8px;
       text-align: center;
     }
     .sh-metric-val {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 900;
       color: var(--ink-900);
     }
     .sh-metric-lbl {
-      font-size: 11.5px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--ink-500-aa);
-      margin-top: 2px;
+      margin-top: 4px;
+    }
+    .sh-field-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink-900);
+      margin-bottom: 4px;
+    }
+    .sh-field-help {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink-500-aa);
+      margin-bottom: 8px;
+    }
+    .sh-field-error {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1.5px solid var(--danger-border);
+      background: var(--danger-soft);
+      color: var(--danger);
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.45;
     }
     .sh-vocab-strip {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 8px;
+      margin-top: 12px;
     }
     .sh-vocab-chip {
       display: inline-flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 6px;
-      padding: 6px 10px;
+      padding: 8px 12px;
       border-radius: 12px;
       border: 1.5px solid var(--border);
-      background: var(--surface-2);
-      font-size: 13px;
+      background: var(--bg-subtle);
+      font-size: 13.5px;
     }
     .sh-library-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
     }
-    @media (max-width: 980px) {
-      .sh-studio-grid { grid-template-columns: 1fr; }
-      .sh-transcript-list { max-height: 420px; }
+    @media (max-width: 960px) {
+      .sh-studio-grid { grid-template-columns: 1fr; gap: 16px; }
+      .sh-transcript-list { max-height: 440px; }
     }
     @media (max-width: 640px) {
-      .sh-topbar { padding: 8px 10px; }
-      .sh-mode-btn { padding: 5px 9px; font-size: 12px; }
-      .sh-line-zh { font-size: 17px; }
+      .sh-topbar { padding: 10px 12px; }
+      .sh-card { padding: 16px; }
+      .sh-video-h2 { font-size: 20px; }
+      .sh-mode-btn { padding: 6px 10px; font-size: 13px; }
+      .sh-line-zh { font-size: 18px; }
+    }
+    @media (max-width: 480px) {
+      .sh-mode-switch { width: 100%; }
+      .sh-mode-btn { flex: 1 1 auto; text-align: center; }
+      .sh-dict-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    }
+    @media (max-width: 360px) {
+      .sh-card { padding: 12px; }
+      .sh-transport-btn, .sh-primary-cta { padding: 0 10px; font-size: 13px; min-height: 40px; }
+      .sh-metric-lbl { font-size: 12px; }
     }
   </style>
 </head>
@@ -10854,6 +11140,9 @@
         ttsBoundaryTimer: null,
         // Recorder & pronunciation check
         recActive: false,
+        recStartedAt: 0,
+        recDurationSec: 0,
+        recTimerId: null,
         recBlobUrl: "",
         recError: "",
         mediaRecorder: null,
@@ -10864,17 +11153,25 @@
         speechTranscript: "",
         speechScore: null,
         speechFeedback: "",
+        liveAnnouncement: "",
         // Dictation mode
         dictStarted: false,
         dictIdx: 0,
         dictErrors: 0,
         dictReplays: 0,
         dictInput: "",
+        dictErrorMsg: "",
         dictChecked: false,
         dictHintLevel: 0,
         dictResults: {},
         dictFinished: false,
       };
+
+      function announceShadowingStatus(msg) {
+        shadowingState.liveAnnouncement = String(msg || "");
+        const el = document.getElementById("shLiveStatus");
+        if (el) el.textContent = shadowingState.liveAnnouncement;
+      }
 
       let _ytApiPromise = null;
       function loadYouTubeIframeApi() {
@@ -10934,6 +11231,10 @@
       }
 
       function stopShadowingRecorder() {
+        if (shadowingState.recTimerId) {
+          clearInterval(shadowingState.recTimerId);
+          shadowingState.recTimerId = null;
+        }
         if (shadowingState.mediaRecorder && shadowingState.mediaRecorder.state !== "inactive") {
           try { shadowingState.mediaRecorder.stop(); } catch (e) {}
         }
@@ -10942,6 +11243,22 @@
           shadowingState.recStream = null;
         }
         shadowingState.recActive = false;
+      }
+
+      function clearShadowingRecording() {
+        stopShadowingRecorder();
+        if (shadowingState.recAudioEl) {
+          try { shadowingState.recAudioEl.pause(); } catch (e) {}
+        }
+        if (shadowingState.recBlobUrl) {
+          try { URL.revokeObjectURL(shadowingState.recBlobUrl); } catch (e) {}
+        }
+        shadowingState.recBlobUrl = "";
+        shadowingState.recDurationSec = 0;
+        shadowingState.recStartedAt = 0;
+        shadowingState.recError = "";
+        announceShadowingStatus("Đã xóa bản thu âm tạm.");
+        syncShadowingControlsUi();
       }
 
       function teardownShadowingPlayback(destroyPlayer) {
@@ -10999,6 +11316,7 @@
         shadowingState.dictErrors = 0;
         shadowingState.dictReplays = 0;
         shadowingState.dictInput = "";
+        shadowingState.dictErrorMsg = "";
         shadowingState.dictChecked = false;
         shadowingState.dictHintLevel = 0;
         shadowingState.dictResults = {};
@@ -11143,17 +11461,25 @@
       }
 
       function highlightShadowingActiveLine(idx, autoScroll) {
+        const video = getActiveShadowingVideo();
+        const total = video && video.lines ? video.lines.length : 0;
         const listEl = document.getElementById("shTranscriptList");
         if (listEl) {
           listEl.querySelectorAll(".sh-line-item").forEach((el, i) => {
-            el.classList.toggle("active", i === idx);
+            const on = i === idx;
+            el.classList.toggle("active", on);
+            el.setAttribute("aria-current", on ? "true" : "false");
           });
           if (autoScroll) {
             const activeRow = listEl.querySelector(`.sh-line-item[data-sh-line="${idx}"]`);
             if (activeRow) activeRow.scrollIntoView({ behavior: "smooth", block: "nearest" });
           }
         }
-        const video = getActiveShadowingVideo();
+        const badgeEl = document.getElementById("shActiveLineBadge");
+        if (badgeEl && total) badgeEl.textContent = `Câu ${idx + 1} / ${total}`;
+        const fillEl = document.getElementById("shLineProgressFill");
+        if (fillEl && total) fillEl.style.width = `${Math.round(((idx + 1) / total) * 100)}%`;
+
         const curLine = video && video.lines[idx];
         const ttsZh = document.getElementById("shTtsStageZh");
         const ttsPy = document.getElementById("shTtsStagePy");
@@ -11362,32 +11688,33 @@
 
         const playBtn = document.getElementById("shBtnPlayPause");
         if (playBtn) {
-          playBtn.innerHTML = shadowingState.playing ? "⏸ Tạm dừng" : "▶ Phát tiếp";
-          playBtn.classList.toggle("primary", !shadowingState.playing);
-          playBtn.classList.toggle("ink-active", shadowingState.playing);
+          playBtn.innerHTML = shadowingState.playing
+            ? "⏸ Tạm dừng"
+            : (shadowingState.started ? "▶ Phát tiếp" : "▶ Bắt đầu");
+          playBtn.setAttribute("aria-pressed", String(shadowingState.playing));
         }
         const apBtn = document.getElementById("shBtnAutoPause");
         if (apBtn) {
-          apBtn.classList.toggle("ink-active", shadowingState.autoPause);
           apBtn.setAttribute("aria-pressed", String(shadowingState.autoPause));
+          apBtn.textContent = `${shadowingState.autoPause ? "✓ " : ""}⏸ Tự ngắt cuối câu`;
         }
         const loopBtn = document.getElementById("shBtnLoop");
         if (loopBtn) {
-          loopBtn.classList.toggle("ink-active", shadowingState.loopLine);
           loopBtn.setAttribute("aria-pressed", String(shadowingState.loopLine));
+          loopBtn.textContent = `${shadowingState.loopLine ? "✓ " : ""}🔁 Lặp liên tục`;
         }
         const pyBtn = document.getElementById("shBtnPinyin");
         if (pyBtn) {
-          pyBtn.classList.toggle("ink-active", shadowingState.showPinyin);
           pyBtn.setAttribute("aria-pressed", String(shadowingState.showPinyin));
+          pyBtn.textContent = `${shadowingState.showPinyin ? "✓ " : ""}拼 Pinyin`;
         }
         const viBtn = document.getElementById("shBtnVi");
         if (viBtn) {
-          viBtn.classList.toggle("ink-active", shadowingState.showVi);
           viBtn.setAttribute("aria-pressed", String(shadowingState.showVi));
+          viBtn.textContent = `${shadowingState.showVi ? "✓ " : ""}文A Bản dịch`;
         }
         const rateBtn = document.getElementById("shBtnRate");
-        if (rateBtn) rateBtn.textContent = `${shadowingState.rate}x`;
+        if (rateBtn) rateBtn.textContent = `Tốc độ: ${shadowingState.rate}x`;
 
         const pauseHint = document.getElementById("shPauseHint");
         if (pauseHint) {
@@ -11414,30 +11741,44 @@
           const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
           shadowingState.recStream = stream;
           shadowingState.recChunks = [];
+          shadowingState.recStartedAt = Date.now();
+          shadowingState.recDurationSec = 0;
           const mr = new MediaRecorder(stream);
           shadowingState.mediaRecorder = mr;
           mr.ondataavailable = (ev) => {
             if (ev.data && ev.data.size > 0) shadowingState.recChunks.push(ev.data);
           };
           mr.onstop = () => {
+            if (shadowingState.recTimerId) {
+              clearInterval(shadowingState.recTimerId);
+              shadowingState.recTimerId = null;
+            }
             if (shadowingState.recBlobUrl) {
               try { URL.revokeObjectURL(shadowingState.recBlobUrl); } catch (e) {}
             }
             const blob = new Blob(shadowingState.recChunks, { type: mr.mimeType || "audio/webm" });
             shadowingState.recBlobUrl = URL.createObjectURL(blob);
+            shadowingState.recDurationSec = Math.max(1, Math.round((Date.now() - shadowingState.recStartedAt) / 1000));
             shadowingState.recActive = false;
             if (shadowingState.recStream) {
               shadowingState.recStream.getTracks().forEach((t) => { try { t.stop(); } catch (e) {} });
               shadowingState.recStream = null;
             }
+            announceShadowingStatus(`Đã thu âm xong ${shadowingState.recDurationSec} giây.`);
             syncShadowingControlsUi();
           };
           shadowingState.recActive = true;
+          shadowingState.recTimerId = setInterval(() => {
+            shadowingState.recDurationSec = Math.floor((Date.now() - shadowingState.recStartedAt) / 1000);
+            const timerEl = document.getElementById("shRecLiveClock");
+            if (timerEl) timerEl.textContent = formatShClock(shadowingState.recDurationSec);
+          }, 500);
           mr.start();
+          announceShadowingStatus("Đang thu âm giọng nói của bạn.");
           syncShadowingControlsUi();
         } catch (err) {
           shadowingState.recActive = false;
-          shadowingState.recError = "Chưa cấp quyền micro trên trình duyệt.";
+          shadowingState.recError = "Chưa cấp quyền micro trên trình duyệt — hãy cho phép micro ở thanh địa chỉ rồi thử lại.";
           syncShadowingControlsUi();
         }
       }
@@ -11520,65 +11861,81 @@
 
       function renderShadowingHeaderHtml(video) {
         const vCount = getShadowingVideos().length;
+        const isSh = shadowingState.mode === "shadowing";
         return `
           <div class="sh-topbar-left">
-            <button type="button" class="btn-pill" data-view="home">← Trang chủ</button>
-            ${vCount > 1 ? `<button type="button" class="btn-pill" data-sh-action="library">🎬 Thư viện (${vCount})</button>` : `<span class="badge">🎬 Video mẫu (HSK 1–3)</span>`}
+            <button type="button" class="btn-pill" data-view="home" style="min-height:40px;">← Trang chủ</button>
+            ${vCount > 1
+              ? `<button type="button" class="btn-pill" data-sh-action="library" style="min-height:40px;">🎬 Thư viện (${vCount})</button>`
+              : `<span class="sh-crumb-pill">🎬 Shadowing · ${escapeHtml(video.level)}</span>`}
             <div class="sh-mode-switch" role="tablist" aria-label="Chế độ luyện Video Shadowing">
-              <button type="button" class="sh-mode-btn ${shadowingState.mode === "shadowing" ? "active" : ""}" data-sh-mode="shadowing">🗣️ Bắt chước phát âm</button>
-              <button type="button" class="sh-mode-btn ${shadowingState.mode === "dictation" ? "active" : ""}" data-sh-mode="dictation">✍️ Nghe - Viết chính tả</button>
+              <button type="button" role="tab" aria-selected="${isSh}" aria-controls="shRightPane" class="sh-mode-btn ${isSh ? "active" : ""}" data-sh-mode="shadowing">🗣️ Bắt chước phát âm</button>
+              <button type="button" role="tab" aria-selected="${!isSh}" aria-controls="shRightPane" class="sh-mode-btn ${!isSh ? "active" : ""}" data-sh-mode="dictation">✍️ Nghe - Viết chính tả</button>
             </div>
           </div>
           <div class="sh-topbar-right">
             <button type="button" class="btn-pill sh-hide-vid-btn ${shadowingState.hideVideo ? "active" : ""}" data-sh-action="toggle-hide-video" aria-pressed="${shadowingState.hideVideo}">
               ${shadowingState.hideVideo ? "👁️ Hiện video" : "🙈 Ẩn video"}
             </button>
-            <button type="button" class="btn-pill ${shadowingState.showShortcuts ? "ink-active" : ""}" data-sh-action="toggle-shortcuts">⌨️ Phím tắt</button>
+            <button type="button" class="btn-pill ${shadowingState.showShortcuts ? "ink-active" : ""}" data-sh-action="toggle-shortcuts" aria-expanded="${shadowingState.showShortcuts}" style="min-height:40px;">⌨️ Phím tắt</button>
           </div>
         `;
       }
 
       function renderShadowingRecorderInnerHtml() {
+        const sf = shadowingState.speechFeedback || "";
+        const sfCls = shadowingState.speechChecking
+          ? "sh-status-box"
+          : (typeof shadowingState.speechScore === "number" && shadowingState.speechScore >= 75 ? "sh-status-box ok" : "sh-status-box warn");
+        const sfIcon = shadowingState.speechChecking
+          ? "ℹ️"
+          : (typeof shadowingState.speechScore === "number" && shadowingState.speechScore >= 75 ? "✓" : "!");
         return `
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
-            <strong style="font-size:13.5px;">🎙️ Nhại theo &amp; So sánh giọng</strong>
-            <span style="font-size:11.5px;color:var(--ink-500-aa);">Lưu tạm trên RAM máy (0 MB server)</span>
+            <strong style="font-size:15px;">🎙️ Nhại theo &amp; So sánh giọng</strong>
+            ${shadowingState.recActive
+              ? `<span class="sh-crumb-pill" style="background:var(--danger-soft);border-color:var(--danger-border);color:var(--danger);"><span class="sh-rec-dot" aria-hidden="true"></span> Đang thu âm <span id="shRecLiveClock">${formatShClock(shadowingState.recDurationSec)}</span></span>`
+              : (shadowingState.recBlobUrl
+                ? `<span class="sh-crumb-pill" style="background:var(--success-soft);border-color:var(--success-border);color:var(--success);">✓ Đã thu xong (${shadowingState.recDurationSec}s)</span>`
+                : "")}
           </div>
+          <div class="sh-caption">🔒 Riêng tư · Bản thu chỉ giữ tạm trên máy bạn để nghe lại, tự xóa khi đóng trang.</div>
           <div class="sh-rec-row">
-            <button type="button" class="btn-pill sh-rec-btn ${shadowingState.recActive ? "recording" : "primary"}" data-sh-action="record-toggle">
+            <button type="button" class="sh-transport-btn sh-rec-btn ${shadowingState.recActive ? "recording" : ""}" data-sh-action="record-toggle">
               ${shadowingState.recActive ? "⏹ Dừng thu" : "🎙️ Thu âm nhại lại"}
             </button>
             ${shadowingState.recBlobUrl ? `
-              <button type="button" class="btn-pill" data-sh-action="play-self">🔊 Nghe giọng mình</button>
-              <button type="button" class="btn-pill" data-sh-action="play-compare">⚖️ Mẫu → Mình</button>
+              <button type="button" class="sh-transport-btn" data-sh-action="play-self">🔊 Nghe giọng mình</button>
+              <button type="button" class="sh-transport-btn" data-sh-action="play-compare">⚖️ Mẫu → Mình</button>
+              <button type="button" class="sh-toggle-pill" data-sh-action="record-clear" title="Xóa bản thu hiện tại">✕ Xóa bản thu</button>
             ` : ""}
-            <button type="button" class="btn-pill" data-sh-action="speech-check" ${shadowingState.speechChecking ? "disabled" : ""}>
+            <button type="button" class="sh-transport-btn" data-sh-action="speech-check" ${shadowingState.speechChecking ? "disabled" : ""}>
               ${shadowingState.speechChecking ? "🎧 Đang nghe..." : "🗣️ Chấm phát âm"}
             </button>
           </div>
-          ${shadowingState.recError ? `<div style="font-size:12.5px;color:var(--danger);font-weight:700;">${escapeHtml(shadowingState.recError)}</div>` : ""}
-          ${shadowingState.speechFeedback ? `<div style="font-size:12.5px;color:var(--ink-900);background:var(--surface-2);border:1.5px solid var(--border);border-radius:10px;padding:7px 10px;">${escapeHtml(shadowingState.speechFeedback)}</div>` : ""}
+          ${shadowingState.recError ? `<div class="sh-status-box err" role="alert">⚠ ${escapeHtml(shadowingState.recError)}</div>` : ""}
+          ${sf ? `<div class="${sfCls}" role="status"><strong>${sfIcon}</strong> ${escapeHtml(sf)}</div>` : ""}
         `;
       }
 
       function renderShadowingVocabStripHtml(video) {
         if (!video || !Array.isArray(video.keyVocab) || !video.keyVocab.length) return "";
         return `
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
-            <strong style="font-size:13.5px;">📌 Từ vựng trọng điểm trong video (${video.keyVocab.length})</strong>
-            <span style="font-size:12px;color:var(--ink-500-aa);">Bấm ⭐ để lưu vào Sổ tay</span>
-          </div>
+          <summary>
+            <span>📌 Từ vựng trọng điểm trong video (${video.keyVocab.length} từ)</span>
+            <span class="sh-caption" style="display:inline-flex;align-items:center;gap:6px;">Bấm để mở/thu gọn · Lưu ⭐ vào Sổ tay <span class="sh-accordion-arrow" aria-hidden="true">▼</span></span>
+          </summary>
           <div class="sh-vocab-strip">
             ${video.keyVocab.map((w) => {
               const isSaved = state.savedWords.some((sw) => sw.hanzi === w.hanzi);
               const payload = escapeHtml(JSON.stringify({ hanzi: w.hanzi, pinyin: w.pinyin, vi: w.vi }));
               return `
                 <div class="sh-vocab-chip">
-                  <button type="button" class="audio-btn" data-speak="${escapeHtml(w.hanzi)}" style="padding:2px 6px;font-size:12px;" aria-label="Nghe ${escapeHtml(w.hanzi)}">🔊</button>
-                  <strong class="zh" style="font-size:15px;">${renderColoredHanzi(w.hanzi, w.pinyin)}</strong>
-                  <span style="font-size:12px;color:var(--ink-500-aa);">${escapeHtml(w.pinyin)}</span>
-                  <span style="font-size:12.5px;">· ${escapeHtml(w.vi)}</span>
-                  <button type="button" class="star-btn ${isSaved ? "saved" : ""}" data-save-word="${payload}" title="Lưu vào Sổ tay">${isSaved ? "★" : "☆"}</button>
+                  <button type="button" class="audio-btn" data-speak="${escapeHtml(w.hanzi)}" style="min-width:32px;min-height:32px;" aria-label="Nghe ${escapeHtml(w.hanzi)}">🔊</button>
+                  <strong class="zh" style="font-size:16px;">${renderColoredHanzi(w.hanzi, w.pinyin)}</strong>
+                  <span class="sh-caption">${escapeHtml(w.pinyin)}</span>
+                  <span style="font-size:13.5px;">· ${escapeHtml(w.vi)}</span>
+                  <button type="button" class="star-btn ${isSaved ? "saved" : ""}" data-save-word="${payload}" style="min-width:32px;min-height:32px;" title="Lưu vào Sổ tay" aria-label="Lưu ${escapeHtml(w.hanzi)} vào Sổ tay">${isSaved ? "★" : "☆"}</button>
                 </div>
               `;
             }).join("")}
@@ -11587,26 +11944,34 @@
       }
 
       function renderShadowingTranscriptHtml(video) {
+        const total = video.lines.length;
+        const pct = total ? Math.round(((shadowingState.activeIdx + 1) / total) * 100) : 0;
         return `
           <div class="sh-transcript-head">
             <div>
-              <strong style="font-size:15px;">📜 Phụ đề đồng bộ (${video.lines.length} câu)</strong>
-              <div style="font-size:12px;color:var(--ink-500-aa);">Bấm vào câu để nhảy tới đúng giây · Bấm chữ Hán để tra từ</div>
+              <strong style="font-size:16px;">📜 Phụ đề đồng bộ</strong>
+              <div class="sh-caption">Bấm vào câu (hoặc nhấn Enter) để nhảy tới đúng giây · Bấm chữ Hán để tra từ</div>
             </div>
-            <span class="badge">${escapeHtml(video.level)}</span>
+            <span id="shActiveLineBadge" class="sh-crumb-pill">Câu ${shadowingState.activeIdx + 1} / ${total}</span>
+          </div>
+          <div class="sh-progress-track" aria-hidden="true">
+            <div id="shLineProgressFill" class="sh-progress-fill" style="width:${pct}%"></div>
           </div>
           <div class="sh-transcript-list" id="shTranscriptList">
-            ${video.lines.map((ln, idx) => `
-              <div class="sh-line-item ${idx === shadowingState.activeIdx ? "active" : ""}" data-sh-line="${idx}">
-                <div class="sh-line-top">
-                  <span class="sh-line-time">Câu ${idx + 1} · ${formatShClock(ln.start)}</span>
-                  <button type="button" class="btn-pill" data-sh-line-loop="${idx}" style="padding:2px 8px;font-size:11.5px;" title="Lặp câu này">🔁 Lặp</button>
+            ${video.lines.map((ln, idx) => {
+              const isAct = idx === shadowingState.activeIdx;
+              return `
+                <div class="sh-line-item ${isAct ? "active" : ""}" data-sh-line="${idx}" tabindex="0" aria-current="${isAct ? "true" : "false"}">
+                  <div class="sh-line-top">
+                    <span class="sh-line-time">Câu ${idx + 1} · ${formatShClock(ln.start)}</span>
+                    <button type="button" class="sh-line-loop-btn" data-sh-line-loop="${idx}" title="Lặp câu ${idx + 1}" aria-label="Lặp câu ${idx + 1}">🔁 Lặp</button>
+                  </div>
+                  <div class="sh-line-zh zh">${renderColoredHanzi(ln.hanzi, ln.pinyin)}</div>
+                  ${shadowingState.showPinyin ? `<div class="sh-line-py">${escapeHtml(ln.pinyin)}</div>` : ""}
+                  ${shadowingState.showVi ? `<div class="sh-line-vi">${escapeHtml(ln.vi)}</div>` : ""}
                 </div>
-                <div class="sh-line-zh zh">${renderColoredHanzi(ln.hanzi, ln.pinyin)}</div>
-                ${shadowingState.showPinyin ? `<div class="sh-line-py">${escapeHtml(ln.pinyin)}</div>` : ""}
-                ${shadowingState.showVi ? `<div class="reading-inline-vi">${escapeHtml(ln.vi)}</div>` : ""}
-              </div>
-            `).join("")}
+              `;
+            }).join("")}
           </div>
         `;
       }
@@ -11617,8 +11982,15 @@
         const curLine = video.lines[shadowingState.dictIdx];
         if (!curLine) return;
         const userNorm = normalizeZh(shadowingState.dictInput);
+        if (!userNorm) {
+          shadowingState.dictErrorMsg = "Bạn chưa nhập câu trả lời — hãy bấm Nghe câu này rồi gõ chữ Hán vào ô trên, hoặc bấm Gợi ý để xem Pinyin.";
+          renderShadowingRightPane();
+          setTimeout(() => document.getElementById("shDictInput")?.focus(), 20);
+          return;
+        }
+        shadowingState.dictErrorMsg = "";
         const targetNorm = normalizeZh(curLine.hanzi);
-        const exact = Boolean(userNorm) && userNorm === targetNorm;
+        const exact = userNorm === targetNorm;
         shadowingState.dictChecked = true;
         if (!exact) shadowingState.dictErrors += 1;
         else addXp(5);
@@ -11626,6 +11998,7 @@
           exact,
           userText: shadowingState.dictInput,
         };
+        announceShadowingStatus(exact ? "Chính xác hoàn toàn." : "Chưa khớp hoàn toàn, hãy xem đối chiếu từng chữ.");
         renderShadowingRightPane();
       }
 
@@ -11635,6 +12008,7 @@
         if (shadowingState.dictIdx + 1 < video.lines.length) {
           shadowingState.dictIdx += 1;
           shadowingState.dictInput = "";
+          shadowingState.dictErrorMsg = "";
           shadowingState.dictChecked = false;
           shadowingState.dictHintLevel = 0;
           renderShadowingRightPane();
@@ -11688,15 +12062,15 @@
 
         if (!shadowingState.dictStarted) {
           return `
-            <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;flex-direction:column;gap:16px;">
               <div>
                 <strong style="font-size:16px;">✍️ Chế độ Nghe - Viết chính tả</strong>
-                <div style="font-size:12.5px;color:var(--ink-500-aa);margin-top:4px;">Phụ đề được ẩn hoàn toàn để rèn phản xạ nghe thực tế từng câu (${total} câu).</div>
+                <div class="sh-caption" style="margin-top:4px;">Phụ đề được ẩn hoàn toàn để bạn rèn phản xạ nghe thực tế từng câu (${total} câu).</div>
               </div>
               ${metricsHtml}
-              <div style="padding:18px;border:2px dashed var(--border);border-radius:14px;background:var(--surface-2);text-align:center;">
-                <p style="font-size:13.5px;margin:0 0 12px;">Bấm <strong>BẮT ĐẦU CHÍNH TẢ</strong> để nghe từng câu và gõ lại chữ Hán.</p>
-                <button type="button" class="sh-start-cta" data-sh-action="dict-start">▶ BẮT ĐẦU CHÍNH TẢ</button>
+              <div style="padding:20px;border:2px dashed var(--border-soft);border-radius:12px;background:var(--bg-subtle);text-align:center;">
+                <p style="font-size:14.5px;margin:0 0 12px;">Bấm <strong>Bắt đầu chính tả</strong> để nghe từng câu và gõ lại chữ Hán.</p>
+                <button type="button" class="sh-start-cta" data-sh-action="dict-start">▶ Bắt đầu chính tả</button>
               </div>
             </div>
           `;
@@ -11706,15 +12080,15 @@
           const correctCount = Object.values(shadowingState.dictResults).filter((r) => r && r.exact).length;
           const pct = total ? Math.round((correctCount / total) * 100) : 0;
           return `
-            <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;flex-direction:column;gap:16px;">
               <strong style="font-size:16px;">🎉 Hoàn thành bài chính tả!</strong>
               ${metricsHtml}
-              <div style="padding:16px;border:2px solid var(--border);border-radius:14px;background:var(--surface-2);text-align:center;">
+              <div style="padding:20px;border:2px solid var(--border);border-radius:12px;background:var(--bg-subtle);text-align:center;">
                 <div style="font-size:28px;font-weight:900;color:var(--primary);">${correctCount} / ${total} câu đúng (${pct}%)</div>
-                <p style="font-size:13px;color:var(--ink-500-aa);margin:6px 0 14px;">+25 XP đã được cộng vào tiến độ của bạn.</p>
+                <p class="sh-caption" style="margin:8px 0 16px;">✓ Đã cộng +25 XP và lưu điểm vào hồ sơ học của bạn.</p>
                 <div class="toolbar-row" style="justify-content:center;">
-                  <button type="button" class="btn-pill primary" data-sh-action="dict-restart">↻ Làm lại từ đầu</button>
-                  <button type="button" class="btn-pill" data-sh-mode="shadowing">🗣️ Quay lại Shadowing</button>
+                  <button type="button" class="sh-primary-cta" data-sh-action="dict-restart">↻ Làm lại từ đầu</button>
+                  <button type="button" class="sh-transport-btn" data-sh-mode="shadowing">🗣️ Quay lại Shadowing</button>
                 </div>
               </div>
             </div>
@@ -11722,31 +12096,38 @@
         }
 
         const firstTwoChars = Array.from(curLine.hanzi).slice(0, 2).join("");
+        const hasErr = Boolean(shadowingState.dictErrorMsg);
+        const describedBy = hasErr ? "shDictHelp shDictErr" : "shDictHelp";
         return `
           <div style="display:flex;flex-direction:column;gap:12px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
-              <strong style="font-size:15px;">✍️ Câu ${shadowingState.dictIdx + 1} / ${total}</strong>
-              <span class="badge">${formatShClock(curLine.start)} – ${formatShClock(curLine.end)}</span>
+              <strong style="font-size:16px;">✍️ Câu ${shadowingState.dictIdx + 1} / ${total}</strong>
+              <span class="sh-crumb-pill">${formatShClock(curLine.start)} – ${formatShClock(curLine.end)}</span>
             </div>
             ${metricsHtml}
             <div class="toolbar-row">
-              <button type="button" class="btn-pill primary" data-sh-action="dict-play">🔊 Nghe câu này (R)</button>
-              <button type="button" class="btn-pill" data-sh-action="dict-hint">💡 Gợi ý (${shadowingState.dictHintLevel}/2)</button>
+              <button type="button" class="sh-transport-btn" data-sh-action="dict-play">🔊 Nghe câu này (R)</button>
+              <button type="button" class="sh-transport-btn" data-sh-action="dict-hint">💡 Gợi ý (${shadowingState.dictHintLevel}/2)</button>
             </div>
-            ${shadowingState.dictHintLevel >= 1 ? `<div style="font-size:13px;color:var(--ink-500-aa);background:var(--surface-2);padding:8px 10px;border-radius:10px;border:1.5px solid var(--border);"><strong>Pinyin:</strong> ${escapeHtml(curLine.pinyin)}${shadowingState.dictHintLevel >= 2 ? `<br/><strong>Mở đầu:</strong> <span class="zh">${escapeHtml(firstTwoChars)}...</span> · ${escapeHtml(curLine.vi)}` : ""}</div>` : ""}
-            <input type="text" class="text-input zh" id="shDictInput" value="${escapeHtml(shadowingState.dictInput)}" placeholder="Nghe rồi gõ lại câu tiếng Trung..." style="margin:0;font-size:18px;" />
+            ${shadowingState.dictHintLevel >= 1 ? `<div class="sh-status-box"><strong>Pinyin:</strong> ${escapeHtml(curLine.pinyin)}${shadowingState.dictHintLevel >= 2 ? `<br/><strong>Mở đầu:</strong> <span class="zh">${escapeHtml(firstTwoChars)}...</span> · ${escapeHtml(curLine.vi)}` : ""}</div>` : ""}
+            <div>
+              <label class="sh-field-label" for="shDictInput">Câu tiếng Trung bạn nghe được</label>
+              <div id="shDictHelp" class="sh-field-help">Gõ chữ Hán Giản thể (có thể bỏ qua dấu câu). Nhấn phím R để nghe lại câu.</div>
+              <input type="text" class="text-input zh" id="shDictInput" value="${escapeHtml(shadowingState.dictInput)}" placeholder="Ví dụ: 不够自信的新同学" aria-describedby="${describedBy}" aria-invalid="${hasErr ? "true" : "false"}" style="margin:0;font-size:18px;" />
+              ${hasErr ? `<div id="shDictErr" class="sh-field-error" role="alert">⚠ ${escapeHtml(shadowingState.dictErrorMsg)}</div>` : ""}
+            </div>
             <div class="toolbar-row">
               ${!shadowingState.dictChecked
-                ? `<button type="button" class="btn-pill primary" data-sh-action="dict-check">✓ Kiểm tra đáp án</button>`
-                : `<button type="button" class="btn-pill primary" data-sh-action="dict-next">${shadowingState.dictIdx + 1 < total ? "Câu tiếp →" : "🏁 Xem kết quả"}</button>`}
+                ? `<button type="button" class="sh-primary-cta" data-sh-action="dict-check">✓ Kiểm tra đáp án</button>`
+                : `<button type="button" class="sh-primary-cta" data-sh-action="dict-next">${shadowingState.dictIdx + 1 < total ? "Câu tiếp theo →" : "🏁 Xem kết quả"}</button>`}
             </div>
             ${shadowingState.dictChecked && res ? `
-              <div style="padding:12px;border:2px solid var(--border);border-radius:12px;background:${res.exact ? "var(--success-soft)" : "var(--danger-soft, #fee2e2)"};">
-                <div style="font-weight:800;font-size:13.5px;margin-bottom:6px;">
-                  ${res.exact ? "✅ Chính xác hoàn toàn! (+5 XP)" : "❌ Chưa khớp hoàn toàn — đối chiếu từng chữ bên dưới:"}
+              <div class="sh-status-box ${res.exact ? "ok" : "err"}" role="status">
+                <div style="font-weight:800;font-size:14px;margin-bottom:6px;">
+                  ${res.exact ? "✓ Chính xác hoàn toàn! (+5 XP)" : "✕ Chưa khớp hoàn toàn — chữ xanh là đúng, chữ đỏ là phần thiếu/sai:"}
                 </div>
-                <div class="zh" style="font-size:19px;line-height:1.5;">${computeCharDiffHtml(res.userText, curLine.hanzi)}</div>
-                <div style="font-size:12.5px;color:var(--ink-500-aa);margin-top:6px;">${escapeHtml(curLine.pinyin)} — ${escapeHtml(curLine.vi)}</div>
+                <div class="zh" style="font-size:20px;line-height:1.5;color:var(--ink-900);">${computeCharDiffHtml(res.userText, curLine.hanzi)}</div>
+                <div class="sh-caption" style="margin-top:6px;">${escapeHtml(curLine.pinyin)} — ${escapeHtml(curLine.vi)}</div>
               </div>
             ` : ""}
           </div>
@@ -11767,28 +12148,28 @@
         return `
           <div class="sh-topbar">
             <div class="sh-topbar-left">
-              <button type="button" class="btn-pill" data-view="home">← Trang chủ</button>
+              <button type="button" class="btn-pill" data-view="home" style="min-height:40px;">← Trang chủ</button>
               <strong style="font-size:16px;">🎬 Thư viện Video Shadowing (${list.length} video)</strong>
             </div>
-            <button type="button" class="btn-pill primary" data-sh-action="back-studio">▶ Vào bài đang học</button>
+            <button type="button" class="sh-primary-cta" data-sh-action="back-studio">▶ Vào bài đang học</button>
           </div>
           <div class="sh-library-grid">
             ${list.map((v) => {
               const prog = (state.shadowingProgress && state.shadowingProgress[v.id]) || {};
               return `
-                <div class="sh-card" style="display:flex;flex-direction:column;gap:8px;justify-content:space-between;">
+                <div class="sh-card" style="display:flex;flex-direction:column;gap:12px;justify-content:space-between;">
                   <div>
-                    <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;">
-                      <span class="badge">${escapeHtml(v.level)}</span>
-                      <span class="badge">⏱ ${escapeHtml(v.durationLabel)} · ${v.lines.length} câu</span>
+                    <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+                      <span class="sh-crumb-pill">${escapeHtml(v.level)}</span>
+                      <span class="sh-crumb-pill">⏱ ${escapeHtml(v.durationLabel)} · ${v.lines.length} câu</span>
                     </div>
                     <div class="zh" style="font-size:20px;font-weight:800;">${escapeHtml(v.titleZh)}</div>
-                    <div style="font-size:13px;font-weight:700;margin-top:2px;">${escapeHtml(v.titleVi)}</div>
-                    <p style="font-size:12.5px;color:var(--ink-500-aa);margin:6px 0 0;">${escapeHtml(v.summary)}</p>
+                    <div style="font-size:14px;font-weight:700;margin-top:4px;">${escapeHtml(v.titleVi)}</div>
+                    <p class="sh-caption" style="margin:8px 0 0;">${escapeHtml(v.summary)}</p>
                   </div>
-                  <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;">
-                    <span style="font-size:12px;color:var(--ink-500-aa);">${typeof prog.bestScorePct === "number" ? `Chính tả tốt nhất: ${prog.bestScorePct}%` : `Kênh: ${escapeHtml(v.channel)}`}</span>
-                    <button type="button" class="btn-pill primary" data-sh-open-video="${escapeHtml(v.id)}">▶ Luyện ngay</button>
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;flex-wrap:wrap;">
+                    <span class="sh-caption">${typeof prog.bestScorePct === "number" ? `Chính tả tốt nhất: ${prog.bestScorePct}%` : `Kênh: ${escapeHtml(v.channel)}`}</span>
+                    <button type="button" class="sh-primary-cta" data-sh-open-video="${escapeHtml(v.id)}">▶ Luyện ngay</button>
                   </div>
                 </div>
               `;
@@ -11802,7 +12183,7 @@
         if (!host) return;
         const videos = getShadowingVideos();
         if (!videos.length) {
-          host.innerHTML = `<div class="sh-card" style="text-align:center;padding:32px;">Đang tải dữ liệu Video Shadowing...</div>`;
+          host.innerHTML = `<div class="sh-card" style="min-height:520px;display:grid;place-items:center;text-align:center;padding:32px;"><div><strong style="font-size:16px;">Đang tải dữ liệu Video Shadowing...</strong><div class="sh-caption" style="margin-top:6px;">Chuẩn bị phụ đề đồng bộ và từ vựng trọng điểm</div></div></div>`;
           return;
         }
         if (shadowingState.subView === "library") {
@@ -11821,6 +12202,7 @@
         }
 
         host.innerHTML = `
+          <div id="shLiveStatus" class="sr-only" aria-live="polite">${escapeHtml(shadowingState.liveAnnouncement)}</div>
           <div id="shHeaderBar" class="sh-topbar">${renderShadowingHeaderHtml(video)}</div>
           <div id="shShortcutsBar" class="sh-shortcuts-drawer ${shadowingState.showShortcuts ? "" : "hidden"}">
             <span><span class="sh-kbd">Space</span> Phát / Tạm dừng</span>
@@ -11832,55 +12214,61 @@
           <div id="shPlayerShell" class="sh-studio-grid">
             <div class="sh-player-col">
               <div class="sh-card">
-                <div class="sh-video-title-row">
-                  <div>
-                    <div class="zh" style="font-size:21px;font-weight:800;">${escapeHtml(video.titleZh)}</div>
-                    <div style="font-size:13px;font-weight:700;color:var(--ink-500-aa);">${escapeHtml(video.titleVi)} · ${escapeHtml(video.channel)}</div>
-                  </div>
-                  <a class="btn-pill" href="${escapeHtml(video.playlistUrl)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;font-size:12px;">↗ Playlist YouTube</a>
+                <div class="sh-video-header">
+                  <h2 class="sh-video-h2 zh">${escapeHtml(video.titleZh)}</h2>
+                  <p class="sh-video-sub">
+                    <span>${escapeHtml(video.titleVi)} · ${escapeHtml(video.channel)}</span>
+                    <a class="sh-text-link" href="${escapeHtml(video.playlistUrl)}" target="_blank" rel="noopener noreferrer">Xem playlist gốc trên YouTube ↗</a>
+                  </p>
                 </div>
                 <div class="sh-video-box">
                   <div id="shYtPlayerMount" class="sh-yt-mount"></div>
                   <div id="shTtsStage" class="sh-tts-stage ${shadowingState.useTtsFallback && !shadowingState.hideVideo ? "" : "hidden"}">
-                    <span class="badge">🎙️ Giọng đọc AI (Offline / Dự phòng)</span>
-                    <div id="shTtsStageZh" class="zh" style="font-size:24px;font-weight:800;line-height:1.45;">${escapeHtml(curLine.hanzi)}</div>
-                    <div id="shTtsStagePy" style="font-size:13.5px;color:var(--ink-500-aa);">${escapeHtml(curLine.pinyin)}</div>
-                    <div id="shTtsStageVi" style="font-size:13.5px;font-style:italic;">${escapeHtml(curLine.vi)}</div>
+                    <span class="sh-crumb-pill">🎙️ Giọng đọc AI (Offline / Dự phòng)</span>
+                    <div id="shTtsStageZh" class="zh" style="font-size:22px;font-weight:800;line-height:1.45;">${escapeHtml(curLine.hanzi)}</div>
+                    <div id="shTtsStagePy" class="sh-caption">${escapeHtml(curLine.pinyin)}</div>
+                    <div id="shTtsStageVi" style="font-size:14.5px;font-style:italic;color:var(--ink-700);">${escapeHtml(curLine.vi)}</div>
                   </div>
                   <div id="shStartOverlay" class="sh-start-overlay ${shadowingState.started || shadowingState.hideVideo || shadowingState.useTtsFallback ? "hidden" : ""}">
-                    <div class="zh" style="font-size:22px;font-weight:800;">${escapeHtml(video.titleZh)}</div>
-                    <div style="font-size:13.5px;opacity:0.92;">${escapeHtml(video.titleVi)} · ${video.lines.length} câu (${video.durationLabel})</div>
-                    <button type="button" class="sh-start-cta" data-sh-action="start-play">▶ Bấm để bắt đầu</button>
+                    <div class="sh-start-card">
+                      <div class="zh" style="font-size:22px;font-weight:800;line-height:1.3;">${escapeHtml(video.titleZh)}</div>
+                      <div style="font-size:14px;font-weight:700;color:var(--ink-500-aa);">${video.lines.length} câu chuẩn giáo trình · Tự ngắt cuối câu để nhại theo · ${video.durationLabel}</div>
+                      <button type="button" class="sh-start-cta" data-sh-action="start-play">▶ Bắt đầu luyện Shadowing</button>
+                    </div>
                   </div>
                   <div id="shVideoCurtain" class="sh-video-curtain ${shadowingState.hideVideo ? "" : "hidden"}">
-                    <div style="font-size:34px;">🎧</div>
+                    <div style="font-size:32px;" aria-hidden="true">🎧</div>
                     <strong style="font-size:15px;">Đang ẩn video để tập trung luyện nghe</strong>
-                    <button type="button" class="btn-pill" data-sh-action="toggle-hide-video">👁️ Hiện lại video</button>
+                    <button type="button" class="sh-transport-btn" data-sh-action="toggle-hide-video">👁️ Hiện lại video</button>
                   </div>
                 </div>
                 <div id="shFallbackBanner" class="sh-fallback-banner ${shadowingState.useTtsFallback ? "" : "hidden"}">
-                  <span>💡 Đang chạy bằng <strong>giọng đọc AI tiếng Trung</strong> (khi mở qua <code>file:///</code> hoặc mạng chặn YouTube, trình phát tự chuyển để bạn vẫn học offline đầy đủ).</span>
-                  <a class="btn-pill" href="https://www.youtube.com/watch?v=${escapeHtml(video.youtubeId)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;font-size:12px;">▶ Mở gốc trên YouTube</a>
+                  <span>ℹ️ Đang phát bằng <strong>giọng đọc AI tiếng Trung</strong> (khi mở file ngoại tuyến hoặc mạng chặn YouTube, web tự chuyển để bạn vẫn học đầy đủ).</span>
+                  <a class="sh-text-link" href="https://www.youtube.com/watch?v=${escapeHtml(video.youtubeId)}" target="_blank" rel="noopener noreferrer">Mở video gốc trên YouTube ↗</a>
                 </div>
                 <div class="sh-seek-row">
                   <input type="range" id="shSeekRange" class="sh-seek-range" min="0" max="${video.durationSec}" step="0.1" value="${shadowingState.currentTime}" aria-label="Thanh tua tiến độ video" />
                   <span id="shTimeClock" class="sh-clock">${formatShClock(shadowingState.currentTime)} / ${video.durationLabel}</span>
                 </div>
-                <div id="shPauseHint" class="sh-pause-hint hidden">⏸ Tự ngắt cuối câu — Hãy đọc nhại lại thành tiếng, rồi bấm <strong>Space</strong> hoặc <strong>▶ Phát tiếp</strong>!</div>
-                <div class="sh-controls-bar">
-                  <button type="button" class="btn-pill" data-sh-action="prev" title="Câu trước (←)">⏮ Câu trước</button>
-                  <button type="button" id="shBtnPlayPause" class="btn-pill primary" data-sh-action="play-pause">▶ Phát tiếp</button>
-                  <button type="button" class="btn-pill" data-sh-action="next" title="Câu sau (→)">⏭ Câu sau</button>
-                  <button type="button" class="btn-pill" data-sh-action="replay" title="Nghe lại câu hiện tại (R)">↺ Nghe lại</button>
-                  <button type="button" id="shBtnAutoPause" class="btn-pill ${shadowingState.autoPause ? "ink-active" : ""}" data-sh-action="toggle-autopause" aria-pressed="${shadowingState.autoPause}">⏸ Tự ngắt câu</button>
-                  <button type="button" id="shBtnLoop" class="btn-pill ${shadowingState.loopLine ? "ink-active" : ""}" data-sh-action="toggle-loop" aria-pressed="${shadowingState.loopLine}">🔁 Lặp câu</button>
-                  <button type="button" id="shBtnRate" class="btn-pill" data-sh-action="cycle-rate">${shadowingState.rate}x</button>
-                  <button type="button" id="shBtnPinyin" class="btn-pill ${shadowingState.showPinyin ? "ink-active" : ""}" data-sh-action="toggle-pinyin" aria-pressed="${shadowingState.showPinyin}">拼 Pinyin</button>
-                  <button type="button" id="shBtnVi" class="btn-pill ${shadowingState.showVi ? "ink-active" : ""}" data-sh-action="toggle-vi" aria-pressed="${shadowingState.showVi}">文A Bản dịch</button>
+                <div id="shPauseHint" class="sh-pause-hint hidden" role="status">⏸ Đã tạm dừng cuối câu — Hãy đọc nhại lại thành tiếng, rồi nhấn <strong>Space</strong> hoặc <strong>▶ Phát tiếp</strong>!</div>
+                <div class="sh-controls-wrap">
+                  <div class="sh-transport-row">
+                    <button type="button" class="sh-transport-btn" data-sh-action="prev" title="Câu trước (←)">⏮ Câu trước</button>
+                    <button type="button" id="shBtnPlayPause" class="sh-primary-cta" data-sh-action="play-pause" aria-pressed="${shadowingState.playing}">${shadowingState.playing ? "⏸ Tạm dừng" : (shadowingState.started ? "▶ Phát tiếp" : "▶ Bắt đầu")}</button>
+                    <button type="button" class="sh-transport-btn" data-sh-action="next" title="Câu sau (→)">⏭ Câu sau</button>
+                    <button type="button" class="sh-transport-btn" data-sh-action="replay" title="Nghe lại câu hiện tại (R)">↺ Nghe lại</button>
+                    <button type="button" id="shBtnRate" class="sh-transport-btn" data-sh-action="cycle-rate">Tốc độ: ${shadowingState.rate}x</button>
+                  </div>
+                  <div class="sh-toggles-row" role="group" aria-label="Tùy chọn hiển thị và nhịp đọc">
+                    <button type="button" id="shBtnAutoPause" class="sh-toggle-pill" data-sh-action="toggle-autopause" aria-pressed="${shadowingState.autoPause}">${shadowingState.autoPause ? "✓ " : ""}⏸ Tự ngắt cuối câu</button>
+                    <button type="button" id="shBtnLoop" class="sh-toggle-pill" data-sh-action="toggle-loop" aria-pressed="${shadowingState.loopLine}">${shadowingState.loopLine ? "✓ " : ""}🔁 Lặp liên tục</button>
+                    <button type="button" id="shBtnPinyin" class="sh-toggle-pill" data-sh-action="toggle-pinyin" aria-pressed="${shadowingState.showPinyin}">${shadowingState.showPinyin ? "✓ " : ""}拼 Pinyin</button>
+                    <button type="button" id="shBtnVi" class="sh-toggle-pill" data-sh-action="toggle-vi" aria-pressed="${shadowingState.showVi}">${shadowingState.showVi ? "✓ " : ""}文A Bản dịch</button>
+                  </div>
                 </div>
               </div>
               <div id="shRecorderCard" class="sh-card sh-recorder-card">${renderShadowingRecorderInnerHtml()}</div>
-              <div id="shVocabStripCard" class="sh-card">${renderShadowingVocabStripHtml(video)}</div>
+              <details id="shVocabStripCard" class="sh-card sh-accordion">${renderShadowingVocabStripHtml(video)}</details>
             </div>
             <div id="shRightPane" class="sh-card sh-transcript-card">
               ${shadowingState.mode === "dictation" ? renderShadowingDictationHtml(video) : renderShadowingTranscriptHtml(video)}
@@ -12097,6 +12485,8 @@
             renderShadowingRightPane();
           } else if (act === "record-toggle") {
             toggleShadowingRecord();
+          } else if (act === "record-clear") {
+            clearShadowingRecording();
           } else if (act === "play-self") {
             playShadowingSelfAudio();
           } else if (act === "play-compare") {
@@ -13866,6 +14256,13 @@
           studyTextState.dictInputs[e.target.dataset.textDictInput] = e.target.value;
         } else if (e.target.id === "shDictInput") {
           shadowingState.dictInput = e.target.value;
+          if (shadowingState.dictErrorMsg && normalizeZh(e.target.value)) {
+            shadowingState.dictErrorMsg = "";
+            const errEl = document.getElementById("shDictErr");
+            if (errEl) errEl.remove();
+            e.target.setAttribute("aria-invalid", "false");
+            e.target.setAttribute("aria-describedby", "shDictHelp");
+          }
         } else if (e.target.id === "shSeekRange") {
           shSeekTo(Number(e.target.value), shadowingState.playing);
         }
@@ -14030,6 +14427,10 @@
           e.preventDefault();
           if (shadowingState.dictChecked) shFinishOrNextDictation();
           else shCheckDictation();
+        } else if ((e.key === "Enter" || e.code === "Space") && e.target && e.target.closest && e.target.closest("[data-sh-line]") && !e.target.closest("button") && tag !== "input" && tag !== "textarea") {
+          e.preventDefault();
+          const row = e.target.closest("[data-sh-line]");
+          shJumpToLine(Number(row.dataset.shLine), true);
         } else if (state.view === "shadowing" && shadowingState.subView === "studio" && tag !== "input" && tag !== "textarea") {
           if (e.code === "Space") {
             e.preventDefault();

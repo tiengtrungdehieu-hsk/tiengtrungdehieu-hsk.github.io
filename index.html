@@ -5043,12 +5043,15 @@
       const curriculum = window.HSK_CURRICULUM = window.HSK_CURRICULUM || {};
 
       /* On-demand lazy loader for heavy/per-book offline data scripts (100% file:// safe) */
+      const DATA_ASSET_VER = "20261128b";
       const _lazyScriptCache = {};
       function loadDataScriptOnce(src) {
         if (_lazyScriptCache[src]) return _lazyScriptCache[src];
         _lazyScriptCache[src] = new Promise((resolve) => {
           const s = document.createElement("script");
-          s.src = src;
+          s.src = (location.protocol !== "file:" && !String(src).includes("?"))
+            ? `${src}?v=${DATA_ASSET_VER}`
+            : src;
           s.onload = () => {
             if (typeof _charIndexCache !== "undefined") _charIndexCache = null;
             if (typeof _dictMapCache !== "undefined") _dictMapCache = null;

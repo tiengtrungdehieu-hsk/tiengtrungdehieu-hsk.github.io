@@ -3957,6 +3957,7 @@
       min-width: 0;
     }
     html[data-skin="sketch"] .sh-card,
+    html[data-skin="sketch"] .sh-lib-card,
     html[data-skin="sketch"] .sh-topbar,
     html[data-skin="sketch"] .sh-line-item,
     html[data-skin="sketch"] .sh-metric-box {
@@ -4435,8 +4436,184 @@
     }
     .sh-library-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
       gap: 16px;
+      min-width: 0;
+    }
+    .sh-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .sh-filter-tab {
+      min-height: 40px;
+      padding: 6px 14px;
+      font-size: 13.5px;
+      font-weight: 800;
+      border-radius: 999px;
+      border: 2px solid var(--border-soft);
+      background: var(--bg-surface);
+      color: var(--ink-700);
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+    }
+    .sh-filter-tab:hover {
+      background: var(--bg-hover);
+      border-color: var(--border);
+      color: var(--ink-900);
+    }
+    .sh-filter-tab[aria-selected="true"] {
+      background: var(--ink-900);
+      color: var(--paper-0);
+      border-color: var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    html[data-theme="dark"] .sh-filter-tab[aria-selected="true"] {
+      background: var(--main-hi);
+      color: #1f1b18;
+    }
+    .sh-level-note {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 16px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--ink-700);
+    }
+    .sh-lib-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--neo-shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .sh-lib-card:hover {
+      transform: translateY(-2px);
+    }
+    .sh-lib-cover {
+      padding: 14px 16px;
+      border-bottom: 1.5px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--bg-subtle);
+    }
+    .sh-lib-cover.lvl-hsk1 { background: #edf6f1; }
+    .sh-lib-cover.lvl-hsk2 { background: #fbf1df; }
+    .sh-lib-cover.lvl-hsk3 { background: #faeae6; }
+    html[data-theme="dark"] .sh-lib-cover.lvl-hsk1 { background: #1e3229; }
+    html[data-theme="dark"] .sh-lib-cover.lvl-hsk2 { background: #34291b; }
+    html[data-theme="dark"] .sh-lib-cover.lvl-hsk3 { background: #36221e; }
+    .sh-lib-cover-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .sh-level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 26px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 800;
+      border: 1.5px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--ink-900);
+    }
+    .sh-level-badge.lvl-hsk1 { background: #d4efe0; color: #13462c; border-color: #2f7d52; }
+    .sh-level-badge.lvl-hsk2 { background: #fde7c2; color: #5c3409; border-color: #b46d16; }
+    .sh-level-badge.lvl-hsk3 { background: #fcdbd4; color: #631f16; border-color: #b64336; }
+    html[data-theme="dark"] .sh-level-badge.lvl-hsk1 { background: #1d4230; color: #c8f3dc; border-color: #55a97a; }
+    html[data-theme="dark"] .sh-level-badge.lvl-hsk2 { background: #463317; color: #fce3b4; border-color: #d69641; }
+    html[data-theme="dark"] .sh-level-badge.lvl-hsk3 { background: #4b241f; color: #fad2ca; border-color: #df7466; }
+    .sh-lib-body {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .sh-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .sh-tag-chip {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-soft);
+      color: var(--ink-700);
+    }
+    .sh-lib-foot {
+      padding: 12px 16px;
+      border-top: 1.5px solid var(--border-soft);
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .sh-card-cta {
+      min-height: 40px;
+      padding: 6px 14px;
+      font-size: 13.5px;
+      font-weight: 800;
+      border-radius: var(--radius-base);
+      border: 2px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--ink-900);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    .sh-card-cta:hover {
+      background: var(--ink-900);
+      color: var(--paper-0);
+    }
+    html[data-theme="dark"] .sh-card-cta:hover {
+      background: var(--main-hi);
+      color: #1f1b18;
+    }
+    .sh-video-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 12px;
+    }
+    .sh-video-nav-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     @media (max-width: 960px) {
       .sh-studio-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -4599,7 +4776,7 @@
             <span class="book-cover-badge">Thực chiến · HSK 1–3</span>
           </div>
           <div class="book-cover-footer">
-            <div class="book-cover-meta"><span>Video YouTube</span><span>Nhại &amp; Chính tả →</span></div>
+            <div class="book-cover-meta"><span>15 video · HSK 1–3</span><span>0/15 xong</span></div>
             <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
           </div>
         </button>
@@ -6581,9 +6758,12 @@
 
         const grid = document.getElementById("bookshelfGrid");
         if (grid) {
-          const shProg = (state.shadowingProgress && state.shadowingProgress.vid_5f63WpG43u0) || {};
-          const shPct = typeof shProg.bestScorePct === "number" ? shProg.bestScorePct : 0;
-          const shMetaRight = shPct > 0 ? `Chính tả ${shPct}%` : "Nhại & Chính tả →";
+          const shList = getShadowingVideos();
+          const shTotal = shList.length || 15;
+          const shProgMap = (state.shadowingProgress && typeof state.shadowingProgress === "object") ? state.shadowingProgress : {};
+          const shDoneCount = Object.values(shProgMap).filter((p) => p && typeof p.bestScorePct === "number").length;
+          const shPct = shTotal ? Math.round((shDoneCount / shTotal) * 100) : 0;
+          const shMetaRight = `${shDoneCount}/${shTotal} xong`;
           grid.innerHTML = BOOK_ORDER.map((id) => {
             const b = BOOK_META[id];
             if (!b) return "";
@@ -6608,7 +6788,7 @@
                 <span class="book-cover-badge">Thực chiến · HSK 1–3</span>
               </div>
               <div class="book-cover-footer">
-                <div class="book-cover-meta"><span>Video YouTube</span><span>${shMetaRight}</span></div>
+                <div class="book-cover-meta"><span>${shTotal} video · HSK 1–3</span><span>${shMetaRight}</span></div>
                 <div class="progress-track"><div class="progress-fill" style="width:${shPct}%"></div></div>
               </div>
             </button>
@@ -11221,7 +11401,9 @@
          Video Shadowing & Dictation Studio Module
       ============================================================ */
       const shadowingState = {
-        subView: "studio", // "studio" | "library"
+        subView: "library", // "library" | "studio"
+        levelFilter: "all", // "all" | "HSK 1" | "HSK 2" | "HSK 3"
+        lastOpenedVideoId: "",
         videoId: "vid_5f63WpG43u0",
         mountedVideoId: "",
         mode: "shadowing", // "shadowing" | "dictation"
@@ -11397,6 +11579,7 @@
 
       function openShadowingView(targetVideoId) {
         if (targetVideoId) {
+          shadowingState.lastOpenedVideoId = targetVideoId;
           if (shadowingState.videoId !== targetVideoId) {
             teardownShadowingPlayback(true);
             shadowingState.videoId = targetVideoId;
@@ -11407,10 +11590,20 @@
             resetShadowingDictation();
           }
           shadowingState.subView = "studio";
+          const syncVid = getActiveShadowingVideo();
+          if (syncVid && syncVid.lines && syncVid.lines.length && !shadowingState.started && shadowingState.currentTime < (syncVid.lines[0].start || 0)) {
+            shadowingState.currentTime = syncVid.lines[0].start || 0;
+          }
         }
         renderAll();
         Promise.all([ensureShadowingData(), ensureHanVietData()]).then(() => {
           if (state.view === "shadowing") {
+            if (shadowingState.subView === "studio") {
+              const v = getActiveShadowingVideo();
+              if (v && v.lines && v.lines.length && !shadowingState.started && shadowingState.currentTime < (v.lines[0].start || 0)) {
+                shadowingState.currentTime = v.lines[0].start || 0;
+              }
+            }
             renderShadowingView(true);
           }
         });
@@ -11671,7 +11864,12 @@
         const video = getActiveShadowingVideo();
         if (!video) return;
         touchStudyDay();
+        const wasStarted = shadowingState.started;
         shadowingState.started = true;
+        if (!wasStarted && video.lines && video.lines.length && shadowingState.currentTime < (video.lines[0].start || 0)) {
+          shadowingState.activeIdx = 0;
+          shadowingState.currentTime = video.lines[0].start || 0;
+        }
         if (shadowingState.autoPausedLineIdx === shadowingState.activeIdx) {
           shadowingState.autoPausedLineIdx = -1;
           if (shadowingState.activeIdx + 1 < video.lines.length && shadowingState.currentTime >= video.lines[shadowingState.activeIdx].end - 0.15) {
@@ -12249,35 +12447,92 @@
           : renderShadowingTranscriptHtml(video);
       }
 
+      function getShLevelClass(lvl) {
+        if (lvl === "HSK 1") return "lvl-hsk1";
+        if (lvl === "HSK 2") return "lvl-hsk2";
+        if (lvl === "HSK 3") return "lvl-hsk3";
+        return "lvl-hsk1";
+      }
+
       function renderShadowingLibraryHtml() {
-        const list = getShadowingVideos();
+        const allVideos = getShadowingVideos();
+        const totalLines = allVideos.reduce((acc, v) => acc + (Array.isArray(v.lines) ? v.lines.length : 0), 0);
+        const counts = {
+          all: allVideos.length,
+          "HSK 1": allVideos.filter((v) => v.level === "HSK 1").length,
+          "HSK 2": allVideos.filter((v) => v.level === "HSK 2").length,
+          "HSK 3": allVideos.filter((v) => v.level === "HSK 3").length,
+        };
+        const activeFilter = counts[shadowingState.levelFilter] !== undefined ? shadowingState.levelFilter : "all";
+        const filtered = activeFilter === "all" ? allVideos : allVideos.filter((v) => v.level === activeFilter);
+        const progMap = (state.shadowingProgress && typeof state.shadowingProgress === "object") ? state.shadowingProgress : {};
+        const doneFiltered = filtered.filter((v) => progMap[v.id] && typeof progMap[v.id].bestScorePct === "number").length;
+
+        const levelMeta = {
+          all: "Toàn bộ video được trích và đồng bộ phụ đề chuẩn từng giây từ playlist HSK 1–3, sắp xếp từ dễ đến nâng cao.",
+          "HSK 1": "HSK 1 · Nhập môn: Hội thoại sinh hoạt & kỹ năng an toàn hằng ngày, câu ngắn dễ bắt nhịp (~1:30–2:05).",
+          "HSK 2": "HSK 2 · Sơ trung: Tình huống đời sống thực tế (sức khỏe, đi lại, cảm xúc), từ vựng giao tiếp thông dụng.",
+          "HSK 3": "HSK 3 · Trung cấp: Hội thoại dài & truyện đọc chậm giàu biểu cảm, giúp luyện sức bền nghe hiểu (đến 87 câu).",
+        };
+
+        const resumeVid = (shadowingState.lastOpenedVideoId && allVideos.find((v) => v.id === shadowingState.lastOpenedVideoId))
+          || filtered[0]
+          || allVideos[0];
+        const resumeLabel = shadowingState.lastOpenedVideoId && resumeVid
+          ? `▶ Tiếp tục: ${resumeVid.titleVi}`
+          : (activeFilter === "all" ? "▶ Bắt đầu bài HSK 1 đầu tiên" : `▶ Luyện bài ${activeFilter} đầu tiên`);
+
+        const filterTabs = [
+          { key: "all", label: `Tất cả (${counts.all})` },
+          { key: "HSK 1", label: `HSK 1 · Nhập môn (${counts["HSK 1"]})` },
+          { key: "HSK 2", label: `HSK 2 · Sơ trung (${counts["HSK 2"]})` },
+          { key: "HSK 3", label: `HSK 3 · Trung cấp (${counts["HSK 3"]})` },
+        ];
+
         return `
           <div class="sh-topbar">
             <div class="sh-topbar-left">
               <button type="button" class="btn-pill" data-view="home" style="min-height:40px;">← Trang chủ</button>
-              <strong style="font-size:16px;">🎬 Thư viện Video Shadowing (${list.length} video)</strong>
+              <strong style="font-size:16px;">🎬 Thư viện Video Shadowing</strong>
+              <span class="sh-crumb-pill">${allVideos.length} video · ${totalLines} câu</span>
             </div>
-            <button type="button" class="sh-primary-cta" data-sh-action="back-studio">▶ Vào bài đang học</button>
+            ${resumeVid ? `<button type="button" class="sh-primary-cta" data-sh-open-video="${escapeHtml(resumeVid.id)}">${escapeHtml(resumeLabel)}</button>` : ""}
+          </div>
+          <div class="sh-filter-bar" role="tablist" aria-label="Lọc video theo cấp độ HSK">
+            ${filterTabs.map((t) => `
+              <button type="button" role="tab" class="sh-filter-tab" data-sh-level="${escapeHtml(t.key)}" aria-selected="${activeFilter === t.key ? "true" : "false"}">${escapeHtml(t.label)}</button>
+            `).join("")}
+          </div>
+          <div class="sh-level-note">
+            <span>${escapeHtml(levelMeta[activeFilter] || levelMeta.all)}</span>
+            <strong>Hoàn thành Chính tả: ${doneFiltered}/${filtered.length} video</strong>
           </div>
           <div class="sh-library-grid">
-            ${list.map((v) => {
-              const prog = (state.shadowingProgress && state.shadowingProgress[v.id]) || {};
+            ${filtered.map((v) => {
+              const prog = progMap[v.id] || {};
+              const lvlCls = getShLevelClass(v.level);
+              const tags = Array.isArray(v.tags) ? v.tags.slice(0, 3) : [];
+              const hasScore = typeof prog.bestScorePct === "number";
               return `
-                <div class="sh-card" style="display:flex;flex-direction:column;gap:12px;justify-content:space-between;">
-                  <div>
-                    <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
-                      <span class="sh-crumb-pill">${escapeHtml(v.level)}</span>
+                <article class="sh-lib-card">
+                  <div class="sh-lib-cover ${lvlCls}">
+                    <div class="sh-lib-cover-top">
+                      <span class="sh-level-badge ${lvlCls}">${escapeHtml(v.level)}</span>
                       <span class="sh-crumb-pill">⏱ ${escapeHtml(v.durationLabel)} · ${v.lines.length} câu</span>
                     </div>
-                    <div class="zh" style="font-size:20px;font-weight:800;">${escapeHtml(v.titleZh)}</div>
-                    <div style="font-size:14px;font-weight:700;margin-top:4px;">${escapeHtml(v.titleVi)}</div>
-                    <p class="sh-caption" style="margin:8px 0 0;">${escapeHtml(v.summary)}</p>
+                    <h2 class="zh" style="font-size:20px;font-weight:800;margin:4px 0 0;line-height:1.3;color:var(--ink-900);">${escapeHtml(v.titleZh)}</h2>
+                    <div class="sh-caption" style="font-weight:700;">${escapeHtml(v.titlePinyin)}</div>
+                    <div style="font-size:15px;font-weight:800;color:var(--ink-900);">${escapeHtml(v.titleVi)}</div>
                   </div>
-                  <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;flex-wrap:wrap;">
-                    <span class="sh-caption">${typeof prog.bestScorePct === "number" ? `Chính tả tốt nhất: ${prog.bestScorePct}%` : `Kênh: ${escapeHtml(v.channel)}`}</span>
-                    <button type="button" class="sh-primary-cta" data-sh-open-video="${escapeHtml(v.id)}">▶ Luyện ngay</button>
+                  <div class="sh-lib-body">
+                    <p class="sh-caption" style="margin:0;color:var(--ink-700);font-size:13.5px;line-height:1.5;">${escapeHtml(v.summary)}</p>
+                    ${tags.length ? `<div class="sh-tag-row">${tags.map((tg) => `<span class="sh-tag-chip">${escapeHtml(tg)}</span>`).join("")}</div>` : ""}
                   </div>
-                </div>
+                  <div class="sh-lib-foot">
+                    <span class="sh-caption" style="${hasScore ? "color:var(--success);font-weight:800;" : ""}">${hasScore ? `✓ Chính tả: ${prog.bestScorePct}%` : `📌 ${(v.keyVocab || []).length} từ trọng điểm`}</span>
+                    <button type="button" class="sh-card-cta" data-sh-open-video="${escapeHtml(v.id)}">▶ Luyện ngay</button>
+                  </div>
+                </article>
               `;
             }).join("")}
           </div>
@@ -12321,7 +12576,18 @@
             <div class="sh-player-col">
               <div class="sh-card">
                 <div class="sh-video-header">
-                  <h2 class="sh-video-h2 zh">${escapeHtml(video.titleZh)}</h2>
+                  <div class="sh-video-title-row">
+                    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                      <h2 class="sh-video-h2 zh">${escapeHtml(video.titleZh)}</h2>
+                      <span class="sh-level-badge ${getShLevelClass(video.level)}">${escapeHtml(video.level)}</span>
+                    </div>
+                    ${getShadowingVideos().length > 1 ? `
+                      <div class="sh-video-nav-mini">
+                        <button type="button" class="sh-toggle-pill" data-sh-action="prev-video" title="Chuyển sang video trước">⏮ Video trước</button>
+                        <button type="button" class="sh-toggle-pill" data-sh-action="next-video" title="Chuyển sang video tiếp theo">Video tiếp ⏭</button>
+                      </div>
+                    ` : ""}
+                  </div>
                   <p class="sh-video-sub">
                     <span>${escapeHtml(video.titleVi)} · ${escapeHtml(video.channel)}</span>
                     <a class="sh-text-link" href="${escapeHtml(video.playlistUrl)}" target="_blank" rel="noopener noreferrer">Xem playlist gốc trên YouTube ↗</a>
@@ -12520,6 +12786,13 @@
           return;
         }
 
+        const shLevelBtn = e.target.closest("[data-sh-level]");
+        if (shLevelBtn) {
+          shadowingState.levelFilter = shLevelBtn.dataset.shLevel || "all";
+          renderShadowingView(true);
+          return;
+        }
+
         const shOpenVidBtn = e.target.closest("[data-sh-open-video]");
         if (shOpenVidBtn) {
           openShadowingView(shOpenVidBtn.dataset.shOpenVideo);
@@ -12550,6 +12823,14 @@
           } else if (act === "back-studio") {
             shadowingState.subView = "studio";
             renderShadowingView(true);
+          } else if (act === "prev-video" || act === "next-video") {
+            const list = getShadowingVideos();
+            if (list.length > 1) {
+              const curIdx = Math.max(0, list.findIndex((v) => v.id === shadowingState.videoId));
+              const step = act === "next-video" ? 1 : -1;
+              const nextVid = list[(curIdx + step + list.length) % list.length];
+              if (nextVid) openShadowingView(nextVid.id);
+            }
           } else if (act === "start-play" || act === "play-pause") {
             shTogglePlay();
           } else if (act === "prev") {

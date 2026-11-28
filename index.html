@@ -3717,6 +3717,380 @@
       .btn-pill.feedback-pill .fb-pill-label { display: none; }
       .btn-pill.feedback-pill { padding: 4px 7px; }
     }
+
+    /* ============================================================
+       Video Shadowing & Dictation Studio (#viewShadowing)
+    ============================================================ */
+    .view-shadowing {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sh-topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 10px 14px;
+    }
+    .sh-topbar-left, .sh-topbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .sh-mode-switch {
+      display: inline-flex;
+      background: var(--surface-2);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 3px;
+      gap: 3px;
+    }
+    .sh-mode-btn {
+      border: 0;
+      background: transparent;
+      color: var(--ink-500-aa);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sh-mode-btn.active {
+      background: var(--ink-900);
+      color: var(--paper-0);
+    }
+    .btn-pill.sh-hide-vid-btn {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: var(--border);
+    }
+    .dark .btn-pill.sh-hide-vid-btn {
+      background: rgba(240, 184, 93, 0.2);
+      color: #fde68a;
+    }
+    .btn-pill.sh-hide-vid-btn.active {
+      background: var(--main-hi);
+      color: #1f1b18;
+    }
+    .sh-shortcuts-drawer {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 13px;
+    }
+    .sh-kbd {
+      display: inline-block;
+      padding: 2px 7px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 800;
+      background: var(--surface-2);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      margin-right: 4px;
+    }
+    .sh-studio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+    .sh-player-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-width: 0;
+    }
+    .sh-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      min-width: 0;
+    }
+    .sh-video-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .sh-video-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #1d1916;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .sh-yt-mount, .sh-yt-mount iframe, #shYtPlayerMount {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .sh-start-overlay, .sh-video-curtain {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+    .sh-start-overlay {
+      background: linear-gradient(155deg, rgba(43, 35, 30, 0.92), rgba(187, 58, 48, 0.88));
+      color: #fcf3ea;
+    }
+    .sh-video-curtain {
+      background: var(--paper-1);
+      color: var(--ink-900);
+      z-index: 5;
+    }
+    .sh-tts-stage {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(160deg, #fffaf3 0%, #f5e6d3 100%);
+      color: #2b2b2b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      gap: 8px;
+    }
+    .dark .sh-tts-stage {
+      background: linear-gradient(160deg, #2d2722 0%, #201c18 100%);
+      color: #f4ece3;
+    }
+    .sh-start-cta {
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 800;
+      border-radius: 14px;
+      border: 2px solid #2b2b2b;
+      background: var(--main-hi);
+      color: #1f1b18;
+      box-shadow: 4px 4px 0 #1f1b18;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .sh-start-cta:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #1f1b18; }
+    .sh-fallback-banner {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1.5px dashed var(--border);
+      background: var(--surface-2);
+      font-size: 12.5px;
+      color: var(--ink-500-aa);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .sh-seek-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .sh-seek-range {
+      flex: 1;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .sh-clock {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--ink-500-aa);
+      white-space: nowrap;
+    }
+    .sh-pause-hint {
+      margin-top: 8px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fef3c7;
+      border: 1.5px solid var(--border);
+      color: #78350f;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .dark .sh-pause-hint {
+      background: rgba(240, 184, 93, 0.18);
+      color: #fde68a;
+    }
+    .sh-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+    }
+    .sh-controls-bar .btn-pill.ink-active {
+      background: var(--ink-900);
+      color: var(--paper-0);
+    }
+    .sh-recorder-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sh-rec-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .sh-rec-btn.recording {
+      background: #dc2626;
+      color: #fff;
+      border-color: #991b1b;
+    }
+    .sh-transcript-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+    .sh-transcript-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .sh-transcript-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 540px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .sh-line-item {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: transform 0.12s, background 0.15s, border-color 0.15s;
+    }
+    .sh-line-item:hover { background: var(--surface); }
+    .sh-line-item.active {
+      background: var(--karaoke-sentence-bg, #fef3c7);
+      border-color: var(--primary);
+      box-shadow: 3px 3px 0 var(--border);
+    }
+    .sh-line-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .sh-line-time {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--ink-500-aa);
+    }
+    .sh-line-zh {
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .sh-line-py {
+      font-size: 13px;
+      color: var(--ink-500-aa);
+      margin-top: 2px;
+    }
+    .sh-dict-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .sh-metric-box {
+      background: var(--surface-2);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    .sh-metric-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--ink-900);
+    }
+    .sh-metric-lbl {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink-500-aa);
+      margin-top: 2px;
+    }
+    .sh-vocab-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .sh-vocab-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--surface-2);
+      font-size: 13px;
+    }
+    .sh-library-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 980px) {
+      .sh-studio-grid { grid-template-columns: 1fr; }
+      .sh-transcript-list { max-height: 420px; }
+    }
+    @media (max-width: 640px) {
+      .sh-topbar { padding: 8px 10px; }
+      .sh-mode-btn { padding: 5px 9px; font-size: 12px; }
+      .sh-line-zh { font-size: 17px; }
+    }
   </style>
 </head>
 <body class="bg-grid-paper">
@@ -3748,6 +4122,10 @@
         <button type="button" class="rail-item active" id="railHome" data-view="home" title="Trang chủ Kệ sách">
           <svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/><path d="M9 21v-6h6v6"/></svg>
           <span class="rail-label">Trang chủ</span>
+        </button>
+        <button type="button" class="rail-item" id="railShadowing" data-view="shadowing" title="Luyện Video Shadowing &amp; Nghe chép chính tả">
+          <svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M21 15a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M3 15a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3Z"/></svg>
+          <span class="rail-label">Shadowing</span>
         </button>
         <button type="button" class="rail-item" id="btnOpenRoadmap" title="Lộ trình học HSK 3.0 &amp; hướng dẫn người mới">
           <svg class="ui-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
@@ -3849,6 +4227,7 @@
         </button>
       </div>
       <div class="home-quick-row">
+        <button type="button" class="btn-pill" data-view="shadowing" style="background:var(--accent-soft);border-color:var(--border);">🎧 Video Shadowing</button>
         <button type="button" class="btn-pill" data-open-modal="roadmap">🧭 Lộ trình người mới</button>
         <button type="button" class="btn-pill" data-open-modal="tools">🈷️ Bảng Pinyin &amp; 214 Bộ thủ</button>
         <button type="button" class="btn-pill" data-open-modal="search">🔍 Tìm bài &amp; Từ điển</button>
@@ -3896,6 +4275,9 @@
         <div id="tabContent"></div>
       </div>
     </section>
+
+    <!-- Tier 4: Video Shadowing & Dictation Studio -->
+    <section id="viewShadowing" class="view-shadowing hidden"></section>
   </main>
 
   <!-- Global Search Modal -->
@@ -4158,6 +4540,9 @@
       function ensureHanVietData() {
         return window.HANVIET_CHAR_MAP ? Promise.resolve(true) : loadDataScriptOnce("data/hanviet_data.js");
       }
+      function ensureShadowingData() {
+        return window.SHADOWING_VIDEOS ? Promise.resolve(true) : loadDataScriptOnce("data/shadowing_data.js");
+      }
       function getHanVietParts(hanzi) {
         const chars = Array.from(String(hanzi || "")).filter((ch) => /[\u4e00-\u9fff]/.test(ch));
         if (!chars.length) return [];
@@ -4315,6 +4700,7 @@
           studyDays: {},
           completed: {},
           lessonModesDone: {},
+          shadowingProgress: {},
           savedWords: [],
           customWords: [],
           masteredWords: {},
@@ -7808,9 +8194,17 @@
 
       function setView(viewName) {
         stopFcStrokeAnim();
-        state.view = ["home", "book", "lesson"].includes(viewName) ? viewName : "home";
+        const nextView = ["home", "book", "lesson", "shadowing"].includes(viewName) ? viewName : "home";
+        if (state.view === "shadowing" && nextView !== "shadowing") {
+          teardownShadowingPlayback(true);
+        }
+        state.view = nextView;
         closeMobileDrawer();
-        renderAll();
+        if (nextView === "shadowing") {
+          openShadowingView();
+        } else {
+          renderAll();
+        }
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
@@ -7866,17 +8260,22 @@
         applyAppearance();
         renderStaticUiLabels();
         updateHeaderStats();
-        const v = ["home", "book", "lesson"].includes(state.view) ? state.view : "home";
+        const v = ["home", "book", "lesson", "shadowing"].includes(state.view) ? state.view : "home";
         const elHome = document.getElementById("viewHome");
         const elBook = document.getElementById("viewBook");
         const elLesson = document.getElementById("viewLesson");
+        const elShadowing = document.getElementById("viewShadowing");
         if (elHome) elHome.classList.toggle("hidden", v !== "home");
         if (elBook) elBook.classList.toggle("hidden", v !== "book");
         if (elLesson) elLesson.classList.toggle("hidden", v !== "lesson");
+        if (elShadowing) elShadowing.classList.toggle("hidden", v !== "shadowing");
         const railHome = document.getElementById("railHome");
+        const railSh = document.getElementById("railShadowing");
         if (railHome) railHome.classList.toggle("active", v === "home");
+        if (railSh) railSh.classList.toggle("active", v === "shadowing");
         if (v === "home") renderHomeView();
         else if (v === "book") renderBookView();
+        else if (v === "shadowing") renderShadowingView();
         else renderLessonView();
         renderFloatingMemoDock();
       }
@@ -10182,6 +10581,12 @@
 
       function getCurrentPageContextLabel() {
         if (state.view === "home") return "Trang chủ Kệ sách";
+        if (state.view === "shadowing") {
+          const vid = getActiveShadowingVideo();
+          return shadowingState.subView === "library" || !vid
+            ? "Thư viện Video Shadowing"
+            : `Video Shadowing · ${vid.titleVi}`;
+        }
         const meta = BOOK_META[state.bookId] || BOOK_META.hsk1;
         if (state.view === "book") return `Danh sách bài · ${meta.shortName}`;
         const tabNames = {
@@ -10420,6 +10825,1071 @@
         }
       }
 
+      /* ============================================================
+         Video Shadowing & Dictation Studio Module
+      ============================================================ */
+      const shadowingState = {
+        subView: "studio", // "studio" | "library"
+        videoId: "vid_5f63WpG43u0",
+        mountedVideoId: "",
+        mode: "shadowing", // "shadowing" | "dictation"
+        started: false,
+        playing: false,
+        currentTime: 0,
+        activeIdx: 0,
+        autoPause: true,
+        loopLine: false,
+        hideVideo: false,
+        showPinyin: true,
+        showVi: true,
+        showShortcuts: false,
+        rate: 1.0,
+        useTtsFallback: location.protocol === "file:",
+        ytReady: false,
+        ytPlayer: null,
+        ytErrorCode: null,
+        pollTimer: null,
+        autoPausedLineIdx: -1,
+        ttsRunId: 0,
+        ttsBoundaryTimer: null,
+        // Recorder & pronunciation check
+        recActive: false,
+        recBlobUrl: "",
+        recError: "",
+        mediaRecorder: null,
+        recStream: null,
+        recChunks: [],
+        recAudioEl: null,
+        speechChecking: false,
+        speechTranscript: "",
+        speechScore: null,
+        speechFeedback: "",
+        // Dictation mode
+        dictStarted: false,
+        dictIdx: 0,
+        dictErrors: 0,
+        dictReplays: 0,
+        dictInput: "",
+        dictChecked: false,
+        dictHintLevel: 0,
+        dictResults: {},
+        dictFinished: false,
+      };
+
+      let _ytApiPromise = null;
+      function loadYouTubeIframeApi() {
+        if (location.protocol === "file:") return Promise.resolve(false);
+        if (window.YT && window.YT.Player) return Promise.resolve(true);
+        if (_ytApiPromise) return _ytApiPromise;
+        _ytApiPromise = new Promise((resolve) => {
+          let settled = false;
+          const finish = (ok) => {
+            if (settled) return;
+            settled = true;
+            resolve(ok);
+          };
+          const prevReady = window.onYouTubeIframeAPIReady;
+          window.onYouTubeIframeAPIReady = function () {
+            if (typeof prevReady === "function") {
+              try { prevReady(); } catch (err) {}
+            }
+            finish(true);
+          };
+          const s = document.createElement("script");
+          s.src = "https://www.youtube.com/iframe_api";
+          s.async = true;
+          s.onerror = () => finish(false);
+          document.head.appendChild(s);
+          setTimeout(() => finish(Boolean(window.YT && window.YT.Player)), 8000);
+        });
+        return _ytApiPromise;
+      }
+
+      function getShadowingVideos() {
+        return Array.isArray(window.SHADOWING_VIDEOS) ? window.SHADOWING_VIDEOS : [];
+      }
+
+      function getActiveShadowingVideo() {
+        const list = getShadowingVideos();
+        if (!list.length) return null;
+        return list.find((v) => v.id === shadowingState.videoId) || list[0];
+      }
+
+      function formatShClock(sec) {
+        const total = Math.max(0, Math.floor(Number(sec) || 0));
+        const m = Math.floor(total / 60);
+        const s = total % 60;
+        return `${m}:${String(s).padStart(2, "0")}`;
+      }
+
+      function stopShadowingTts() {
+        shadowingState.ttsRunId += 1;
+        if (shadowingState.ttsBoundaryTimer) {
+          clearTimeout(shadowingState.ttsBoundaryTimer);
+          shadowingState.ttsBoundaryTimer = null;
+        }
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      }
+
+      function stopShadowingRecorder() {
+        if (shadowingState.mediaRecorder && shadowingState.mediaRecorder.state !== "inactive") {
+          try { shadowingState.mediaRecorder.stop(); } catch (e) {}
+        }
+        if (shadowingState.recStream) {
+          shadowingState.recStream.getTracks().forEach((t) => { try { t.stop(); } catch (e) {} });
+          shadowingState.recStream = null;
+        }
+        shadowingState.recActive = false;
+      }
+
+      function teardownShadowingPlayback(destroyPlayer) {
+        if (shadowingState.pollTimer) {
+          clearInterval(shadowingState.pollTimer);
+          shadowingState.pollTimer = null;
+        }
+        shadowingState.playing = false;
+        stopShadowingTts();
+        stopShadowingRecorder();
+        if (shadowingState.recAudioEl) {
+          try { shadowingState.recAudioEl.pause(); } catch (e) {}
+        }
+        if (shadowingState.ytPlayer) {
+          try {
+            if (typeof shadowingState.ytPlayer.pauseVideo === "function") {
+              shadowingState.ytPlayer.pauseVideo();
+            }
+            if (destroyPlayer && typeof shadowingState.ytPlayer.destroy === "function") {
+              shadowingState.ytPlayer.destroy();
+            }
+          } catch (e) {}
+          if (destroyPlayer) {
+            shadowingState.ytPlayer = null;
+            shadowingState.ytReady = false;
+            shadowingState.mountedVideoId = "";
+          }
+        }
+      }
+
+      function openShadowingView(targetVideoId) {
+        if (targetVideoId) {
+          if (shadowingState.videoId !== targetVideoId) {
+            teardownShadowingPlayback(true);
+            shadowingState.videoId = targetVideoId;
+            shadowingState.activeIdx = 0;
+            shadowingState.currentTime = 0;
+            shadowingState.started = false;
+            shadowingState.autoPausedLineIdx = -1;
+            resetShadowingDictation();
+          }
+          shadowingState.subView = "studio";
+        }
+        renderAll();
+        Promise.all([ensureShadowingData(), ensureHanVietData()]).then(() => {
+          if (state.view === "shadowing") {
+            renderShadowingView(true);
+          }
+        });
+      }
+
+      function resetShadowingDictation() {
+        shadowingState.dictStarted = false;
+        shadowingState.dictIdx = 0;
+        shadowingState.dictErrors = 0;
+        shadowingState.dictReplays = 0;
+        shadowingState.dictInput = "";
+        shadowingState.dictChecked = false;
+        shadowingState.dictHintLevel = 0;
+        shadowingState.dictResults = {};
+        shadowingState.dictFinished = false;
+      }
+
+      function startShadowingPoll() {
+        if (shadowingState.pollTimer) clearInterval(shadowingState.pollTimer);
+        shadowingState.pollTimer = setInterval(onShTimeTick, 120);
+      }
+
+      function mountShadowingPlayer(video) {
+        if (!video) return;
+        const mountEl = document.getElementById("shYtPlayerMount");
+        if (!mountEl) return;
+        if (location.protocol === "file:") {
+          shadowingState.mountedVideoId = video.id;
+          shadowingState.useTtsFallback = true;
+          shadowingState.ytReady = false;
+          syncShadowingPlayerOverlays();
+          return;
+        }
+        if (shadowingState.ytPlayer && shadowingState.mountedVideoId === video.id) return;
+        teardownShadowingPlayback(true);
+        shadowingState.mountedVideoId = video.id;
+        loadYouTubeIframeApi().then((ok) => {
+          if (state.view !== "shadowing" || shadowingState.subView !== "studio" || shadowingState.videoId !== video.id) return;
+          if (!ok || !window.YT || !window.YT.Player) {
+            shadowingState.useTtsFallback = true;
+            syncShadowingPlayerOverlays();
+            return;
+          }
+          const playerHost = document.getElementById("shYtPlayerMount");
+          if (!playerHost) return;
+          try {
+            shadowingState.ytPlayer = new window.YT.Player("shYtPlayerMount", {
+              videoId: video.youtubeId,
+              width: "100%",
+              height: "100%",
+              playerVars: {
+                enablejsapi: 1,
+                rel: 0,
+                modestbranding: 1,
+                playsinline: 1,
+                cc_load_policy: 0,
+                origin: window.location.origin,
+              },
+              events: {
+                onReady: () => {
+                  shadowingState.ytReady = true;
+                  shadowingState.useTtsFallback = false;
+                  try {
+                    if (typeof shadowingState.ytPlayer.setPlaybackRate === "function") {
+                      shadowingState.ytPlayer.setPlaybackRate(shadowingState.rate || 1);
+                    }
+                  } catch (e) {}
+                  syncShadowingPlayerOverlays();
+                },
+                onStateChange: (ev) => {
+                  const YTState = window.YT && window.YT.PlayerState;
+                  if (!YTState) return;
+                  if (ev.data === YTState.PLAYING) {
+                    shadowingState.playing = true;
+                    shadowingState.started = true;
+                    startShadowingPoll();
+                    syncShadowingPlayerOverlays();
+                    syncShadowingControlsUi();
+                  } else if (ev.data === YTState.PAUSED || ev.data === YTState.ENDED) {
+                    shadowingState.playing = false;
+                    if (shadowingState.pollTimer) {
+                      clearInterval(shadowingState.pollTimer);
+                      shadowingState.pollTimer = null;
+                    }
+                    syncShadowingControlsUi();
+                  }
+                },
+                onError: (ev) => {
+                  shadowingState.ytErrorCode = ev && ev.data;
+                  shadowingState.useTtsFallback = true;
+                  shadowingState.playing = false;
+                  syncShadowingPlayerOverlays();
+                  syncShadowingControlsUi();
+                },
+              },
+            });
+          } catch (err) {
+            shadowingState.useTtsFallback = true;
+            syncShadowingPlayerOverlays();
+          }
+        });
+      }
+
+      function shFindLineIndexAtTime(video, sec) {
+        if (!video || !video.lines || !video.lines.length) return 0;
+        for (let i = 0; i < video.lines.length; i++) {
+          const ln = video.lines[i];
+          if (sec >= ln.start - 0.05 && sec < ln.end) return i;
+        }
+        return sec >= video.lines[video.lines.length - 1].end ? video.lines.length - 1 : 0;
+      }
+
+      function onShTimeTick() {
+        const video = getActiveShadowingVideo();
+        if (!video || !video.lines || !video.lines.length) return;
+        let t = shadowingState.currentTime;
+        if (!shadowingState.useTtsFallback && shadowingState.ytPlayer && typeof shadowingState.ytPlayer.getCurrentTime === "function") {
+          t = Number(shadowingState.ytPlayer.getCurrentTime()) || 0;
+          shadowingState.currentTime = t;
+        }
+
+        const seekEl = document.getElementById("shSeekRange");
+        const clockEl = document.getElementById("shTimeClock");
+        if (seekEl) seekEl.value = String(Math.min(video.durationSec, t));
+        if (clockEl) clockEl.textContent = `${formatShClock(t)} / ${video.durationLabel}`;
+
+        const idx = shFindLineIndexAtTime(video, t);
+        if (idx !== shadowingState.activeIdx) {
+          shadowingState.activeIdx = idx;
+          shadowingState.autoPausedLineIdx = -1;
+          highlightShadowingActiveLine(idx, true);
+        }
+
+        const curLine = video.lines[shadowingState.activeIdx];
+        if (!curLine || !shadowingState.playing) return;
+
+        // End-of-line handling
+        if (t >= curLine.end - 0.08) {
+          if (shadowingState.mode === "dictation") {
+            shPause();
+            return;
+          }
+          if (shadowingState.loopLine) {
+            shSeekTo(curLine.start, true);
+            return;
+          }
+          if (shadowingState.autoPause && shadowingState.autoPausedLineIdx !== shadowingState.activeIdx) {
+            shadowingState.autoPausedLineIdx = shadowingState.activeIdx;
+            shPause(true);
+            return;
+          }
+        }
+      }
+
+      function highlightShadowingActiveLine(idx, autoScroll) {
+        const listEl = document.getElementById("shTranscriptList");
+        if (listEl) {
+          listEl.querySelectorAll(".sh-line-item").forEach((el, i) => {
+            el.classList.toggle("active", i === idx);
+          });
+          if (autoScroll) {
+            const activeRow = listEl.querySelector(`.sh-line-item[data-sh-line="${idx}"]`);
+            if (activeRow) activeRow.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
+        }
+        const video = getActiveShadowingVideo();
+        const curLine = video && video.lines[idx];
+        const ttsZh = document.getElementById("shTtsStageZh");
+        const ttsPy = document.getElementById("shTtsStagePy");
+        const ttsVi = document.getElementById("shTtsStageVi");
+        if (curLine && ttsZh) {
+          ttsZh.textContent = curLine.hanzi;
+          if (ttsPy) ttsPy.textContent = curLine.pinyin;
+          if (ttsVi) ttsVi.textContent = curLine.vi;
+        }
+      }
+
+      function shSpeakLineTts(idx, opts = {}) {
+        const video = getActiveShadowingVideo();
+        if (!video || !video.lines[idx]) return;
+        const line = video.lines[idx];
+        stopShadowingTts();
+        shadowingState.activeIdx = idx;
+        shadowingState.currentTime = line.start;
+        shadowingState.started = true;
+        shadowingState.playing = true;
+        highlightShadowingActiveLine(idx, true);
+        syncShadowingPlayerOverlays();
+        syncShadowingControlsUi();
+
+        const seekEl = document.getElementById("shSeekRange");
+        const clockEl = document.getElementById("shTimeClock");
+        if (seekEl) seekEl.value = String(line.start);
+        if (clockEl) clockEl.textContent = `${formatShClock(line.start)} / ${video.durationLabel}`;
+
+        const myRun = ++shadowingState.ttsRunId;
+        if (!("speechSynthesis" in window)) {
+          shadowingState.playing = false;
+          syncShadowingControlsUi();
+          return;
+        }
+        const u = new SpeechSynthesisUtterance(line.hanzi);
+        u.lang = "zh-CN";
+        u.rate = shadowingState.rate || 1.0;
+        const zv = pickZhVoice();
+        if (zv) u.voice = zv;
+        u.onend = () => {
+          if (myRun !== shadowingState.ttsRunId) return;
+          if (typeof opts.onComplete === "function") {
+            shadowingState.playing = false;
+            syncShadowingControlsUi();
+            opts.onComplete();
+            return;
+          }
+          if (shadowingState.mode === "dictation") {
+            shadowingState.playing = false;
+            syncShadowingControlsUi();
+            return;
+          }
+          if (shadowingState.loopLine) {
+            shadowingState.ttsBoundaryTimer = setTimeout(() => {
+              if (myRun === shadowingState.ttsRunId && shadowingState.playing) shSpeakLineTts(idx);
+            }, 900);
+            return;
+          }
+          if (shadowingState.autoPause) {
+            shadowingState.autoPausedLineIdx = idx;
+            shPause(true);
+            return;
+          }
+          if (idx + 1 < video.lines.length) {
+            shadowingState.ttsBoundaryTimer = setTimeout(() => {
+              if (myRun === shadowingState.ttsRunId && shadowingState.playing) shSpeakLineTts(idx + 1);
+            }, 450);
+          } else {
+            shadowingState.playing = false;
+            syncShadowingControlsUi();
+          }
+        };
+        u.onerror = () => {
+          if (myRun !== shadowingState.ttsRunId) return;
+          shadowingState.playing = false;
+          syncShadowingControlsUi();
+        };
+        window.speechSynthesis.speak(u);
+      }
+
+      function shPlay() {
+        const video = getActiveShadowingVideo();
+        if (!video) return;
+        touchStudyDay();
+        shadowingState.started = true;
+        if (shadowingState.autoPausedLineIdx === shadowingState.activeIdx) {
+          shadowingState.autoPausedLineIdx = -1;
+          if (shadowingState.activeIdx + 1 < video.lines.length && shadowingState.currentTime >= video.lines[shadowingState.activeIdx].end - 0.15) {
+            shadowingState.activeIdx += 1;
+            shadowingState.currentTime = video.lines[shadowingState.activeIdx].start;
+          }
+        }
+        if (shadowingState.useTtsFallback || !shadowingState.ytReady || !shadowingState.ytPlayer) {
+          shSpeakLineTts(shadowingState.activeIdx);
+          return;
+        }
+        try {
+          if (typeof shadowingState.ytPlayer.setPlaybackRate === "function") {
+            shadowingState.ytPlayer.setPlaybackRate(shadowingState.rate || 1);
+          }
+          shadowingState.ytPlayer.seekTo(shadowingState.currentTime, true);
+          shadowingState.ytPlayer.playVideo();
+          shadowingState.playing = true;
+          startShadowingPoll();
+          syncShadowingPlayerOverlays();
+          syncShadowingControlsUi();
+        } catch (err) {
+          shadowingState.useTtsFallback = true;
+          shSpeakLineTts(shadowingState.activeIdx);
+        }
+      }
+
+      function shPause(fromAutoPause = false) {
+        shadowingState.playing = false;
+        if (shadowingState.pollTimer) {
+          clearInterval(shadowingState.pollTimer);
+          shadowingState.pollTimer = null;
+        }
+        stopShadowingTts();
+        if (!shadowingState.useTtsFallback && shadowingState.ytPlayer && typeof shadowingState.ytPlayer.pauseVideo === "function") {
+          try { shadowingState.ytPlayer.pauseVideo(); } catch (e) {}
+        }
+        if (!fromAutoPause) shadowingState.autoPausedLineIdx = -1;
+        syncShadowingControlsUi();
+      }
+
+      function shTogglePlay() {
+        if (shadowingState.playing) shPause(false);
+        else shPlay();
+      }
+
+      function shSeekTo(sec, keepPlaying) {
+        const video = getActiveShadowingVideo();
+        if (!video) return;
+        const clamped = Math.max(0, Math.min(video.durationSec, Number(sec) || 0));
+        shadowingState.currentTime = clamped;
+        shadowingState.autoPausedLineIdx = -1;
+        const idx = shFindLineIndexAtTime(video, clamped);
+        shadowingState.activeIdx = idx;
+        highlightShadowingActiveLine(idx, true);
+
+        const seekEl = document.getElementById("shSeekRange");
+        const clockEl = document.getElementById("shTimeClock");
+        if (seekEl) seekEl.value = String(clamped);
+        if (clockEl) clockEl.textContent = `${formatShClock(clamped)} / ${video.durationLabel}`;
+
+        if (shadowingState.useTtsFallback || !shadowingState.ytReady || !shadowingState.ytPlayer) {
+          if (keepPlaying) shSpeakLineTts(idx);
+          return;
+        }
+        try {
+          shadowingState.ytPlayer.seekTo(clamped, true);
+          if (keepPlaying) {
+            shadowingState.started = true;
+            shadowingState.ytPlayer.playVideo();
+            shadowingState.playing = true;
+            startShadowingPoll();
+          }
+          syncShadowingPlayerOverlays();
+          syncShadowingControlsUi();
+        } catch (err) {}
+      }
+
+      function shJumpToLine(idx, shouldPlay = true) {
+        const video = getActiveShadowingVideo();
+        if (!video || !video.lines.length) return;
+        const clampedIdx = Math.max(0, Math.min(video.lines.length - 1, idx));
+        shadowingState.activeIdx = clampedIdx;
+        shadowingState.autoPausedLineIdx = -1;
+        shSeekTo(video.lines[clampedIdx].start, shouldPlay);
+      }
+
+      function shPrevLine() {
+        shJumpToLine(shadowingState.activeIdx - 1, true);
+      }
+
+      function shNextLine() {
+        shJumpToLine(shadowingState.activeIdx + 1, true);
+      }
+
+      function shReplayCurrentLine() {
+        const idx = shadowingState.mode === "dictation" ? shadowingState.dictIdx : shadowingState.activeIdx;
+        if (shadowingState.mode === "dictation" && shadowingState.dictStarted && !shadowingState.dictFinished) {
+          shadowingState.dictReplays += 1;
+          renderShadowingRightPane();
+        }
+        shJumpToLine(idx, true);
+      }
+
+      function syncShadowingPlayerOverlays() {
+        const startOv = document.getElementById("shStartOverlay");
+        const curtainEl = document.getElementById("shVideoCurtain");
+        const ttsStage = document.getElementById("shTtsStage");
+        const fallbackBanner = document.getElementById("shFallbackBanner");
+        if (startOv) startOv.classList.toggle("hidden", shadowingState.started || shadowingState.hideVideo || shadowingState.useTtsFallback);
+        if (curtainEl) curtainEl.classList.toggle("hidden", !shadowingState.hideVideo);
+        if (ttsStage) ttsStage.classList.toggle("hidden", !shadowingState.useTtsFallback || shadowingState.hideVideo);
+        if (fallbackBanner) fallbackBanner.classList.toggle("hidden", !shadowingState.useTtsFallback);
+      }
+
+      function syncShadowingControlsUi() {
+        const video = getActiveShadowingVideo();
+        const headerHost = document.getElementById("shHeaderBar");
+        if (headerHost && video) headerHost.innerHTML = renderShadowingHeaderHtml(video);
+
+        const playBtn = document.getElementById("shBtnPlayPause");
+        if (playBtn) {
+          playBtn.innerHTML = shadowingState.playing ? "⏸ Tạm dừng" : "▶ Phát tiếp";
+          playBtn.classList.toggle("primary", !shadowingState.playing);
+          playBtn.classList.toggle("ink-active", shadowingState.playing);
+        }
+        const apBtn = document.getElementById("shBtnAutoPause");
+        if (apBtn) {
+          apBtn.classList.toggle("ink-active", shadowingState.autoPause);
+          apBtn.setAttribute("aria-pressed", String(shadowingState.autoPause));
+        }
+        const loopBtn = document.getElementById("shBtnLoop");
+        if (loopBtn) {
+          loopBtn.classList.toggle("ink-active", shadowingState.loopLine);
+          loopBtn.setAttribute("aria-pressed", String(shadowingState.loopLine));
+        }
+        const pyBtn = document.getElementById("shBtnPinyin");
+        if (pyBtn) {
+          pyBtn.classList.toggle("ink-active", shadowingState.showPinyin);
+          pyBtn.setAttribute("aria-pressed", String(shadowingState.showPinyin));
+        }
+        const viBtn = document.getElementById("shBtnVi");
+        if (viBtn) {
+          viBtn.classList.toggle("ink-active", shadowingState.showVi);
+          viBtn.setAttribute("aria-pressed", String(shadowingState.showVi));
+        }
+        const rateBtn = document.getElementById("shBtnRate");
+        if (rateBtn) rateBtn.textContent = `${shadowingState.rate}x`;
+
+        const pauseHint = document.getElementById("shPauseHint");
+        if (pauseHint) {
+          const isApPaused = shadowingState.autoPausedLineIdx >= 0 && !shadowingState.playing;
+          pauseHint.classList.toggle("hidden", !isApPaused);
+        }
+        const recHost = document.getElementById("shRecorderCard");
+        if (recHost) recHost.innerHTML = renderShadowingRecorderInnerHtml();
+      }
+
+      async function toggleShadowingRecord() {
+        if (shadowingState.recActive) {
+          stopShadowingRecorder();
+          syncShadowingControlsUi();
+          return;
+        }
+        shadowingState.recError = "";
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof MediaRecorder === "undefined") {
+          shadowingState.recError = "Trình duyệt chưa hỗ trợ ghi âm trực tiếp.";
+          syncShadowingControlsUi();
+          return;
+        }
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          shadowingState.recStream = stream;
+          shadowingState.recChunks = [];
+          const mr = new MediaRecorder(stream);
+          shadowingState.mediaRecorder = mr;
+          mr.ondataavailable = (ev) => {
+            if (ev.data && ev.data.size > 0) shadowingState.recChunks.push(ev.data);
+          };
+          mr.onstop = () => {
+            if (shadowingState.recBlobUrl) {
+              try { URL.revokeObjectURL(shadowingState.recBlobUrl); } catch (e) {}
+            }
+            const blob = new Blob(shadowingState.recChunks, { type: mr.mimeType || "audio/webm" });
+            shadowingState.recBlobUrl = URL.createObjectURL(blob);
+            shadowingState.recActive = false;
+            if (shadowingState.recStream) {
+              shadowingState.recStream.getTracks().forEach((t) => { try { t.stop(); } catch (e) {} });
+              shadowingState.recStream = null;
+            }
+            syncShadowingControlsUi();
+          };
+          shadowingState.recActive = true;
+          mr.start();
+          syncShadowingControlsUi();
+        } catch (err) {
+          shadowingState.recActive = false;
+          shadowingState.recError = "Chưa cấp quyền micro trên trình duyệt.";
+          syncShadowingControlsUi();
+        }
+      }
+
+      function playShadowingSelfAudio() {
+        if (!shadowingState.recBlobUrl) return;
+        if (shadowingState.recAudioEl) {
+          try { shadowingState.recAudioEl.pause(); } catch (e) {}
+        }
+        const a = new Audio(shadowingState.recBlobUrl);
+        shadowingState.recAudioEl = a;
+        a.play().catch(() => {});
+      }
+
+      function playShadowingCompare() {
+        const video = getActiveShadowingVideo();
+        if (!video) return;
+        const idx = shadowingState.mode === "dictation" ? shadowingState.dictIdx : shadowingState.activeIdx;
+        shPause(false);
+        shSpeakLineTts(idx, {
+          onComplete: () => {
+            if (shadowingState.recBlobUrl) setTimeout(playShadowingSelfAudio, 250);
+          },
+        });
+      }
+
+      function runShadowingSpeechCheck() {
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const video = getActiveShadowingVideo();
+        const curLine = video && video.lines[shadowingState.activeIdx];
+        if (!curLine) return;
+        if (!SR) {
+          shadowingState.speechFeedback = "Trình duyệt này chưa hỗ trợ nhận diện giọng nói (dùng Chrome/Edge trực tuyến để chấm phát âm tự động).";
+          syncShadowingControlsUi();
+          return;
+        }
+        shPause(false);
+        shadowingState.speechChecking = true;
+        shadowingState.speechFeedback = "Đang nghe giọng đọc tiếng Trung của bạn...";
+        syncShadowingControlsUi();
+        try {
+          const recog = new SR();
+          recog.lang = "zh-CN";
+          recog.interimResults = false;
+          recog.maxAlternatives = 1;
+          recog.onresult = (ev) => {
+            const heard = (ev.results && ev.results[0] && ev.results[0][0] && ev.results[0][0].transcript) || "";
+            const targetNorm = normalizeZh(curLine.hanzi);
+            const heardNorm = normalizeZh(heard);
+            let hits = 0;
+            Array.from(targetNorm).forEach((ch) => {
+              if (heardNorm.includes(ch)) hits += 1;
+            });
+            const pct = targetNorm.length ? Math.round((hits / targetNorm.length) * 100) : 0;
+            shadowingState.speechChecking = false;
+            shadowingState.speechTranscript = heard;
+            shadowingState.speechScore = pct;
+            shadowingState.speechFeedback = `Nghe được: “${heard}” · Độ khớp: ${pct}%`;
+            if (pct >= 75) addXp(10);
+            syncShadowingControlsUi();
+          };
+          recog.onerror = () => {
+            shadowingState.speechChecking = false;
+            shadowingState.speechFeedback = "Không thu được giọng nói rõ ràng, hãy thử nói lại sát micro hơn.";
+            syncShadowingControlsUi();
+          };
+          recog.onend = () => {
+            if (shadowingState.speechChecking) {
+              shadowingState.speechChecking = false;
+              syncShadowingControlsUi();
+            }
+          };
+          recog.start();
+        } catch (err) {
+          shadowingState.speechChecking = false;
+          shadowingState.speechFeedback = "Không thể khởi động nhận diện giọng nói.";
+          syncShadowingControlsUi();
+        }
+      }
+
+      function renderShadowingHeaderHtml(video) {
+        const vCount = getShadowingVideos().length;
+        return `
+          <div class="sh-topbar-left">
+            <button type="button" class="btn-pill" data-view="home">← Trang chủ</button>
+            ${vCount > 1 ? `<button type="button" class="btn-pill" data-sh-action="library">🎬 Thư viện (${vCount})</button>` : `<span class="badge">🎬 Video mẫu (HSK 1–3)</span>`}
+            <div class="sh-mode-switch" role="tablist" aria-label="Chế độ luyện Video Shadowing">
+              <button type="button" class="sh-mode-btn ${shadowingState.mode === "shadowing" ? "active" : ""}" data-sh-mode="shadowing">🗣️ Bắt chước phát âm</button>
+              <button type="button" class="sh-mode-btn ${shadowingState.mode === "dictation" ? "active" : ""}" data-sh-mode="dictation">✍️ Nghe - Viết chính tả</button>
+            </div>
+          </div>
+          <div class="sh-topbar-right">
+            <button type="button" class="btn-pill sh-hide-vid-btn ${shadowingState.hideVideo ? "active" : ""}" data-sh-action="toggle-hide-video" aria-pressed="${shadowingState.hideVideo}">
+              ${shadowingState.hideVideo ? "👁️ Hiện video" : "🙈 Ẩn video"}
+            </button>
+            <button type="button" class="btn-pill ${shadowingState.showShortcuts ? "ink-active" : ""}" data-sh-action="toggle-shortcuts">⌨️ Phím tắt</button>
+          </div>
+        `;
+      }
+
+      function renderShadowingRecorderInnerHtml() {
+        return `
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+            <strong style="font-size:13.5px;">🎙️ Nhại theo &amp; So sánh giọng</strong>
+            <span style="font-size:11.5px;color:var(--ink-500-aa);">Lưu tạm trên RAM máy (0 MB server)</span>
+          </div>
+          <div class="sh-rec-row">
+            <button type="button" class="btn-pill sh-rec-btn ${shadowingState.recActive ? "recording" : "primary"}" data-sh-action="record-toggle">
+              ${shadowingState.recActive ? "⏹ Dừng thu" : "🎙️ Thu âm nhại lại"}
+            </button>
+            ${shadowingState.recBlobUrl ? `
+              <button type="button" class="btn-pill" data-sh-action="play-self">🔊 Nghe giọng mình</button>
+              <button type="button" class="btn-pill" data-sh-action="play-compare">⚖️ Mẫu → Mình</button>
+            ` : ""}
+            <button type="button" class="btn-pill" data-sh-action="speech-check" ${shadowingState.speechChecking ? "disabled" : ""}>
+              ${shadowingState.speechChecking ? "🎧 Đang nghe..." : "🗣️ Chấm phát âm"}
+            </button>
+          </div>
+          ${shadowingState.recError ? `<div style="font-size:12.5px;color:var(--danger);font-weight:700;">${escapeHtml(shadowingState.recError)}</div>` : ""}
+          ${shadowingState.speechFeedback ? `<div style="font-size:12.5px;color:var(--ink-900);background:var(--surface-2);border:1.5px solid var(--border);border-radius:10px;padding:7px 10px;">${escapeHtml(shadowingState.speechFeedback)}</div>` : ""}
+        `;
+      }
+
+      function renderShadowingVocabStripHtml(video) {
+        if (!video || !Array.isArray(video.keyVocab) || !video.keyVocab.length) return "";
+        return `
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px;">
+            <strong style="font-size:13.5px;">📌 Từ vựng trọng điểm trong video (${video.keyVocab.length})</strong>
+            <span style="font-size:12px;color:var(--ink-500-aa);">Bấm ⭐ để lưu vào Sổ tay</span>
+          </div>
+          <div class="sh-vocab-strip">
+            ${video.keyVocab.map((w) => {
+              const isSaved = state.savedWords.some((sw) => sw.hanzi === w.hanzi);
+              const payload = escapeHtml(JSON.stringify({ hanzi: w.hanzi, pinyin: w.pinyin, vi: w.vi }));
+              return `
+                <div class="sh-vocab-chip">
+                  <button type="button" class="audio-btn" data-speak="${escapeHtml(w.hanzi)}" style="padding:2px 6px;font-size:12px;" aria-label="Nghe ${escapeHtml(w.hanzi)}">🔊</button>
+                  <strong class="zh" style="font-size:15px;">${renderColoredHanzi(w.hanzi, w.pinyin)}</strong>
+                  <span style="font-size:12px;color:var(--ink-500-aa);">${escapeHtml(w.pinyin)}</span>
+                  <span style="font-size:12.5px;">· ${escapeHtml(w.vi)}</span>
+                  <button type="button" class="star-btn ${isSaved ? "saved" : ""}" data-save-word="${payload}" title="Lưu vào Sổ tay">${isSaved ? "★" : "☆"}</button>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        `;
+      }
+
+      function renderShadowingTranscriptHtml(video) {
+        return `
+          <div class="sh-transcript-head">
+            <div>
+              <strong style="font-size:15px;">📜 Phụ đề đồng bộ (${video.lines.length} câu)</strong>
+              <div style="font-size:12px;color:var(--ink-500-aa);">Bấm vào câu để nhảy tới đúng giây · Bấm chữ Hán để tra từ</div>
+            </div>
+            <span class="badge">${escapeHtml(video.level)}</span>
+          </div>
+          <div class="sh-transcript-list" id="shTranscriptList">
+            ${video.lines.map((ln, idx) => `
+              <div class="sh-line-item ${idx === shadowingState.activeIdx ? "active" : ""}" data-sh-line="${idx}">
+                <div class="sh-line-top">
+                  <span class="sh-line-time">Câu ${idx + 1} · ${formatShClock(ln.start)}</span>
+                  <button type="button" class="btn-pill" data-sh-line-loop="${idx}" style="padding:2px 8px;font-size:11.5px;" title="Lặp câu này">🔁 Lặp</button>
+                </div>
+                <div class="sh-line-zh zh">${renderColoredHanzi(ln.hanzi, ln.pinyin)}</div>
+                ${shadowingState.showPinyin ? `<div class="sh-line-py">${escapeHtml(ln.pinyin)}</div>` : ""}
+                ${shadowingState.showVi ? `<div class="reading-inline-vi">${escapeHtml(ln.vi)}</div>` : ""}
+              </div>
+            `).join("")}
+          </div>
+        `;
+      }
+
+      function shCheckDictation() {
+        const video = getActiveShadowingVideo();
+        if (!video) return;
+        const curLine = video.lines[shadowingState.dictIdx];
+        if (!curLine) return;
+        const userNorm = normalizeZh(shadowingState.dictInput);
+        const targetNorm = normalizeZh(curLine.hanzi);
+        const exact = Boolean(userNorm) && userNorm === targetNorm;
+        shadowingState.dictChecked = true;
+        if (!exact) shadowingState.dictErrors += 1;
+        else addXp(5);
+        shadowingState.dictResults[shadowingState.dictIdx] = {
+          exact,
+          userText: shadowingState.dictInput,
+        };
+        renderShadowingRightPane();
+      }
+
+      function shFinishOrNextDictation() {
+        const video = getActiveShadowingVideo();
+        if (!video) return;
+        if (shadowingState.dictIdx + 1 < video.lines.length) {
+          shadowingState.dictIdx += 1;
+          shadowingState.dictInput = "";
+          shadowingState.dictChecked = false;
+          shadowingState.dictHintLevel = 0;
+          renderShadowingRightPane();
+          setTimeout(() => {
+            document.getElementById("shDictInput")?.focus();
+            shJumpToLine(shadowingState.dictIdx, true);
+          }, 40);
+          return;
+        }
+        const total = video.lines.length;
+        const correctCount = Object.values(shadowingState.dictResults).filter((r) => r && r.exact).length;
+        const scorePct = total ? Math.round((correctCount / total) * 100) : 0;
+        if (!state.shadowingProgress || typeof state.shadowingProgress !== "object") {
+          state.shadowingProgress = {};
+        }
+        const prev = state.shadowingProgress[video.id] || {};
+        state.shadowingProgress[video.id] = {
+          lastDictScorePct: scorePct,
+          bestScorePct: Math.max(Number(prev.bestScorePct) || 0, scorePct),
+          completedAt: new Date().toISOString(),
+        };
+        shadowingState.dictFinished = true;
+        addXp(25);
+        saveState();
+        renderShadowingRightPane();
+      }
+
+      function renderShadowingDictationHtml(video) {
+        const prog = (state.shadowingProgress && state.shadowingProgress[video.id]) || {};
+        const prevScoreText = typeof prog.lastDictScorePct === "number" ? `${prog.lastDictScorePct}%` : "—";
+        const total = video.lines.length;
+        const curLine = video.lines[shadowingState.dictIdx] || video.lines[0];
+        const res = shadowingState.dictResults[shadowingState.dictIdx];
+
+        const metricsHtml = `
+          <div class="sh-dict-metrics">
+            <div class="sh-metric-box">
+              <div class="sh-metric-val" style="color:var(--danger);">${shadowingState.dictErrors}</div>
+              <div class="sh-metric-lbl">Lỗi sai</div>
+            </div>
+            <div class="sh-metric-box">
+              <div class="sh-metric-val">${shadowingState.dictReplays}</div>
+              <div class="sh-metric-lbl">Lượt phát lại</div>
+            </div>
+            <div class="sh-metric-box">
+              <div class="sh-metric-val" style="color:var(--primary);">${prevScoreText}</div>
+              <div class="sh-metric-lbl">Điểm lần trước</div>
+            </div>
+          </div>
+        `;
+
+        if (!shadowingState.dictStarted) {
+          return `
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div>
+                <strong style="font-size:16px;">✍️ Chế độ Nghe - Viết chính tả</strong>
+                <div style="font-size:12.5px;color:var(--ink-500-aa);margin-top:4px;">Phụ đề được ẩn hoàn toàn để rèn phản xạ nghe thực tế từng câu (${total} câu).</div>
+              </div>
+              ${metricsHtml}
+              <div style="padding:18px;border:2px dashed var(--border);border-radius:14px;background:var(--surface-2);text-align:center;">
+                <p style="font-size:13.5px;margin:0 0 12px;">Bấm <strong>BẮT ĐẦU CHÍNH TẢ</strong> để nghe từng câu và gõ lại chữ Hán.</p>
+                <button type="button" class="sh-start-cta" data-sh-action="dict-start">▶ BẮT ĐẦU CHÍNH TẢ</button>
+              </div>
+            </div>
+          `;
+        }
+
+        if (shadowingState.dictFinished) {
+          const correctCount = Object.values(shadowingState.dictResults).filter((r) => r && r.exact).length;
+          const pct = total ? Math.round((correctCount / total) * 100) : 0;
+          return `
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <strong style="font-size:16px;">🎉 Hoàn thành bài chính tả!</strong>
+              ${metricsHtml}
+              <div style="padding:16px;border:2px solid var(--border);border-radius:14px;background:var(--surface-2);text-align:center;">
+                <div style="font-size:28px;font-weight:900;color:var(--primary);">${correctCount} / ${total} câu đúng (${pct}%)</div>
+                <p style="font-size:13px;color:var(--ink-500-aa);margin:6px 0 14px;">+25 XP đã được cộng vào tiến độ của bạn.</p>
+                <div class="toolbar-row" style="justify-content:center;">
+                  <button type="button" class="btn-pill primary" data-sh-action="dict-restart">↻ Làm lại từ đầu</button>
+                  <button type="button" class="btn-pill" data-sh-mode="shadowing">🗣️ Quay lại Shadowing</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        const firstTwoChars = Array.from(curLine.hanzi).slice(0, 2).join("");
+        return `
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+              <strong style="font-size:15px;">✍️ Câu ${shadowingState.dictIdx + 1} / ${total}</strong>
+              <span class="badge">${formatShClock(curLine.start)} – ${formatShClock(curLine.end)}</span>
+            </div>
+            ${metricsHtml}
+            <div class="toolbar-row">
+              <button type="button" class="btn-pill primary" data-sh-action="dict-play">🔊 Nghe câu này (R)</button>
+              <button type="button" class="btn-pill" data-sh-action="dict-hint">💡 Gợi ý (${shadowingState.dictHintLevel}/2)</button>
+            </div>
+            ${shadowingState.dictHintLevel >= 1 ? `<div style="font-size:13px;color:var(--ink-500-aa);background:var(--surface-2);padding:8px 10px;border-radius:10px;border:1.5px solid var(--border);"><strong>Pinyin:</strong> ${escapeHtml(curLine.pinyin)}${shadowingState.dictHintLevel >= 2 ? `<br/><strong>Mở đầu:</strong> <span class="zh">${escapeHtml(firstTwoChars)}...</span> · ${escapeHtml(curLine.vi)}` : ""}</div>` : ""}
+            <input type="text" class="text-input zh" id="shDictInput" value="${escapeHtml(shadowingState.dictInput)}" placeholder="Nghe rồi gõ lại câu tiếng Trung..." style="margin:0;font-size:18px;" />
+            <div class="toolbar-row">
+              ${!shadowingState.dictChecked
+                ? `<button type="button" class="btn-pill primary" data-sh-action="dict-check">✓ Kiểm tra đáp án</button>`
+                : `<button type="button" class="btn-pill primary" data-sh-action="dict-next">${shadowingState.dictIdx + 1 < total ? "Câu tiếp →" : "🏁 Xem kết quả"}</button>`}
+            </div>
+            ${shadowingState.dictChecked && res ? `
+              <div style="padding:12px;border:2px solid var(--border);border-radius:12px;background:${res.exact ? "var(--success-soft)" : "var(--danger-soft, #fee2e2)"};">
+                <div style="font-weight:800;font-size:13.5px;margin-bottom:6px;">
+                  ${res.exact ? "✅ Chính xác hoàn toàn! (+5 XP)" : "❌ Chưa khớp hoàn toàn — đối chiếu từng chữ bên dưới:"}
+                </div>
+                <div class="zh" style="font-size:19px;line-height:1.5;">${computeCharDiffHtml(res.userText, curLine.hanzi)}</div>
+                <div style="font-size:12.5px;color:var(--ink-500-aa);margin-top:6px;">${escapeHtml(curLine.pinyin)} — ${escapeHtml(curLine.vi)}</div>
+              </div>
+            ` : ""}
+          </div>
+        `;
+      }
+
+      function renderShadowingRightPane() {
+        const rightPane = document.getElementById("shRightPane");
+        const video = getActiveShadowingVideo();
+        if (!rightPane || !video) return;
+        rightPane.innerHTML = shadowingState.mode === "dictation"
+          ? renderShadowingDictationHtml(video)
+          : renderShadowingTranscriptHtml(video);
+      }
+
+      function renderShadowingLibraryHtml() {
+        const list = getShadowingVideos();
+        return `
+          <div class="sh-topbar">
+            <div class="sh-topbar-left">
+              <button type="button" class="btn-pill" data-view="home">← Trang chủ</button>
+              <strong style="font-size:16px;">🎬 Thư viện Video Shadowing (${list.length} video)</strong>
+            </div>
+            <button type="button" class="btn-pill primary" data-sh-action="back-studio">▶ Vào bài đang học</button>
+          </div>
+          <div class="sh-library-grid">
+            ${list.map((v) => {
+              const prog = (state.shadowingProgress && state.shadowingProgress[v.id]) || {};
+              return `
+                <div class="sh-card" style="display:flex;flex-direction:column;gap:8px;justify-content:space-between;">
+                  <div>
+                    <div style="display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;">
+                      <span class="badge">${escapeHtml(v.level)}</span>
+                      <span class="badge">⏱ ${escapeHtml(v.durationLabel)} · ${v.lines.length} câu</span>
+                    </div>
+                    <div class="zh" style="font-size:20px;font-weight:800;">${escapeHtml(v.titleZh)}</div>
+                    <div style="font-size:13px;font-weight:700;margin-top:2px;">${escapeHtml(v.titleVi)}</div>
+                    <p style="font-size:12.5px;color:var(--ink-500-aa);margin:6px 0 0;">${escapeHtml(v.summary)}</p>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;">
+                    <span style="font-size:12px;color:var(--ink-500-aa);">${typeof prog.bestScorePct === "number" ? `Chính tả tốt nhất: ${prog.bestScorePct}%` : `Kênh: ${escapeHtml(v.channel)}`}</span>
+                    <button type="button" class="btn-pill primary" data-sh-open-video="${escapeHtml(v.id)}">▶ Luyện ngay</button>
+                  </div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        `;
+      }
+
+      function renderShadowingView(forceRebuild = false) {
+        const host = document.getElementById("viewShadowing");
+        if (!host) return;
+        const videos = getShadowingVideos();
+        if (!videos.length) {
+          host.innerHTML = `<div class="sh-card" style="text-align:center;padding:32px;">Đang tải dữ liệu Video Shadowing...</div>`;
+          return;
+        }
+        if (shadowingState.subView === "library") {
+          teardownShadowingPlayback(true);
+          host.innerHTML = renderShadowingLibraryHtml();
+          return;
+        }
+        const video = getActiveShadowingVideo();
+        const curLine = video.lines[shadowingState.activeIdx] || video.lines[0];
+        const alreadyMounted = !forceRebuild && document.getElementById("shPlayerShell") && shadowingState.mountedVideoId === video.id;
+        if (alreadyMounted) {
+          syncShadowingPlayerOverlays();
+          syncShadowingControlsUi();
+          renderShadowingRightPane();
+          return;
+        }
+
+        host.innerHTML = `
+          <div id="shHeaderBar" class="sh-topbar">${renderShadowingHeaderHtml(video)}</div>
+          <div id="shShortcutsBar" class="sh-shortcuts-drawer ${shadowingState.showShortcuts ? "" : "hidden"}">
+            <span><span class="sh-kbd">Space</span> Phát / Tạm dừng</span>
+            <span><span class="sh-kbd">←</span> / <span class="sh-kbd">→</span> Câu trước / Câu sau</span>
+            <span><span class="sh-kbd">R</span> Nghe lại câu hiện tại</span>
+            <span><span class="sh-kbd">P</span> Bật / Tắt Pinyin</span>
+            <span><span class="sh-kbd">V</span> Bật / Tắt Bản dịch</span>
+          </div>
+          <div id="shPlayerShell" class="sh-studio-grid">
+            <div class="sh-player-col">
+              <div class="sh-card">
+                <div class="sh-video-title-row">
+                  <div>
+                    <div class="zh" style="font-size:21px;font-weight:800;">${escapeHtml(video.titleZh)}</div>
+                    <div style="font-size:13px;font-weight:700;color:var(--ink-500-aa);">${escapeHtml(video.titleVi)} · ${escapeHtml(video.channel)}</div>
+                  </div>
+                  <a class="btn-pill" href="${escapeHtml(video.playlistUrl)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;font-size:12px;">↗ Playlist YouTube</a>
+                </div>
+                <div class="sh-video-box">
+                  <div id="shYtPlayerMount" class="sh-yt-mount"></div>
+                  <div id="shTtsStage" class="sh-tts-stage ${shadowingState.useTtsFallback && !shadowingState.hideVideo ? "" : "hidden"}">
+                    <span class="badge">🎙️ Giọng đọc AI (Offline / Dự phòng)</span>
+                    <div id="shTtsStageZh" class="zh" style="font-size:24px;font-weight:800;line-height:1.45;">${escapeHtml(curLine.hanzi)}</div>
+                    <div id="shTtsStagePy" style="font-size:13.5px;color:var(--ink-500-aa);">${escapeHtml(curLine.pinyin)}</div>
+                    <div id="shTtsStageVi" style="font-size:13.5px;font-style:italic;">${escapeHtml(curLine.vi)}</div>
+                  </div>
+                  <div id="shStartOverlay" class="sh-start-overlay ${shadowingState.started || shadowingState.hideVideo || shadowingState.useTtsFallback ? "hidden" : ""}">
+                    <div class="zh" style="font-size:22px;font-weight:800;">${escapeHtml(video.titleZh)}</div>
+                    <div style="font-size:13.5px;opacity:0.92;">${escapeHtml(video.titleVi)} · ${video.lines.length} câu (${video.durationLabel})</div>
+                    <button type="button" class="sh-start-cta" data-sh-action="start-play">▶ Bấm để bắt đầu</button>
+                  </div>
+                  <div id="shVideoCurtain" class="sh-video-curtain ${shadowingState.hideVideo ? "" : "hidden"}">
+                    <div style="font-size:34px;">🎧</div>
+                    <strong style="font-size:15px;">Đang ẩn video để tập trung luyện nghe</strong>
+                    <button type="button" class="btn-pill" data-sh-action="toggle-hide-video">👁️ Hiện lại video</button>
+                  </div>
+                </div>
+                <div id="shFallbackBanner" class="sh-fallback-banner ${shadowingState.useTtsFallback ? "" : "hidden"}">
+                  <span>💡 Đang chạy bằng <strong>giọng đọc AI tiếng Trung</strong> (khi mở qua <code>file:///</code> hoặc mạng chặn YouTube, trình phát tự chuyển để bạn vẫn học offline đầy đủ).</span>
+                  <a class="btn-pill" href="https://www.youtube.com/watch?v=${escapeHtml(video.youtubeId)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;font-size:12px;">▶ Mở gốc trên YouTube</a>
+                </div>
+                <div class="sh-seek-row">
+                  <input type="range" id="shSeekRange" class="sh-seek-range" min="0" max="${video.durationSec}" step="0.1" value="${shadowingState.currentTime}" aria-label="Thanh tua tiến độ video" />
+                  <span id="shTimeClock" class="sh-clock">${formatShClock(shadowingState.currentTime)} / ${video.durationLabel}</span>
+                </div>
+                <div id="shPauseHint" class="sh-pause-hint hidden">⏸ Tự ngắt cuối câu — Hãy đọc nhại lại thành tiếng, rồi bấm <strong>Space</strong> hoặc <strong>▶ Phát tiếp</strong>!</div>
+                <div class="sh-controls-bar">
+                  <button type="button" class="btn-pill" data-sh-action="prev" title="Câu trước (←)">⏮ Câu trước</button>
+                  <button type="button" id="shBtnPlayPause" class="btn-pill primary" data-sh-action="play-pause">▶ Phát tiếp</button>
+                  <button type="button" class="btn-pill" data-sh-action="next" title="Câu sau (→)">⏭ Câu sau</button>
+                  <button type="button" class="btn-pill" data-sh-action="replay" title="Nghe lại câu hiện tại (R)">↺ Nghe lại</button>
+                  <button type="button" id="shBtnAutoPause" class="btn-pill ${shadowingState.autoPause ? "ink-active" : ""}" data-sh-action="toggle-autopause" aria-pressed="${shadowingState.autoPause}">⏸ Tự ngắt câu</button>
+                  <button type="button" id="shBtnLoop" class="btn-pill ${shadowingState.loopLine ? "ink-active" : ""}" data-sh-action="toggle-loop" aria-pressed="${shadowingState.loopLine}">🔁 Lặp câu</button>
+                  <button type="button" id="shBtnRate" class="btn-pill" data-sh-action="cycle-rate">${shadowingState.rate}x</button>
+                  <button type="button" id="shBtnPinyin" class="btn-pill ${shadowingState.showPinyin ? "ink-active" : ""}" data-sh-action="toggle-pinyin" aria-pressed="${shadowingState.showPinyin}">拼 Pinyin</button>
+                  <button type="button" id="shBtnVi" class="btn-pill ${shadowingState.showVi ? "ink-active" : ""}" data-sh-action="toggle-vi" aria-pressed="${shadowingState.showVi}">文A Bản dịch</button>
+                </div>
+              </div>
+              <div id="shRecorderCard" class="sh-card sh-recorder-card">${renderShadowingRecorderInnerHtml()}</div>
+              <div id="shVocabStripCard" class="sh-card">${renderShadowingVocabStripHtml(video)}</div>
+            </div>
+            <div id="shRightPane" class="sh-card sh-transcript-card">
+              ${shadowingState.mode === "dictation" ? renderShadowingDictationHtml(video) : renderShadowingTranscriptHtml(video)}
+            </div>
+          </div>
+        `;
+        mountShadowingPlayer(video);
+      }
+
       /* Event Delegation */
       document.addEventListener("click", (e) => {
         if (e.target.closest("#btnOpenFeedback")) {
@@ -10544,6 +12014,115 @@
         const viewBtn = e.target.closest("[data-view]");
         if (viewBtn) {
           setView(viewBtn.dataset.view);
+          return;
+        }
+
+        const shModeBtn = e.target.closest("[data-sh-mode]");
+        if (shModeBtn) {
+          shPause(false);
+          shadowingState.mode = shModeBtn.dataset.shMode === "dictation" ? "dictation" : "shadowing";
+          syncShadowingControlsUi();
+          renderShadowingRightPane();
+          return;
+        }
+
+        const shOpenVidBtn = e.target.closest("[data-sh-open-video]");
+        if (shOpenVidBtn) {
+          openShadowingView(shOpenVidBtn.dataset.shOpenVideo);
+          return;
+        }
+
+        const shLineLoopBtn = e.target.closest("[data-sh-line-loop]");
+        if (shLineLoopBtn) {
+          const lIdx = Number(shLineLoopBtn.dataset.shLineLoop);
+          shadowingState.loopLine = true;
+          syncShadowingControlsUi();
+          shJumpToLine(lIdx, true);
+          return;
+        }
+
+        const shLineRow = e.target.closest("[data-sh-line]");
+        if (shLineRow && !e.target.closest("[data-inspect-char]")) {
+          shJumpToLine(Number(shLineRow.dataset.shLine), true);
+          return;
+        }
+
+        const shActionBtn = e.target.closest("[data-sh-action]");
+        if (shActionBtn) {
+          const act = shActionBtn.dataset.shAction;
+          if (act === "library") {
+            shadowingState.subView = "library";
+            renderShadowingView(true);
+          } else if (act === "back-studio") {
+            shadowingState.subView = "studio";
+            renderShadowingView(true);
+          } else if (act === "start-play" || act === "play-pause") {
+            shTogglePlay();
+          } else if (act === "prev") {
+            shPrevLine();
+          } else if (act === "next") {
+            shNextLine();
+          } else if (act === "replay") {
+            shReplayCurrentLine();
+          } else if (act === "toggle-autopause") {
+            shadowingState.autoPause = !shadowingState.autoPause;
+            syncShadowingControlsUi();
+          } else if (act === "toggle-loop") {
+            shadowingState.loopLine = !shadowingState.loopLine;
+            syncShadowingControlsUi();
+          } else if (act === "toggle-hide-video") {
+            shadowingState.hideVideo = !shadowingState.hideVideo;
+            syncShadowingPlayerOverlays();
+            syncShadowingControlsUi();
+          } else if (act === "toggle-shortcuts") {
+            shadowingState.showShortcuts = !shadowingState.showShortcuts;
+            const bar = document.getElementById("shShortcutsBar");
+            if (bar) bar.classList.toggle("hidden", !shadowingState.showShortcuts);
+            syncShadowingControlsUi();
+          } else if (act === "cycle-rate") {
+            const rates = [0.75, 1.0, 1.25];
+            const nextRate = rates[(rates.indexOf(shadowingState.rate) + 1) % rates.length];
+            shadowingState.rate = nextRate;
+            if (!shadowingState.useTtsFallback && shadowingState.ytPlayer && typeof shadowingState.ytPlayer.setPlaybackRate === "function") {
+              try { shadowingState.ytPlayer.setPlaybackRate(nextRate); } catch (err) {}
+            }
+            syncShadowingControlsUi();
+          } else if (act === "toggle-pinyin") {
+            shadowingState.showPinyin = !shadowingState.showPinyin;
+            syncShadowingControlsUi();
+            renderShadowingRightPane();
+          } else if (act === "toggle-vi") {
+            shadowingState.showVi = !shadowingState.showVi;
+            syncShadowingControlsUi();
+            renderShadowingRightPane();
+          } else if (act === "record-toggle") {
+            toggleShadowingRecord();
+          } else if (act === "play-self") {
+            playShadowingSelfAudio();
+          } else if (act === "play-compare") {
+            playShadowingCompare();
+          } else if (act === "speech-check") {
+            runShadowingSpeechCheck();
+          } else if (act === "dict-start" || act === "dict-restart") {
+            resetShadowingDictation();
+            shadowingState.dictStarted = true;
+            renderShadowingRightPane();
+            setTimeout(() => {
+              document.getElementById("shDictInput")?.focus();
+              shJumpToLine(0, true);
+            }, 40);
+          } else if (act === "dict-play") {
+            shadowingState.dictReplays += 1;
+            renderShadowingRightPane();
+            shJumpToLine(shadowingState.dictIdx, true);
+          } else if (act === "dict-hint") {
+            shadowingState.dictHintLevel = (shadowingState.dictHintLevel + 1) % 3;
+            renderShadowingRightPane();
+          } else if (act === "dict-check") {
+            shCheckDictation();
+          } else if (act === "dict-next") {
+            shFinishOrNextDictation();
+          }
           return;
         }
 
@@ -11235,6 +12814,11 @@
           saveState();
           updateHeaderStats();
           renderTabContent();
+          if (state.view === "shadowing") {
+            const vStrip = document.getElementById("shVocabStripCard");
+            const activeVid = getActiveShadowingVideo();
+            if (vStrip && activeVid) vStrip.innerHTML = renderShadowingVocabStripHtml(activeVid);
+          }
           if (!document.getElementById("charModal").classList.contains("hidden")) renderCharModalBody();
           const pop = document.getElementById("wordPeekPopover");
           if (pop && !pop.classList.contains("hidden") && wordPeekState.word) {
@@ -12280,6 +13864,10 @@
           hardTransInputs[e.target.dataset.htransInput] = e.target.value;
         } else if (e.target.dataset && e.target.dataset.textDictInput) {
           studyTextState.dictInputs[e.target.dataset.textDictInput] = e.target.value;
+        } else if (e.target.id === "shDictInput") {
+          shadowingState.dictInput = e.target.value;
+        } else if (e.target.id === "shSeekRange") {
+          shSeekTo(Number(e.target.value), shadowingState.playing);
         }
       });
 
@@ -12438,6 +14026,32 @@
           document.getElementById("authModal").classList.add("hidden");
           document.getElementById("feedbackModal").classList.add("hidden");
           closeMobileDrawer();
+        } else if (e.key === "Enter" && e.target && e.target.id === "shDictInput") {
+          e.preventDefault();
+          if (shadowingState.dictChecked) shFinishOrNextDictation();
+          else shCheckDictation();
+        } else if (state.view === "shadowing" && shadowingState.subView === "studio" && tag !== "input" && tag !== "textarea") {
+          if (e.code === "Space") {
+            e.preventDefault();
+            shTogglePlay();
+          } else if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            shPrevLine();
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            shNextLine();
+          } else if (e.key.toLowerCase() === "r") {
+            e.preventDefault();
+            shReplayCurrentLine();
+          } else if (e.key.toLowerCase() === "p") {
+            shadowingState.showPinyin = !shadowingState.showPinyin;
+            syncShadowingControlsUi();
+            renderShadowingRightPane();
+          } else if (e.key.toLowerCase() === "v") {
+            shadowingState.showVi = !shadowingState.showVi;
+            syncShadowingControlsUi();
+            renderShadowingRightPane();
+          }
         } else if (/^[1-4]$/.test(e.key) && tag !== "input" && tag !== "textarea" && state.activeTab === "vocab" && vocabLabState.subMode === "quiz" && vocabLabState.quizChosen === null && !vocabLabState.quizFinished) {
           const optBtn = document.querySelector(`[data-quiz-opt="${Number(e.key) - 1}"]`);
           if (optBtn) optBtn.click();
